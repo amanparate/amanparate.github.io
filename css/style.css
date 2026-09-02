@@ -534,7 +534,7 @@ svg { display: inline-block; }
 .tl-item:last-child::before { display: none; }
 .tl-toggle {
   width: 100%;
-  display: grid; grid-template-columns: auto auto 1fr auto;
+  display: grid; grid-template-columns: 1fr auto;
   align-items: center; gap: 0.6rem;
   background: none; border: none; text-align: left;
   padding: 0.75rem 0 0.5rem; cursor: pointer;
@@ -546,7 +546,7 @@ svg { display: inline-block; }
 .tl-role { font-weight: 700; font-size: 0.9375rem; color: var(--text); }
 .tl-org { font-size: 0.8125rem; color: var(--text-muted); }
 .tl-date { font-size: 0.8125rem; color: var(--text-weak); white-space: nowrap; display: inline-flex; align-items: center; gap: 0.5rem; }
-.tl-body { display: none; padding: 0 0 1rem 2.1rem; }
+.tl-body { display: none; padding: 0 0 1rem 0; }
 .tl-item.is-open .tl-body { display: block; }
 .tl-body ul { display: flex; flex-direction: column; gap: 0.4rem; }
 .tl-body li { position: relative; padding-left: 1rem; color: var(--text-weak); font-size: 0.9rem; }
@@ -715,8 +715,8 @@ svg { display: inline-block; }
   .cert-list { grid-template-columns: repeat(2, 1fr); }
   .card-header-meta { display: none; }
 
-  .tl-toggle { grid-template-columns: auto 1fr; }
-  .tl-date { grid-column: 2; font-size: 0.75rem; }
+  .tl-toggle { grid-template-columns: 1fr; }
+  .tl-date { font-size: 0.75rem; }
   .tl-body { padding-left: 0; }
 
   .utility-bar { display: none; }

@@ -134,7 +134,7 @@
         Duration: `Jan 2025 – Present · ${fmtDuration(monthsBetween(new Date(2025, 0, 1), now))}`,
         Location: "Pune, India",
       },
-      guidance: "Owning the Experience Cloud customer journey end to end — onboarding, a rebuilt Case dashboard in LWC, SSO with LearnUpon — plus usage-based US billing on Chargent (~$3M last quarter), Kafka and EDI integrations, and the Boomi → NetSuite ERP integration now in progress.",
+      guidance: "Owning the Experience Cloud customer journey end to end — onboarding, a rebuilt Case dashboard in LWC, SSO with LearnUpon — plus usage-based US billing on Chargent (~$3M last quarter) and the Kafka, EDI and Boomi integrations around it.",
       link: "#experience", linkText: "View Details",
     },
     {
@@ -369,20 +369,25 @@
     });
   });
 
-  /* ---------- Apex Doctor logo (assets/ApexDoctorLogo.<ext>, falls back to drawn icon) ---------- */
+  /* ---------- optional logos: load if the file exists, otherwise keep the fallback ---------- */
+  // Tries assets/<base>.<ext> for each extension; calls onFound(src) with the first that loads.
+  function probeImage(base, onFound, exts = ["svg", "png", "jpg", "jpeg", "webp", "PNG", "JPG"]) {
+    let i = 0;
+    const tryNext = () => {
+      if (i >= exts.length) return;
+      const probe = new Image();
+      probe.onload = () => onFound(probe.src);
+      probe.onerror = () => { i += 1; tryNext(); };
+      probe.src = `${base}.${exts[i]}`;
+    };
+    tryNext();
+  }
+
+  // Apex Doctor logo → assets/ApexDoctorLogo.<ext>
   (function loadAppLogo() {
     const img = $("#appLogo"), box = $("#appIcon");
     if (!img || !box) return;
-    const candidates = ["png", "svg", "jpg", "jpeg", "webp", "PNG", "JPG"].map((e) => `assets/ApexDoctorLogo.${e}`);
-    let i = 0;
-    const tryNext = () => {
-      if (i >= candidates.length) return;                 // none found → keep fallback icon
-      const probe = new Image();
-      probe.onload = () => { img.src = probe.src; img.hidden = false; box.classList.add("has-logo"); };
-      probe.onerror = () => { i += 1; tryNext(); };
-      probe.src = candidates[i];
-    };
-    tryNext();
+    probeImage("assets/ApexDoctorLogo", (src) => { img.src = src; img.hidden = false; box.classList.add("has-logo"); }, ["png", "svg", "jpg", "jpeg", "webp", "PNG", "JPG"]);
   })();
 
   /* ---------- screenshot lightbox ---------- */

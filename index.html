@@ -83,9 +83,8 @@
       <div class="record-identity">
         <span class="record-photo avatar" aria-hidden="true"><img src="assets/aman.jpg" alt="" onerror="this.remove()" /><span class="avatar-initials">AP</span></span>
         <div>
-          <p class="obj-label">Contact · Senior Salesforce Developer · Pune, India</p>
           <h1 class="record-name" id="recordName">Aman Parate</h1>
-          <p class="record-tagline">I design and own Salesforce systems end to end — from Experience Cloud portals to the ERP, logistics and LMS integrations behind them.</p>
+          <p class="record-tagline">I design and own Salesforce systems end to end — from Experience Cloud portals to the billing, logistics and LMS integrations behind them.</p>
         </div>
       </div>
 
@@ -162,7 +161,7 @@
     <div class="card-body story">
       <div class="story-text">
         <p>
-          I grew up in Nagpur and finished my B.E. in Computer Science at RTMNU in 2020. My first job at Cognizant put me on
+          I grew up in Nagpur and finished my B.E. in Computer Science at RTMNU in 2020. My first job at <strong>Cognizant</strong> put me on
           Salesforce for US retail clients — a Case Management System in LWC and Apex — and I learned early that on this
           platform the hard problems aren't in the code. They're in where the code meets the business process.
         </p>
@@ -175,9 +174,9 @@
         <p>
           Since 2025 I've owned the customer-facing Salesforce estate at <strong>Tarana Wireless</strong> end to end: the
           Experience Cloud onboarding journey, a Case dashboard rebuilt from scratch in LWC, SAML SSO into LearnUpon,
-          usage-based US billing on Chargent that processed ~$3M last quarter, the Kafka and EDI integrations that keep
-          Salesforce in step with logistics and partner ERPs, and — right now — the Boomi → NetSuite ERP integration that
-          brings finance into the same loop. Along the way I've mentored a junior developer and a QA engineer onto the estate.
+          usage-based US billing on Chargent that processed ~$3M last quarter, and the Kafka, EDI and Boomi integrations
+          that keep Salesforce in step with logistics, partners and finance. Along the way I've mentored a junior developer
+          and a QA engineer onto the estate.
         </p>
         <p>
           Along the way I built <strong>Apex Doctor</strong> because I was tired of spending 30 minutes reading debug logs by
@@ -189,7 +188,7 @@
       <aside class="story-side">
         <h3 class="side-title">Currently</h3>
         <ul class="now-list">
-          <li><span class="now-label">Building</span><span>Boomi → NetSuite ERP integration — finance &amp; customer data in sync with Salesforce — plus EDI with 3PL warehouses and partner ERPs</span></li>
+          <li><span class="now-label">Building</span><span>EDI integrations with the 3PL warehouse and partner systems, and Boomi flows keeping finance &amp; customer data in sync with Salesforce</span></li>
           <li><span class="now-label">Shipping</span><span>Apex Doctor <span id="nowRelease" class="text-muted"></span> for 2,000+ developers</span></li>
           <li><span class="now-label">Exploring</span><span>Agentforce &amp; Data Cloud — certified in both, looking for the right production use case</span></li>
           <li><span class="now-label">Next</span><span>Leading a platform team — architecture, integration design, and raising the engineering bar</span></li>
@@ -240,7 +239,7 @@
       <div class="lead-value">
         <h3 class="side-title">Where I add value as a lead</h3>
         <ul class="value-grid">
-          <li><strong>Architecture &amp; integration design</strong><span>Deciding what lives in Salesforce, what lives in the ERP, and how they talk — Boomi, Kafka, EDI, SAML — with clear ownership per object.</span></li>
+          <li><strong>Architecture &amp; integration design</strong><span>Deciding what lives in Salesforce, what lives in the surrounding systems, and how they talk — Boomi, Kafka, EDI, SAML — with clear ownership per object.</span></li>
           <li><strong>End-to-end ownership</strong><span>From a stakeholder's requirement through design, build, release and the first month in production. No hand-offs into the void.</span></li>
           <li><strong>Developer experience</strong><span>Tooling, documentation and standards a team actually uses — Apex Doctor was adopted internally before it was public.</span></li>
           <li><strong>Business ↔ technical translation</strong><span>Finance, support and sales don't speak Apex. I turn their process into a design they can validate, then into a system that runs it.</span></li>
@@ -290,18 +289,18 @@
           <h3>The system landscape I own at Tarana Wireless</h3>
           <p>Salesforce is the hub. Everything a customer touches — onboarding, cases, billing, training — and everything finance and logistics need from it, runs through the integrations below.</p>
         </div>
-        <svg class="diagram" viewBox="0 0 800 380" role="img" aria-label="System landscape: Experience Cloud portal, Salesforce core, LearnUpon via SAML SSO, Boomi to NetSuite, Kafka event streaming, and an EDI layer connecting a 3PL warehouse and partner ERPs. Apex Doctor supports the team as developer tooling.">
+        <svg class="diagram" viewBox="0 0 800 380" role="img" aria-label="System landscape: Experience Cloud portal, Salesforce core, LearnUpon via SAML SSO, Boomi syncing with NetSuite (in progress), Kafka event streaming, and an EDI layer connecting a 3PL warehouse and customer or distributor systems. Apex Doctor supports the team as developer tooling.">
           <defs><marker id="ar0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
           <!-- edges -->
           <path class="dg-edge dg-edge-dashed" d="M400 84 L400 130" marker-end="url(#ar0)"/>
           <path class="dg-edge" d="M210 182 L290 182" marker-end="url(#ar0)"/>
           <path class="dg-edge" d="M510 150 C560 150 560 68 600 68" marker-end="url(#ar0)"/>
-          <path class="dg-edge" d="M510 178 L560 178" marker-end="url(#ar0)"/>
-          <path class="dg-edge" d="M655 178 L690 178" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
+          <path class="dg-edge dg-edge-dashed" d="M510 178 L560 178" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
+          <path class="dg-edge dg-edge-dashed" d="M655 178 L690 178" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
           <path class="dg-edge" d="M510 215 C560 215 560 253 600 253" marker-end="url(#ar0)"/>
           <path class="dg-edge" d="M400 230 L400 300" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
           <path class="dg-edge" d="M290 328 L230 328" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
-          <path class="dg-edge" d="M510 328 L570 328" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
+          <path class="dg-edge" d="M510 328 L555 328" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
           <!-- edge labels -->
           <text class="dg-label" x="250" y="172" text-anchor="middle">portal traffic</text>
           <text class="dg-label" x="590" y="124" text-anchor="middle">SAML SSO</text>
@@ -313,11 +312,11 @@
           <g class="dg-node dg-sf" transform="translate(290 130)"><rect width="220" height="100" rx="8"/><text x="110" y="30" text-anchor="middle">Salesforce Core</text><text class="dg-sub" x="110" y="50" text-anchor="middle">Accounts · Contacts · Cases</text><text class="dg-sub" x="110" y="65" text-anchor="middle">Chargent billing · Invoices · Payments</text><text class="dg-sub" x="110" y="84" text-anchor="middle">Apex · Flows · Platform Events · SAML IdP</text></g>
           <g class="dg-node dg-ext" transform="translate(600 40)"><rect width="170" height="56" rx="8"/><text x="85" y="24" text-anchor="middle">LearnUpon (LMS)</text><text class="dg-sub" x="85" y="42" text-anchor="middle">one-click training access</text></g>
           <g class="dg-node dg-mid dg-wip" transform="translate(560 150)"><rect width="95" height="56" rx="8"/><text x="47" y="24" text-anchor="middle">Boomi</text><text class="dg-sub" x="47" y="42" text-anchor="middle">in progress</text></g>
-          <g class="dg-node dg-ext dg-wip" transform="translate(690 150)"><rect width="95" height="56" rx="8"/><text x="47" y="24" text-anchor="middle">NetSuite</text><text class="dg-sub" x="47" y="42" text-anchor="middle">ERP · in progress</text></g>
+          <g class="dg-node dg-ext dg-wip" transform="translate(690 150)"><rect width="95" height="56" rx="8"/><text x="47" y="24" text-anchor="middle">NetSuite</text><text class="dg-sub" x="47" y="42" text-anchor="middle">finance · in progress</text></g>
           <g class="dg-node dg-mid" transform="translate(600 228)"><rect width="170" height="50" rx="8"/><text x="85" y="22" text-anchor="middle">Kafka</text><text class="dg-sub" x="85" y="39" text-anchor="middle">near real-time event streaming</text></g>
           <g class="dg-node dg-mid" transform="translate(290 300)"><rect width="220" height="56" rx="8"/><text x="110" y="24" text-anchor="middle">EDI Integration Layer</text><text class="dg-sub" x="110" y="42" text-anchor="middle">orders · shipments · fulfilment docs</text></g>
           <g class="dg-node dg-ext" transform="translate(40 303)"><rect width="190" height="50" rx="8"/><text x="95" y="22" text-anchor="middle">3PL / Warehouse</text><text class="dg-sub" x="95" y="39" text-anchor="middle">logistics · WMS</text></g>
-          <g class="dg-node dg-ext" transform="translate(570 303)"><rect width="200" height="50" rx="8"/><text x="100" y="22" text-anchor="middle">Customer &amp; Distributor ERPs</text><text class="dg-sub" x="100" y="39" text-anchor="middle">partner systems</text></g>
+          <g class="dg-node dg-ext" transform="translate(555 303)"><rect width="235" height="50" rx="8"/><text x="117" y="22" text-anchor="middle">Customer &amp; Distributor Systems</text><text class="dg-sub" x="117" y="39" text-anchor="middle">partner platforms</text></g>
         </svg>
         <ul class="dg-legend">
           <li><span class="dg-swatch dg-swatch-sf"></span>Salesforce</li>
@@ -340,46 +339,46 @@
         <div class="cs">
           <div class="cs-text">
             <h3 class="cs-title">Usage-based US billing on Chargent &amp; finance sync</h3>
-            <p class="cs-meta">Tarana Wireless · 2025 → present · Salesforce · Chargent · Boomi · NetSuite · Kafka</p>
+            <p class="cs-meta">Tarana Wireless · 2025 → present · Salesforce · Chargent · Apex · Boomi · Kafka</p>
             <h4>Problem</h4>
-            <p>US customers pay for what they use, so every month finance had to work out each customer's usage, raise the invoice by hand and collect payment separately — then carry the results into the ERP. Slow, error-prone in the one place errors cost the most, and it got worse with every new customer.</p>
+            <p>US customers pay for what they use, so every month finance had to work out each customer's usage, raise the invoice by hand and collect payment separately. Slow, error-prone in the one place errors cost the most, and it got worse with every new customer.</p>
             <h4>Approach</h4>
             <ul>
               <li>Usage-based monthly billing on <strong>Chargent</strong> — each customer's charge is computed from actual usage for the month, not a fixed recurring amount.</li>
               <li>Customers authorise a payment mandate once (with auto top-up); Chargent collects each month's invoice automatically against it.</li>
               <li>Invoice generation and charge runs driven by scheduled and batch Apex, designed around governor limits from day one.</li>
-              <li><strong>Boomi → NetSuite ERP integration, in progress:</strong> Boomi flows and NetSuite saved searches keep financial and customer records in sync with Salesforce; Kafka carries events that can't wait for a batch.</li>
+              <li>Billing and customer records flow onward to finance — Boomi flows syncing with NetSuite (in progress) and Kafka for events that can't wait for a batch.</li>
             </ul>
             <h4>Design decisions</h4>
             <ul>
               <li><strong>Chargent over custom payment code.</strong> Card data and PCI scope stay with the payment gateway; we own the usage → invoice logic, which is where the business rules actually live.</li>
               <li><strong>Metering separated from charging.</strong> The month's usage is computed and reviewable before the charge run, so a bad reading never becomes a bad charge.</li>
-              <li><strong>Two integration lanes, clear ownership.</strong> Boomi for orchestrated, auditable ERP sync; Kafka for low-latency events. NetSuite owns the ledger; Salesforce owns the customer and the billing schedule.</li>
+              <li><strong>Salesforce owns the customer and the billing schedule.</strong> Downstream systems consume the results — Boomi for orchestrated, auditable sync, Kafka for low-latency events — so ownership per record never gets ambiguous.</li>
             </ul>
           </div>
           <div class="cs-visual">
-            <svg class="diagram" viewBox="0 0 800 270" role="img" aria-label="Billing flow: monthly usage and the customer's stored payment mandate feed the Salesforce + Chargent billing engine, which computes usage-based invoices and charges automatically; Boomi syncs to NetSuite (in progress); Kafka streams billing events.">
+            <svg class="diagram" viewBox="0 0 800 270" role="img" aria-label="Billing flow: monthly usage and the customer's stored payment mandate feed the Salesforce + Chargent billing engine, which computes usage-based invoices and charges automatically; Boomi syncs with NetSuite both ways (in progress); Kafka streams billing events.">
               <defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
               <path class="dg-edge" d="M170 70 C 230 70 260 100 300 118" marker-end="url(#ar1)"/>
               <path class="dg-edge" d="M170 190 C 230 190 260 160 300 142" marker-end="url(#ar1)"/>
-              <path class="dg-edge dg-edge-dashed" d="M540 108 C575 108 575 65 610 65" marker-end="url(#ar1)"/>
+              <path class="dg-edge dg-edge-dashed" d="M540 108 C575 108 575 65 610 65" marker-end="url(#ar1)" marker-start="url(#ar1)"/>
               <path class="dg-edge dg-edge-dashed" d="M690 65 L710 65" marker-end="url(#ar1)" marker-start="url(#ar1)"/>
               <path class="dg-edge" d="M540 150 C575 150 575 190 610 190" marker-end="url(#ar1)"/>
               <text class="dg-label" x="235" y="58" text-anchor="middle">metered usage</text>
               <text class="dg-label" x="235" y="212" text-anchor="middle">mandate · auto top-up</text>
-              <text class="dg-label" x="700" y="30" text-anchor="middle">ERP sync · in progress</text>
+              <text class="dg-label" x="700" y="30" text-anchor="middle">finance sync · in progress</text>
               <text class="dg-label" x="575" y="222" text-anchor="middle">billing events</text>
               <g class="dg-node dg-ext" transform="translate(20 40)"><rect width="150" height="56" rx="8"/><text x="75" y="24" text-anchor="middle">Monthly usage</text><text class="dg-sub" x="75" y="42" text-anchor="middle">per customer, per month</text></g>
               <g class="dg-node dg-ext" transform="translate(20 165)"><rect width="150" height="56" rx="8"/><text x="75" y="24" text-anchor="middle">Customer</text><text class="dg-sub" x="75" y="42" text-anchor="middle">payment mandate (portal)</text></g>
               <g class="dg-node dg-sf" transform="translate(300 80)"><rect width="240" height="100" rx="8"/><text x="120" y="28" text-anchor="middle">Salesforce + Chargent</text><text class="dg-sub" x="120" y="48" text-anchor="middle">usage → invoice, monthly</text><text class="dg-sub" x="120" y="64" text-anchor="middle">auto-charge via stored mandate</text><text class="dg-sub" x="120" y="82" text-anchor="middle">scheduled &amp; batch Apex</text></g>
               <g class="dg-node dg-mid dg-wip" transform="translate(610 40)"><rect width="80" height="50" rx="8"/><text x="40" y="30" text-anchor="middle">Boomi</text></g>
-              <g class="dg-node dg-ext dg-wip" transform="translate(710 40)"><rect width="80" height="50" rx="8"/><text x="40" y="22" text-anchor="middle">NetSuite</text><text class="dg-sub" x="40" y="39" text-anchor="middle">ERP · ledger</text></g>
+              <g class="dg-node dg-ext dg-wip" transform="translate(710 40)"><rect width="80" height="50" rx="8"/><text x="40" y="22" text-anchor="middle">NetSuite</text><text class="dg-sub" x="40" y="39" text-anchor="middle">finance</text></g>
               <g class="dg-node dg-mid" transform="translate(610 165)"><rect width="180" height="50" rx="8"/><text x="90" y="22" text-anchor="middle">Kafka</text><text class="dg-sub" x="90" y="39" text-anchor="middle">events → downstream consumers</text></g>
             </svg>
             <dl class="outcomes">
               <div><dt>Billed via auto-invoicing</dt><dd>~$3M <span>last quarter</span></dd></div>
               <div><dt>Manual finance effort</dt><dd>−90%</dd></div>
-              <div><dt>NetSuite ERP sync</dt><dd>In progress <span>Boomi → NetSuite</span></dd></div>
+              <div><dt>Collection</dt><dd>Automatic <span>monthly · usage-based · stored mandate</span></dd></div>
             </dl>
           </div>
         </div>
@@ -435,13 +434,13 @@
       <div class="tab-panel" id="cs-edi" role="tabpanel" aria-labelledby="tab-edi" hidden>
         <div class="cs">
           <div class="cs-text">
-            <h3 class="cs-title">EDI integrations across 3PL &amp; partner ERPs</h3>
-            <p class="cs-meta">Tarana Wireless · 2026 · Salesforce · EDI · 3PL / WMS · Customer &amp; distributor ERPs</p>
+            <h3 class="cs-title">EDI integrations across 3PL &amp; partner systems</h3>
+            <p class="cs-meta">Tarana Wireless · 2026 · Salesforce · EDI · 3PL / WMS · Customer &amp; distributor systems</p>
             <h4>Problem</h4>
-            <p>Orders, shipments and fulfilment updates moved between Salesforce, the 3PL warehouse and customers' own ERPs by email, spreadsheet and re-keying. Every hop was a delay and a chance for a mismatch nobody noticed until a customer did.</p>
+            <p>Orders, shipments and fulfilment updates moved between Salesforce, the 3PL warehouse and customers' own systems by email, spreadsheet and re-keying. Every hop was a delay and a chance for a mismatch nobody noticed until a customer did.</p>
             <h4>Approach</h4>
             <ul>
-              <li>EDI integrations connecting Salesforce with the 3PL / logistics warehouse system and with customer &amp; distributor ERPs.</li>
+              <li>EDI integrations connecting Salesforce with the 3PL / logistics warehouse system and with customer &amp; distributor systems.</li>
               <li>Document mapping between Salesforce objects and each partner's format; acknowledgements and error handling so a failure surfaces instead of silently dropping.</li>
               <li>Salesforce stays the single view of order and fulfilment status for support and sales.</li>
             </ul>
@@ -453,18 +452,18 @@
             </ul>
           </div>
           <div class="cs-visual">
-            <svg class="diagram" viewBox="0 0 800 230" role="img" aria-label="EDI architecture: Salesforce exchanges order, shipment and fulfilment documents through an EDI integration layer with a 3PL warehouse system and with customer and distributor ERPs.">
+            <svg class="diagram" viewBox="0 0 800 230" role="img" aria-label="EDI architecture: Salesforce exchanges order, shipment and fulfilment documents through an EDI integration layer with a 3PL warehouse system and with customer and distributor systems.">
               <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
               <path class="dg-edge" d="M220 115 L300 115" marker-end="url(#ar3)" marker-start="url(#ar3)"/>
               <path class="dg-edge" d="M500 95 C540 95 540 68 580 68" marker-end="url(#ar3)" marker-start="url(#ar3)"/>
-              <path class="dg-edge" d="M500 135 C540 135 540 168 580 168" marker-end="url(#ar3)" marker-start="url(#ar3)"/>
+              <path class="dg-edge" d="M500 135 C540 135 540 168 575 168" marker-end="url(#ar3)" marker-start="url(#ar3)"/>
               <text class="dg-label" x="260" y="105" text-anchor="middle">documents</text>
               <text class="dg-label" x="680" y="30" text-anchor="middle">orders → · ← ship notices &amp; inventory</text>
               <text class="dg-label" x="680" y="214" text-anchor="middle">POs · invoices · acknowledgements</text>
               <g class="dg-node dg-sf" transform="translate(20 70)"><rect width="200" height="90" rx="8"/><text x="100" y="30" text-anchor="middle">Salesforce</text><text class="dg-sub" x="100" y="50" text-anchor="middle">Orders · Shipments</text><text class="dg-sub" x="100" y="66" text-anchor="middle">fulfilment status · Cases</text></g>
               <g class="dg-node dg-mid" transform="translate(300 60)"><rect width="200" height="110" rx="8"/><text x="100" y="30" text-anchor="middle">EDI Integration Layer</text><text class="dg-sub" x="100" y="52" text-anchor="middle">document mapping</text><text class="dg-sub" x="100" y="68" text-anchor="middle">acknowledgements</text><text class="dg-sub" x="100" y="84" text-anchor="middle">error handling &amp; retries</text></g>
               <g class="dg-node dg-ext" transform="translate(580 40)"><rect width="200" height="56" rx="8"/><text x="100" y="24" text-anchor="middle">3PL / Warehouse (WMS)</text><text class="dg-sub" x="100" y="42" text-anchor="middle">logistics · inventory</text></g>
-              <g class="dg-node dg-ext" transform="translate(580 140)"><rect width="200" height="56" rx="8"/><text x="100" y="24" text-anchor="middle">Customer &amp; Distributor ERPs</text><text class="dg-sub" x="100" y="42" text-anchor="middle">partner systems</text></g>
+              <g class="dg-node dg-ext" transform="translate(575 140)"><rect width="220" height="56" rx="8"/><text x="110" y="24" text-anchor="middle">Customer &amp; Distributor Systems</text><text class="dg-sub" x="110" y="42" text-anchor="middle">partner platforms</text></g>
             </svg>
             <dl class="outcomes">
               <div><dt>Partner systems</dt><dd>Multiple <span>on one integration pattern</span></dd></div>
@@ -624,7 +623,6 @@
       <article class="tl-item is-open">
         <button class="tl-toggle" aria-expanded="true" aria-controls="exp-1">
           <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
-          <span class="obj-icon obj-icon-xs obj-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
           <span class="tl-title">
             <span class="tl-role">Senior Salesforce Developer</span>
             <span class="tl-org">Tarana Wireless · Pune, India</span>
@@ -637,8 +635,8 @@
             <li>Designed and built the complete customer onboarding journey on Salesforce Experience Cloud — full site, guided flows, and self-service portal — supporting 20–30+ new customer self-registrations per day.</li>
             <li>Rebuilt the customer-facing Case dashboard on Experience Cloud from scratch as a custom Lightning Web Component UI — a modern, responsive experience for customers to track, filter, and manage their support cases in one place.</li>
             <li>Built usage-based monthly billing for US customers on Chargent — each customer is charged for actual usage against a stored payment mandate with auto top-up — processing ~$3M in customer billing last quarter via auto-invoicing while cutting manual finance effort by ~90%.</li>
-            <li>Building the Boomi → NetSuite ERP integration <span class="badge">In progress</span> — Boomi flows and NetSuite saved searches keeping financial and customer records in sync with Salesforce, with Kafka powering event-driven, near real-time data streaming.</li>
-            <li>Built EDI integrations connecting Salesforce with 3PL / logistics warehouse systems and customer &amp; distributor ERPs — automating the exchange of order, shipment, and fulfilment documents across multiple systems.</li>
+            <li>Building Boomi flows and NetSuite saved searches to keep financial and customer records in sync with Salesforce (in progress), with Kafka powering event-driven, near real-time data streaming.</li>
+            <li>Built EDI integrations connecting Salesforce with 3PL / logistics warehouse systems and customer &amp; distributor systems — automating the exchange of order, shipment, and fulfilment documents across multiple systems.</li>
             <li>Built a sign-up verification process that detects non-company-domain emails and routes them to guest-level access, protecting data quality at the source.</li>
           </ul>
         </div>
@@ -647,7 +645,6 @@
       <article class="tl-item is-open">
         <button class="tl-toggle" aria-expanded="true" aria-controls="exp-2">
           <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
-          <span class="obj-icon obj-icon-xs obj-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 8.5 3.5 3.5 0 0 1 17.5 18H7z"/></svg></span>
           <span class="tl-title">
             <span class="tl-role">Service Cloud Engineer</span>
             <span class="tl-org">Salesforce · Hyderabad, India</span>
@@ -668,7 +665,6 @@
       <article class="tl-item is-open">
         <button class="tl-toggle" aria-expanded="true" aria-controls="exp-3">
           <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
-          <span class="obj-icon obj-icon-xs obj-icon-purple" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
           <span class="tl-title">
             <span class="tl-role">Programmer Analyst</span>
             <span class="tl-org">Cognizant Technology Solutions · Pune, India</span>
