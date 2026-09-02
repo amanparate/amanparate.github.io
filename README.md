@@ -21,6 +21,7 @@ no framework, no build step — using SLDS design tokens re-implemented by hand.
 ├── js/script.js         # path stages, global search, toasts, timeline, theme, nav
 ├── assets/
 │   ├── aman.jpg                 # YOUR PHOTO — square, ≥ 400×400px (initials show until it exists)
+│   ├── ApexDoctorLogo.png       # Apex Doctor logo (png/svg/jpg/webp all work — exact name, case-sensitive)
 │   ├── favicon.svg
 │   ├── Aman_Parate_Resume.pdf   # replace with an updated copy any time (keep the filename)
 │   └── apex-doctor/*.webp       # real screenshots from the Apex Doctor repo
@@ -46,6 +47,7 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 | What to change | Where |
 |---|---|
 | Your photo | drop a square JPG at `assets/aman.jpg` — nothing else to change |
+| Apex Doctor logo | drop it at `assets/ApexDoctorLogo.png` (or .svg/.jpg/.webp) — the showcase picks it up automatically |
 | Name, title, tagline, highlight fields | `index.html` → `<section class="card highlights">` |
 | My Story text + "Currently" block | `index.html` → `<section id="about">` |
 | How I Work principles / lead value | `index.html` → `<section id="how-i-work">` |

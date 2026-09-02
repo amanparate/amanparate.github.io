@@ -938,6 +938,9 @@ svg { display: inline-block; }
   display: grid; place-items: center;
 }
 .app-icon svg { width: 34px; height: 34px; }
+.app-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 12px; display: block; }
+.app-icon.has-logo { background: rgba(255,255,255,0.06); box-shadow: 0 6px 18px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.12); }
+.app-icon.has-logo .app-icon-fallback { display: none; }
 .showcase-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; color: #fff; }
 .showcase-sub { font-size: 0.8rem; color: #aacbff; margin-top: 0.1rem; }
 .showcase-tagline { font-size: 1rem; line-height: 1.55; color: #d6e4fb; margin-bottom: 1.1rem; max-width: 46ch; }

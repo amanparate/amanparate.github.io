@@ -369,6 +369,22 @@
     });
   });
 
+  /* ---------- Apex Doctor logo (assets/ApexDoctorLogo.<ext>, falls back to drawn icon) ---------- */
+  (function loadAppLogo() {
+    const img = $("#appLogo"), box = $("#appIcon");
+    if (!img || !box) return;
+    const candidates = ["png", "svg", "jpg", "jpeg", "webp", "PNG", "JPG"].map((e) => `assets/ApexDoctorLogo.${e}`);
+    let i = 0;
+    const tryNext = () => {
+      if (i >= candidates.length) return;                 // none found → keep fallback icon
+      const probe = new Image();
+      probe.onload = () => { img.src = probe.src; img.hidden = false; box.classList.add("has-logo"); };
+      probe.onerror = () => { i += 1; tryNext(); };
+      probe.src = candidates[i];
+    };
+    tryNext();
+  })();
+
   /* ---------- screenshot lightbox ---------- */
   const lb = $("#lightbox"), lbImg = $("#lightboxImg"), lbCap = $("#lightboxCap");
   function openLightbox() {
