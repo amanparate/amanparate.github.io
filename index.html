@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aman Parate — Salesforce Developer</title>
 <meta name="description" content="Aman Parate — Salesforce Developer with 4.8+ years across Apex, LWC, Experience Cloud, and platform integrations. 13x Salesforce Certified. Creator of Apex Doctor." />
-<meta name="theme-color" content="#0176D3" />
+<meta name="theme-color" content="#032D60" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="Aman Parate — Salesforce Developer" />
@@ -14,96 +14,156 @@
 <meta property="og:url" content="https://amanparate.github.io/" />
 
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="progress-bar" id="progressBar"></div>
+<!-- ============ GLOBAL HEADER ============ -->
+<header class="global-header" id="globalHeader">
+  <div class="gh-inner">
+    <a href="#top" class="gh-brand" aria-label="Home">
+      <span class="gh-logo">AP</span>
+      <span class="gh-brand-text">Aman Parate</span>
+    </a>
 
-<header class="site-header" id="siteHeader">
-  <nav class="nav container">
-    <a href="#top" class="brand">Aman<span>Parate</span><span class="dot">.</span></a>
+    <div class="gh-search" id="globalSearch">
+      <svg class="gh-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="searchInput" placeholder="Search skills, certifications, roles…" autocomplete="off" aria-label="Search this portfolio" aria-controls="searchResults" aria-expanded="false" />
+      <ul class="gh-search-results" id="searchResults" role="listbox" hidden></ul>
+    </div>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#certifications" class="nav-link">Certifications</a></li>
-      <li><a href="#experience" class="nav-link">Experience</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+    <div class="gh-actions">
+      <button class="gh-icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="assets/Aman_Parate_Resume.pdf" class="btn btn-sm btn-primary" download>Resume</a>
+      <a class="gh-icon-btn" href="https://github.com/amanparate" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.77.12 3.06.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.18 0 1.57-.02 2.84-.02 3.23 0 .3.21.66.8.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+      </a>
+      <a class="gh-icon-btn" href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <span class="gh-avatar" title="Aman Parate">AP</span>
     </div>
-  </nav>
+  </div>
 </header>
 
-<main id="main">
+<!-- ============ APP NAVIGATION BAR ============ -->
+<nav class="app-nav" id="appNav" aria-label="Primary">
+  <div class="app-nav-inner">
+    <a href="#top" class="app-name">
+      <svg class="app-waffle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg>
+      <span>Portfolio</span>
+    </a>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <span class="blob blob-1"></span>
-      <span class="blob blob-2"></span>
-      <svg class="hero-grid" width="100%" height="100%" aria-hidden="true"><defs><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M 36 0 L 0 0 0 36" fill="none" stroke="currentColor" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid)"/></svg>
+    <button class="app-nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="app-tabs" id="navLinks">
+      <li><a href="#about" class="app-tab nav-link">About</a></li>
+      <li><a href="#skills" class="app-tab nav-link">Skills</a></li>
+      <li><a href="#certifications" class="app-tab nav-link">Certifications</a></li>
+      <li><a href="#experience" class="app-tab nav-link">Experience</a></li>
+      <li><a href="#projects" class="app-tab nav-link">Projects</a></li>
+      <li><a href="#contact" class="app-tab nav-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main" class="page" tabindex="-1">
+  <span id="top"></span>
+
+  <!-- ============ RECORD HIGHLIGHTS PANEL (HERO) ============ -->
+  <section class="card highlights" aria-labelledby="recordName">
+    <div class="highlights-top">
+      <div class="record-identity">
+        <span class="obj-icon obj-icon-contact" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </span>
+        <div>
+          <p class="obj-label">Contact · Salesforce Developer</p>
+          <h1 class="record-name" id="recordName">Aman Parate</h1>
+          <p class="record-tagline">Apex · Lightning Web Components · Experience Cloud · Integrations · 13x Certified</p>
+        </div>
+      </div>
+
+      <div class="record-actions">
+        <a href="assets/Aman_Parate_Resume.pdf" class="btn btn-brand" download data-toast="Resume downloaded. Thanks for taking a look!">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg>
+          Download Resume
+        </a>
+        <div class="btn-group">
+          <a href="mailto:amanparatesfdc@gmail.com" class="btn btn-neutral">Email</a>
+          <a href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" class="btn btn-neutral">LinkedIn</a>
+          <a href="https://github.com/amanparate" target="_blank" rel="noopener" class="btn btn-neutral">GitHub</a>
+          <a href="#contact" class="btn btn-neutral btn-more" aria-label="More actions">▾</a>
+        </div>
+      </div>
     </div>
 
-    <div class="container hero-inner">
-      <p class="eyebrow reveal">👋 Based in Pune, India · Open to relocation</p>
-      <h1 class="hero-title reveal">
-        Hi, I'm <span class="text-gradient">Aman Parate</span><br />
-        I build on the <span class="text-gradient">Salesforce Platform</span>.
-      </h1>
-      <p class="hero-subtitle reveal">
-        Salesforce Developer with 4.8+ years across <strong>Apex, Lightning Web Components, Experience Cloud</strong> and
-        enterprise integrations — plus <strong>13 Salesforce certifications</strong> and an open-source dev tool used by
-        2,000+ developers.
-      </p>
+    <dl class="highlights-fields">
+      <div class="field"><dt>Title</dt><dd>Salesforce Developer</dd></div>
+      <div class="field"><dt>Company</dt><dd>Tarana Wireless</dd></div>
+      <div class="field"><dt>Experience</dt><dd>4.8+ years <span class="text-muted">(since Nov 2021)</span></dd></div>
+      <div class="field"><dt>Certifications</dt><dd><a href="#certifications">13x Salesforce Certified</a></dd></div>
+      <div class="field"><dt>Location</dt><dd>Pune, Maharashtra, India</dd></div>
+      <div class="field"><dt>Relocation</dt><dd><span class="badge badge-success">Open to relocation</span></dd></div>
+    </dl>
+  </section>
 
-      <div class="hero-cta reveal">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-        <a href="assets/Aman_Parate_Resume.pdf" class="btn btn-ghost" download>Download Resume ↓</a>
+  <!-- ============ PATH: CAREER STAGES ============ -->
+  <section class="card path-card" aria-labelledby="pathTitle">
+    <div class="path-header">
+      <h2 id="pathTitle" class="card-title">Career Path</h2>
+      <a href="#contact" class="btn btn-brand btn-sm path-cta">Next Stage: Your Team ›</a>
+    </div>
+
+    <ol class="path" id="careerPath" role="tablist">
+      <li class="path-stage is-complete" role="tab" tabindex="0" data-stage="0" aria-selected="false">
+        <span class="path-stage-text">Cognizant</span>
+        <span class="path-stage-check" aria-hidden="true">✓</span>
+      </li>
+      <li class="path-stage is-complete" role="tab" tabindex="0" data-stage="1" aria-selected="false">
+        <span class="path-stage-text">Salesforce</span>
+        <span class="path-stage-check" aria-hidden="true">✓</span>
+      </li>
+      <li class="path-stage is-current is-active" role="tab" tabindex="0" data-stage="2" aria-selected="true">
+        <span class="path-stage-text">Tarana Wireless</span>
+      </li>
+      <li class="path-stage is-incomplete" role="tab" tabindex="0" data-stage="3" aria-selected="false">
+        <span class="path-stage-text">Your Team?</span>
+      </li>
+    </ol>
+
+    <div class="path-details" id="pathDetails" role="tabpanel">
+      <div class="path-keyfields">
+        <h3 class="path-subtitle">Key Fields</h3>
+        <dl id="pathFields"></dl>
       </div>
-
-      <div class="hero-social reveal">
-        <a href="https://github.com/amanparate" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.77.12 3.06.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.18 0 1.57-.02 2.84-.02 3.23 0 .3.21.66.8.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-        </a>
-        <a href="mailto:amanparatesfdc@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
-        </a>
+      <div class="path-guidance">
+        <h3 class="path-subtitle">Guidance for Success</h3>
+        <p id="pathGuidance"></p>
+        <a id="pathLink" class="btn btn-neutral btn-sm" href="#experience">View Details</a>
       </div>
-
-      <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container">
-      <p class="section-kicker reveal">About</p>
-      <h2 class="section-title reveal">Turning business requirements into scalable Salesforce solutions.</h2>
+  <!-- ============ ABOUT / DETAILS ============ -->
+  <section class="card" id="about" aria-labelledby="aboutTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+      </span>
+      <h2 id="aboutTitle" class="card-title">Details</h2>
+    </header>
 
-      <div class="about-grid">
-        <div class="about-text reveal">
+    <div class="card-body">
+      <div class="field field-long">
+        <dt class="field-label">Description</dt>
+        <dd class="field-value">
           <p>
             I'm a Salesforce Developer with <strong>4.8+ years of experience</strong> across Apex development, Lightning
             Web Components, platform configuration, and integrations — holding <strong>13 Salesforce certifications</strong>
@@ -113,323 +173,358 @@
           <p>
             I've designed and delivered end-to-end solutions on Salesforce Experience Cloud, automated billing and
             invoicing pipelines processing millions of dollars a quarter, implemented Single Sign-On, and integrated
-            Salesforce with NetSuite, 3PL logistics systems, and partner ERPs via Boomi, EDI, and Kafka. I'm comfortable moving between declarative and programmatic
-            development — Apex classes, triggers, batch &amp; async Apex, flows, REST/SOAP APIs, and platform events —
-            always with an eye on scalable, business-aligned implementations.
+            Salesforce with NetSuite, 3PL logistics systems, and partner ERPs via Boomi, EDI, and Kafka. I move comfortably
+            between declarative and programmatic development — Apex classes, triggers, batch &amp; async Apex, flows,
+            REST/SOAP APIs, and platform events — always with an eye on scalable, business-aligned implementations.
           </p>
           <p>
             Outside client work, I build developer tools. <strong>Apex Doctor</strong>, my open-source VS Code extension,
             turns raw Apex debug logs into structured diagnostics and has been downloaded 2,000+ times.
           </p>
-        </div>
-
-        <div class="about-stats reveal">
-          <div class="stat-card">
-            <span class="stat-num" data-count="4.8" data-suffix="+">0</span>
-            <span class="stat-label">Years of Experience</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num" data-count="13" data-suffix="x">0</span>
-            <span class="stat-label">Salesforce Certifications</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num" data-count="2000" data-suffix="+">0</span>
-            <span class="stat-label">Apex Doctor Downloads</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num" data-count="3" data-suffix="M+">0</span>
-            <span class="stat-label">Quarterly Billing Automated</span>
-          </div>
-        </div>
+        </dd>
       </div>
+
+      <dl class="detail-grid">
+        <div class="field"><dt class="field-label">Years of Experience</dt><dd class="field-value">4.8+ <span class="text-muted">(Nov 2021 – present)</span></dd></div>
+        <div class="field"><dt class="field-label">Certifications</dt><dd class="field-value">13 Salesforce certifications</dd></div>
+        <div class="field"><dt class="field-label">Apex Doctor Downloads</dt><dd class="field-value">2,000+ <span class="text-muted">(VS Code Marketplace · Open VSX)</span></dd></div>
+        <div class="field"><dt class="field-label">Billing Automated (last quarter)</dt><dd class="field-value">~$3M via auto-invoicing</dd></div>
+        <div class="field"><dt class="field-label">Current Focus</dt><dd class="field-value">Experience Cloud · Integrations (Boomi, EDI, NetSuite) · Apex &amp; LWC</dd></div>
+        <div class="field"><dt class="field-label">Education</dt><dd class="field-value">B.E. Computer Science &amp; Engineering, RTMNU Nagpur (2020) · 8.3 CGPA</dd></div>
+        <div class="field"><dt class="field-label">Languages</dt><dd class="field-value">English, Hindi, Marathi</dd></div>
+        <div class="field"><dt class="field-label">Relocation</dt><dd class="field-value">Open to international relocation &amp; visa sponsorship</dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="section section-alt" id="skills">
-    <div class="container">
-      <p class="section-kicker reveal">Skills</p>
-      <h2 class="section-title reveal">Tools &amp; technologies I work with.</h2>
+  <!-- ============ SKILLS ============ -->
+  <section class="card" id="skills" aria-labelledby="skillsTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-teal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+      </span>
+      <h2 id="skillsTitle" class="card-title">Skills <span class="card-count">(5 areas)</span></h2>
+    </header>
 
-      <div class="skills-grid">
+    <div class="card-body skills-grid">
 
-        <div class="skill-card reveal">
-          <div class="skill-icon">☁️</div>
+      <article class="skill-tile">
+        <div class="skill-tile-head">
+          <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
           <h3>Salesforce Platform</h3>
-          <div class="tags">
-            <span class="tag">Lightning &amp; LWC</span>
-            <span class="tag">Apex (Classes/Triggers)</span>
-            <span class="tag">Batch &amp; Async Apex</span>
-            <span class="tag">SOQL</span>
-            <span class="tag">Visualforce</span>
-            <span class="tag">Flows</span>
-            <span class="tag">Experience Cloud</span>
-            <span class="tag">Service Cloud</span>
-            <span class="tag">Custom Objects</span>
-            <span class="tag">Reports &amp; Dashboards</span>
-            <span class="tag">Force.com</span>
-          </div>
         </div>
+        <ul class="pills" data-search-group="Skill">
+          <li class="pill">Lightning &amp; LWC</li><li class="pill">Apex (Classes / Triggers)</li><li class="pill">Batch &amp; Async Apex</li>
+          <li class="pill">SOQL</li><li class="pill">Visualforce</li><li class="pill">Flows</li><li class="pill">Experience Cloud</li>
+          <li class="pill">Service Cloud</li><li class="pill">Custom Objects</li><li class="pill">Reports &amp; Dashboards</li><li class="pill">Force.com</li>
+        </ul>
+      </article>
 
-        <div class="skill-card reveal">
-          <div class="skill-icon">🤖</div>
-          <h3>AI &amp; Data <span class="badge-mini">Certified</span></h3>
-          <div class="tags">
-            <span class="tag">Agentforce</span>
-            <span class="tag">Einstein AI</span>
-            <span class="tag">Data Cloud</span>
-            <span class="tag">Prompt Builder</span>
-            <span class="tag">AI-Assisted Development</span>
-          </div>
+      <article class="skill-tile">
+        <div class="skill-tile-head">
+          <span class="obj-icon obj-icon-sm obj-icon-purple" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3>AI &amp; Data <span class="badge badge-brand">Certified</span></h3>
         </div>
+        <ul class="pills" data-search-group="Skill">
+          <li class="pill">Agentforce</li><li class="pill">Einstein AI</li><li class="pill">Data Cloud</li><li class="pill">Prompt Builder</li><li class="pill">AI-Assisted Development</li>
+        </ul>
+      </article>
 
-        <div class="skill-card reveal">
-          <div class="skill-icon">🔗</div>
+      <article class="skill-tile">
+        <div class="skill-tile-head">
+          <span class="obj-icon obj-icon-sm obj-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14a4 4 0 0 1 0-5.7l3-3a4 4 0 0 1 5.7 5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 1 0 5.7l-3 3a4 4 0 0 1-5.7-5.7l1.5-1.5"/></svg></span>
           <h3>Integration</h3>
-          <div class="tags">
-            <span class="tag">EDI</span>
-            <span class="tag">Boomi</span>
-            <span class="tag">NetSuite</span>
-            <span class="tag">REST API</span>
-            <span class="tag">SOAP API</span>
-            <span class="tag">Bulk API</span>
-            <span class="tag">Platform Events</span>
-            <span class="tag">Change Data Capture</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">SSO</span>
-          </div>
         </div>
+        <ul class="pills" data-search-group="Skill">
+          <li class="pill">EDI</li><li class="pill">Boomi</li><li class="pill">NetSuite</li><li class="pill">REST API</li><li class="pill">SOAP API</li>
+          <li class="pill">Bulk API</li><li class="pill">Platform Events</li><li class="pill">Change Data Capture</li><li class="pill">Kafka</li><li class="pill">SSO (SAML)</li>
+        </ul>
+      </article>
 
-        <div class="skill-card reveal">
-          <div class="skill-icon">💻</div>
+      <article class="skill-tile">
+        <div class="skill-tile-head">
+          <span class="obj-icon obj-icon-sm obj-icon-orange" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
           <h3>Languages &amp; Web</h3>
-          <div class="tags">
-            <span class="tag">Apex</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS</span>
-            <span class="tag">SOQL</span>
-          </div>
         </div>
+        <ul class="pills" data-search-group="Skill">
+          <li class="pill">Apex</li><li class="pill">JavaScript</li><li class="pill">TypeScript</li><li class="pill">HTML5</li><li class="pill">CSS</li><li class="pill">SOQL</li>
+        </ul>
+      </article>
 
-        <div class="skill-card reveal">
-          <div class="skill-icon">🛠️</div>
+      <article class="skill-tile">
+        <div class="skill-tile-head">
+          <span class="obj-icon obj-icon-sm obj-icon-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0 5 5L22 9l-1-3-3-1-2.7 1.3zM3 21l8.5-8.5"/></svg></span>
           <h3>Tools</h3>
-          <div class="tags">
-            <span class="tag">VS Code</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Jira</span>
-            <span class="tag">Postman</span>
-            <span class="tag">Workbench</span>
-            <span class="tag">Apex Data Loader</span>
-            <span class="tag">Salesforce Inspector</span>
-            <span class="tag">Splunk</span>
-            <span class="tag">Snowflake</span>
-            <span class="tag">Wireshark</span>
-          </div>
         </div>
+        <ul class="pills" data-search-group="Skill">
+          <li class="pill">VS Code</li><li class="pill">Salesforce CLI</li><li class="pill">GitHub</li><li class="pill">Jira</li><li class="pill">Postman</li>
+          <li class="pill">Workbench</li><li class="pill">Apex Data Loader</li><li class="pill">Salesforce Inspector</li><li class="pill">Splunk</li><li class="pill">Snowflake</li><li class="pill">Wireshark</li>
+        </ul>
+      </article>
 
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section class="card" id="certifications" aria-labelledby="certsTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-orange" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="m8.5 13.5-2 7 5.5-3 5.5 3-2-7"/></svg>
+      </span>
+      <h2 id="certsTitle" class="card-title">Certifications <span class="card-count">(13)</span></h2>
+      <span class="card-header-meta">Salesforce Certified · 13 credentials</span>
+    </header>
+
+    <div class="card-body cert-tracks" data-search-group="Certification">
+      <div class="cert-track">
+        <h3 class="cert-track-title">Developer</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-dev">PD II</span><span class="cert-name">Platform Developer II</span></li>
+          <li class="cert"><span class="hex hex-dev">PD I</span><span class="cert-name">Platform Developer I</span></li>
+          <li class="cert"><span class="hex hex-dev">JS I</span><span class="cert-name">JavaScript Developer I</span></li>
+          <li class="cert"><span class="hex hex-dev">PAB</span><span class="cert-name">Platform App Builder</span></li>
+        </ul>
+      </div>
+      <div class="cert-track">
+        <h3 class="cert-track-title">Consultant</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-consult">DC</span><span class="cert-name">Data Cloud Consultant</span></li>
+          <li class="cert"><span class="hex hex-consult">SC</span><span class="cert-name">Sales Cloud Consultant</span></li>
+          <li class="cert"><span class="hex hex-consult">SvC</span><span class="cert-name">Service Cloud Consultant</span></li>
+          <li class="cert"><span class="hex hex-consult">EC</span><span class="cert-name">Experience Cloud Consultant</span></li>
+        </ul>
+      </div>
+      <div class="cert-track">
+        <h3 class="cert-track-title">AI</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-ai">AF</span><span class="cert-name">Agentforce Specialist</span></li>
+          <li class="cert"><span class="hex hex-ai">AI</span><span class="cert-name">AI Associate</span></li>
+        </ul>
+      </div>
+      <div class="cert-track">
+        <h3 class="cert-track-title">Admin &amp; Foundations</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-admin">AA</span><span class="cert-name">Advanced Administrator</span></li>
+          <li class="cert"><span class="hex hex-admin">ADM</span><span class="cert-name">Administrator</span></li>
+          <li class="cert"><span class="hex hex-admin">ASC</span><span class="cert-name">Associate</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
-  <section class="section" id="certifications">
-    <div class="container">
-      <p class="section-kicker reveal">Certifications</p>
-      <h2 class="section-title reveal">13x Salesforce Certified.</h2>
-      <p class="section-lead reveal">Spanning development, consulting clouds, administration, and the newest AI &amp; Data tracks.</p>
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="card" id="experience" aria-labelledby="expTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-purple" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg>
+      </span>
+      <h2 id="expTitle" class="card-title">Work Experience <span class="card-count">(3)</span></h2>
+      <button class="link-btn" id="toggleAllExp" type="button">Collapse All</button>
+    </header>
 
-      <div class="cert-grid">
-        <div class="cert-card reveal"><span class="cert-badge">PD II</span><p>Platform Developer II</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">PD I</span><p>Platform Developer I</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">JS I</span><p>JavaScript Developer I</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">DC</span><p>Data Cloud Consultant</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">SC</span><p>Sales Cloud Consultant</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">SvC</span><p>Service Cloud Consultant</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">EC</span><p>Experience Cloud Consultant</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">AF</span><p>Agentforce Specialist</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">AI</span><p>AI Associate</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">AA</span><p>Advanced Administrator</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">ADM</span><p>Administrator</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">PAB</span><p>Platform App Builder</p></div>
-        <div class="cert-card reveal"><span class="cert-badge">ASC</span><p>Associate</p></div>
-      </div>
-    </div>
-  </section>
+    <div class="card-body timeline" data-search-group="Role">
 
-  <!-- EXPERIENCE -->
-  <section class="section section-alt" id="experience">
-    <div class="container">
-      <p class="section-kicker reveal">Experience</p>
-      <h2 class="section-title reveal">Where I've worked.</h2>
-
-      <div class="timeline">
-
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-head">
-              <h3>Software Engineer I (Salesforce Developer)</h3>
-              <span class="timeline-date">Jan 2025 — Present</span>
-            </div>
-            <p class="timeline-org">Tarana Wireless · Pune, India</p>
-            <ul>
-              <li>Implemented Single Sign-On (SSO) between Salesforce and LearnUpon, enabling secure one-click SAML access (~6–10 new user logins daily) and eliminating manual identity management.</li>
-              <li>Designed and built the complete customer onboarding journey on Salesforce Experience Cloud — full site, guided flows, and self-service portal — supporting 20–30+ new customer self-registrations per day.</li>
-              <li>Rebuilt the customer-facing Case dashboard on Experience Cloud from scratch as a custom Lightning Web Component UI — a modern, responsive experience for customers to track, filter, and manage their support cases in one place.</li>
-              <li>Developed automated invoicing and payment processing for US customers, including auto top-up mandates and recurring billing — processing ~$3M in customer billing last quarter while cutting manual finance effort by ~90%.</li>
-              <li>Engineered Boomi and NetSuite integrations, automating the sync of thousands of financial and customer records daily, with Kafka powering event-driven, near real-time data streaming.</li>
-              <li>Built EDI integrations connecting Salesforce with 3PL / logistics warehouse systems and customer &amp; distributor ERPs — automating the exchange of order, shipment, and fulfilment documents across multiple systems.</li>
-              <li>Built a sign-up verification process that detects non-company-domain emails and routes them to guest-level access, protecting data quality at the source.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-head">
-              <h3>Service Cloud Engineer</h3>
-              <span class="timeline-date">Mar 2023 — Dec 2024</span>
-            </div>
-            <p class="timeline-org">Salesforce · Hyderabad, India</p>
-            <ul>
-              <li>Delivered Service Cloud solutions for UK- and US-based clients, translating business and technical requirements into scalable Salesforce implementations.</li>
-              <li>Resolved complex issues across Single Sign-On, MFA, Flows, Apex triggers/classes, asynchronous Apex, Visualforce, and LWC.</li>
-              <li>Built integrations using REST, SOAP and Bulk APIs, Platform Events, and Change Data Capture; designed custom objects and deployed Apex classes, controllers, and triggers.</li>
-              <li>Developed Lightning Web Components for communities to locate and create investment applications; authored knowledge articles and documentation.</li>
-              <li>Participated in Agile/Scrum ceremonies and wrote Apex test classes to ensure maximum code coverage.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-head">
-              <h3>Programmer Analyst</h3>
-              <span class="timeline-date">Nov 2021 — Feb 2023</span>
-            </div>
-            <p class="timeline-org">Cognizant Technology Solutions · Pune, India</p>
-            <ul>
-              <li>Developed Salesforce solutions for US-based retail clients, including a Case Management System using LWC, Apex classes, and triggers.</li>
-              <li>Configured Salesforce administration: profiles, roles, page layouts, org-wide defaults, sharing rules, permission sets, approval processes, and assignment rules.</li>
-              <li>Built automation with Workflows, Process Builder, Flows, Phone-to-Case, and Email-to-Case; implemented IVR functionality and batch Apex.</li>
-              <li>Performed metadata migration and bulk data operations using Change Sets, Workbench, Apex Data Loader, VS Code, and GitHub.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="container">
-      <p class="section-kicker reveal">Featured Project</p>
-      <h2 class="section-title reveal">Apex Doctor — VS Code Extension</h2>
-      <p class="section-lead reveal">
-        An open-source (MIT) TypeScript extension that turns raw Salesforce Apex debug logs into structured, actionable
-        diagnostics. Sole architect, developer, and maintainer across 14+ releases.
-      </p>
-
-      <div class="project-card reveal">
-        <div class="project-card-main">
-          <div class="project-meta">
-            <span class="pill pill-accent">2k+ Downloads</span>
-            <span class="pill">MIT License</span>
-            <span class="pill">14+ Releases</span>
-            <span class="pill">VS Code Marketplace · Open VSX</span>
-          </div>
-
-          <p class="project-desc">
-            Adopted by engineering teams internally at Tarana, cutting Apex debug-log triage from ~30 minutes of manual
-            log reading down to seconds. Built as a local, deterministic analysis engine — no API calls required for
-            core diagnostics.
-          </p>
-
-          <ul class="project-features">
-            <li>Governor-limit parsing, SOQL-in-loop &amp; full-table-scan detection, order-of-execution reconstruction, trigger-order visualization, and an async (@future / Queueable / Batch) tracer.</li>
-            <li>A CPU &amp; heap profiler with self-time attribution (Chrome DevTools–style) that pinpoints the exact method and SOQL query consuming runtime and memory.</li>
-            <li>AI root-cause analysis across five providers (OpenRouter, Anthropic, OpenAI, Google Gemini, Salesforce Einstein Trust Layer) — sending only a distilled, PII-safe summary, with API keys stored in encrypted SecretStorage.</li>
-            <li>Live log streaming, trace-flag management, SOQL Query Plan analysis, in-editor test-coverage overlays, natural-language log querying, and one-click "Suggest Fix" refactors with diff preview — built on the Salesforce CLI &amp; Tooling API.</li>
+      <article class="tl-item is-open">
+        <button class="tl-toggle" aria-expanded="true" aria-controls="exp-1">
+          <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
+          <span class="obj-icon obj-icon-xs obj-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
+          <span class="tl-title">
+            <span class="tl-role">Software Engineer I (Salesforce Developer)</span>
+            <span class="tl-org">Tarana Wireless · Pune, India</span>
+          </span>
+          <span class="tl-date"><span class="badge badge-brand">Current</span> Jan 2025 – Present</span>
+        </button>
+        <div class="tl-body" id="exp-1">
+          <ul>
+            <li>Implemented Single Sign-On (SSO) between Salesforce and LearnUpon, enabling secure one-click SAML access (~6–10 new user logins daily) and eliminating manual identity management.</li>
+            <li>Designed and built the complete customer onboarding journey on Salesforce Experience Cloud — full site, guided flows, and self-service portal — supporting 20–30+ new customer self-registrations per day.</li>
+            <li>Rebuilt the customer-facing Case dashboard on Experience Cloud from scratch as a custom Lightning Web Component UI — a modern, responsive experience for customers to track, filter, and manage their support cases in one place.</li>
+            <li>Developed automated invoicing and payment processing for US customers, including auto top-up mandates and recurring billing — processing ~$3M in customer billing last quarter while cutting manual finance effort by ~90%.</li>
+            <li>Engineered Boomi and NetSuite integrations, automating the sync of thousands of financial and customer records daily, with Kafka powering event-driven, near real-time data streaming.</li>
+            <li>Built EDI integrations connecting Salesforce with 3PL / logistics warehouse systems and customer &amp; distributor ERPs — automating the exchange of order, shipment, and fulfilment documents across multiple systems.</li>
+            <li>Built a sign-up verification process that detects non-company-domain emails and routes them to guest-level access, protecting data quality at the source.</li>
           </ul>
+        </div>
+      </article>
 
-          <div class="tags">
-            <span class="tag">TypeScript</span>
-            <span class="tag">VS Code Extension API</span>
-            <span class="tag">Salesforce CLI &amp; Tooling API</span>
-            <span class="tag">LLM / AI APIs</span>
-          </div>
+      <article class="tl-item is-open">
+        <button class="tl-toggle" aria-expanded="true" aria-controls="exp-2">
+          <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
+          <span class="obj-icon obj-icon-xs obj-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 8.5 3.5 3.5 0 0 1 17.5 18H7z"/></svg></span>
+          <span class="tl-title">
+            <span class="tl-role">Service Cloud Engineer</span>
+            <span class="tl-org">Salesforce · Hyderabad, India</span>
+          </span>
+          <span class="tl-date">Mar 2023 – Dec 2024</span>
+        </button>
+        <div class="tl-body" id="exp-2">
+          <ul>
+            <li>Delivered Service Cloud solutions for UK- and US-based clients, translating business and technical requirements into scalable Salesforce implementations.</li>
+            <li>Resolved complex issues across Single Sign-On, MFA, Flows, Apex triggers/classes, asynchronous Apex, Visualforce, and LWC.</li>
+            <li>Built integrations using REST, SOAP and Bulk APIs, Platform Events, and Change Data Capture; designed custom objects and deployed Apex classes, controllers, and triggers.</li>
+            <li>Developed Lightning Web Components for communities to locate and create investment applications; authored knowledge articles and documentation.</li>
+            <li>Participated in Agile/Scrum ceremonies and wrote Apex test classes to ensure maximum code coverage.</li>
+          </ul>
+        </div>
+      </article>
 
-          <div class="project-links">
-            <a href="https://github.com/amanparate/apex-doctor" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View on GitHub →</a>
-          </div>
+      <article class="tl-item is-open">
+        <button class="tl-toggle" aria-expanded="true" aria-controls="exp-3">
+          <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
+          <span class="obj-icon obj-icon-xs obj-icon-purple" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+          <span class="tl-title">
+            <span class="tl-role">Programmer Analyst</span>
+            <span class="tl-org">Cognizant Technology Solutions · Pune, India</span>
+          </span>
+          <span class="tl-date">Nov 2021 – Feb 2023</span>
+        </button>
+        <div class="tl-body" id="exp-3">
+          <ul>
+            <li>Developed Salesforce solutions for US-based retail clients, including a Case Management System using LWC, Apex classes, and triggers.</li>
+            <li>Configured Salesforce administration: profiles, roles, page layouts, org-wide defaults, sharing rules, permission sets, approval processes, and assignment rules.</li>
+            <li>Built automation with Workflows, Process Builder, Flows, Phone-to-Case, and Email-to-Case; implemented IVR functionality and batch Apex.</li>
+            <li>Performed metadata migration and bulk data operations using Change Sets, Workbench, Apex Data Loader, VS Code, and GitHub.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="card" id="projects" aria-labelledby="projTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-green" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m9 9 3 3-3 3M13 15h3"/></svg>
+      </span>
+      <h2 id="projTitle" class="card-title">Projects <span class="card-count">(1)</span></h2>
+      <a class="link-btn" href="https://github.com/amanparate?tab=repositories" target="_blank" rel="noopener">View All on GitHub</a>
+    </header>
+
+    <div class="card-body project">
+      <div class="project-info">
+        <div class="project-title-row">
+          <h3 class="project-title">Apex Doctor — VS Code Extension</h3>
+          <span class="badge badge-success">Open Source · MIT</span>
+        </div>
+        <p class="project-lead">
+          A TypeScript VS Code extension that turns raw Salesforce Apex debug logs into structured, actionable diagnostics —
+          governor-limit parsing, SOQL-in-loop detection, order-of-execution reconstruction, a CPU &amp; heap profiler, and
+          AI-assisted root-cause analysis. Sole architect, developer, and maintainer.
+        </p>
+
+        <dl class="stat-row">
+          <div><dt>Downloads</dt><dd>2,000+</dd></div>
+          <div><dt>Releases</dt><dd>14+</dd></div>
+          <div><dt>Triage time</dt><dd>~30 min → seconds</dd></div>
+          <div><dt>Distribution</dt><dd>VS Code Marketplace · Open VSX</dd></div>
+        </dl>
+
+        <ul class="project-features">
+          <li>Local, deterministic analysis engine — governor-limit parsing, SOQL-in-loop and full-table-scan detection, trigger-order visualisation, async (@future / Queueable / Batch) tracer — all offline.</li>
+          <li>CPU &amp; heap profiler with self-time attribution that pinpoints the exact method and SOQL query consuming runtime and memory.</li>
+          <li>AI root-cause analysis across five providers (OpenRouter, Anthropic, OpenAI, Google Gemini, Salesforce Einstein Trust Layer) — PII-safe summaries only, keys in encrypted SecretStorage.</li>
+          <li>Live log streaming, trace-flag management, SOQL Query Plan analysis, test-coverage overlays, natural-language log querying, and one-click "Suggest Fix" refactors — built on the Salesforce CLI &amp; Tooling API.</li>
+        </ul>
+
+        <ul class="pills">
+          <li class="pill">TypeScript</li><li class="pill">VS Code Extension API</li><li class="pill">Salesforce CLI &amp; Tooling API</li><li class="pill">LLM / AI APIs</li>
+        </ul>
+
+        <div class="project-actions">
+          <a href="https://github.com/amanparate/apex-doctor" target="_blank" rel="noopener" class="btn btn-brand">View on GitHub</a>
         </div>
       </div>
 
-      <div class="projects-more reveal">
-        <p>More Salesforce experiments &amp; scripts live on my GitHub.</p>
-        <a href="https://github.com/amanparate?tab=repositories" target="_blank" rel="noopener" class="btn btn-outline btn-sm">See all repositories →</a>
+      <!-- VS Code style window -->
+      <div class="editor" aria-label="Apex Doctor diagnosing an Apex debug log (illustrative)">
+        <div class="editor-titlebar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="editor-title">AccountTrigger.log — Apex Doctor</span>
+        </div>
+        <div class="editor-tabs">
+          <span class="editor-tab is-active">AccountTrigger.log</span>
+          <span class="editor-tab">AccountTrigger.cls</span>
+        </div>
+        <pre class="editor-code"><code><span class="ln">1</span><span class="ts">12:01:03.044</span> <span class="ev">CODE_UNIT_STARTED</span>|[EXTERNAL]|AccountTrigger on Account trigger event AfterUpdate
+<span class="ln">2</span><span class="ts">12:01:03.045</span> <span class="ev">USER_DEBUG</span>|[18]|DEBUG|<span class="st">Processing 200 accounts</span>
+<span class="ln">3</span><span class="ts">12:01:03.046</span> <span class="ev ev-soql">SOQL_EXECUTE_BEGIN</span>|[42]|Aggregations:0|<span class="st">SELECT Id, Email FROM Contact WHERE AccountId = :acc.Id</span>
+<span class="ln">4</span><span class="ts">12:01:03.052</span> <span class="ev ev-soql">SOQL_EXECUTE_END</span>|[42]|Rows:37
+<span class="ln">5</span><span class="ts">12:01:03.053</span> <span class="ev ev-soql">SOQL_EXECUTE_BEGIN</span>|[42]|Aggregations:0|<span class="st">SELECT Id, Email FROM Contact WHERE AccountId = :acc.Id</span>
+<span class="ln">6</span><span class="cm">  ⋮  97 more identical queries</span>
+<span class="ln">7</span><span class="ts">12:01:04.911</span> <span class="ev ev-warn">LIMIT_USAGE_FOR_NS</span>|(default)|Number of SOQL queries: <span class="hl">100 out of 100 ******* CLOSE TO LIMIT</span>
+<span class="ln">8</span><span class="ts">12:01:04.912</span> <span class="ev ev-err">EXCEPTION_THROWN</span>|[42]|<span class="hl">System.LimitException: Too many SOQL queries: 101</span></code></pre>
+        <div class="editor-problems">
+          <div class="editor-problems-head">PROBLEMS <span class="editor-problems-count">3</span></div>
+          <ul>
+            <li><span class="prob prob-err">✖</span> System.LimitException: Too many SOQL queries: 101 <span class="prob-loc">AccountTrigger.cls:42</span></li>
+            <li><span class="prob prob-warn">▲</span> SOQL query inside a loop over <code>Trigger.new</code> — bulkify with a single query keyed by AccountId <span class="prob-loc">AccountTrigger.cls:42</span> <span class="prob-fix">Suggest Fix</span></li>
+            <li><span class="prob prob-warn">▲</span> CPU time 8,912 ms of 10,000 ms limit (89%) — hotspot: <code>ContactSyncService.sync()</code> <span class="prob-loc">self-time 6,204 ms</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section section-alt" id="contact">
-    <div class="container">
-      <p class="section-kicker reveal">Contact</p>
-      <h2 class="section-title reveal">Let's build something on Salesforce.</h2>
-      <p class="section-lead reveal">
-        Open to new opportunities, including international relocation &amp; visa sponsorship. Feel free to reach out.
-      </p>
+  <!-- ============ CONTACT ============ -->
+  <section class="card" id="contact" aria-labelledby="contactTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-pink" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
+      </span>
+      <h2 id="contactTitle" class="card-title">Contact</h2>
+      <span class="card-header-meta">Open to new opportunities · international relocation &amp; visa sponsorship</span>
+    </header>
 
-      <div class="contact-grid reveal">
-        <a class="contact-card" href="mailto:amanparatesfdc@gmail.com">
-          <div class="contact-icon">✉️</div>
-          <div>
-            <h3>Email</h3>
-            <p>amanparatesfdc@gmail.com</p>
-          </div>
-        </a>
-        <a class="contact-card" href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener">
-          <div class="contact-icon">in</div>
-          <div>
-            <h3>LinkedIn</h3>
-            <p>linkedin.com/in/amanparate</p>
-          </div>
-        </a>
-        <a class="contact-card" href="https://github.com/amanparate" target="_blank" rel="noopener">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.77.12 3.06.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.18 0 1.57-.02 2.84-.02 3.23 0 .3.21.66.8.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
-          </div>
-          <div>
-            <h3>GitHub</h3>
-            <p>github.com/amanparate</p>
-          </div>
-        </a>
-        <div class="contact-card contact-card-static">
-          <div class="contact-icon">📍</div>
-          <div>
-            <h3>Location</h3>
-            <p>Pune, Maharashtra, India</p>
-          </div>
+    <div class="card-body contact-body">
+      <p class="contact-lead">Let's build something on Salesforce. Reach out on any channel below — email is the fastest.</p>
+
+      <dl class="detail-grid contact-grid">
+        <div class="field">
+          <dt class="field-label">Email</dt>
+          <dd class="field-value">
+            <a href="mailto:amanparatesfdc@gmail.com" id="emailLink">amanparatesfdc@gmail.com</a>
+            <button class="copy-btn" type="button" data-copy="amanparatesfdc@gmail.com" data-toast="Email address copied to clipboard." aria-label="Copy email address" title="Copy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            </button>
+          </dd>
         </div>
+        <div class="field"><dt class="field-label">LinkedIn</dt><dd class="field-value"><a href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener">linkedin.com/in/amanparate</a></dd></div>
+        <div class="field"><dt class="field-label">GitHub</dt><dd class="field-value"><a href="https://github.com/amanparate" target="_blank" rel="noopener">github.com/amanparate</a></dd></div>
+        <div class="field"><dt class="field-label">Location</dt><dd class="field-value">Pune, Maharashtra, India <span class="text-muted">(IST, UTC+5:30)</span></dd></div>
+      </dl>
+
+      <div class="contact-actions">
+        <a href="mailto:amanparatesfdc@gmail.com?subject=Hello%20Aman" class="btn btn-brand">Send Email</a>
+        <a href="assets/Aman_Parate_Resume.pdf" class="btn btn-neutral" download data-toast="Resume downloaded. Thanks for taking a look!">Download Resume</a>
       </div>
     </div>
   </section>
 
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Aman Parate · Built with HTML, CSS &amp; JavaScript.</p>
+    <p class="footer-note">UI inspired by the Salesforce Lightning Design System. This is a personal portfolio and is not affiliated with or endorsed by Salesforce.</p>
+  </footer>
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> Aman Parate. Built with HTML, CSS &amp; JavaScript.</p>
-    <a href="#top" class="back-to-top">Back to top ↑</a>
-  </div>
-</footer>
+<!-- ============ UTILITY BAR ============ -->
+<div class="utility-bar" aria-label="Utility bar">
+  <a href="assets/Aman_Parate_Resume.pdf" class="utility-item" download data-toast="Resume downloaded. Thanks for taking a look!">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v6h6"/></svg> Resume
+  </a>
+  <a href="mailto:amanparatesfdc@gmail.com" class="utility-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg> Email
+  </a>
+  <a href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" class="utility-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg> LinkedIn
+  </a>
+  <a href="#top" class="utility-item utility-right">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg> Back to top
+  </a>
+</div>
+
+<!-- Toast container -->
+<div class="toast-region" id="toastRegion" aria-live="polite"></div>
 
 <script src="js/script.js"></script>
 </body>

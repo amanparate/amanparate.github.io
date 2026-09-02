@@ -2,66 +2,64 @@
 
 Personal developer portfolio for **Aman Parate** — Salesforce Developer.
 
-Live site (once deployed): `https://amanparate.github.io/`
+Live site: `https://amanparate.github.io/`
+
+The UI is modelled on Salesforce Lightning Experience (global header, app navigation
+bar, a Contact record highlights panel, a Sales Path for career stages, Lightning cards,
+Trailhead-style hexagon badges, and a utility bar). It is built with plain HTML/CSS/JS —
+no framework, no build step — using SLDS design tokens re-implemented by hand.
+
+> UI inspired by the Salesforce Lightning Design System. This is a personal portfolio and
+> is not affiliated with or endorsed by Salesforce.
 
 ## Structure
 
 ```
 .
-├── index.html          # all page content/markup
-├── css/style.css        # theme, layout, responsive styles
-├── js/script.js         # nav, dark mode, scroll animations, stat counters
+├── index.html           # all page content/markup
+├── css/style.css        # SLDS-inspired tokens, layout, components, dark mode, responsive
+├── js/script.js         # path stages, global search, toasts, timeline, theme, nav
 ├── assets/
 │   ├── favicon.svg
-│   └── Aman_Parate_Resume.pdf   # replace with an updated copy any time
+│   └── Aman_Parate_Resume.pdf   # replace with an updated copy any time (keep the filename)
 └── README.md
 ```
 
-No build step, no dependencies — it's plain HTML/CSS/JS, so it deploys directly to GitHub Pages.
+## Publishing changes
 
-## Deploy to GitHub Pages
+The repo lives locally at `~/Projects/amanparate.github.io`. After editing any file:
 
-1. Create a new repository on GitHub named **exactly** `amanparate.github.io`
-   (this special name makes GitHub serve it at the root domain automatically).
-2. Push this folder's contents to the `main` branch:
+```bash
+cd ~/Projects/amanparate.github.io
+git add .
+git commit -m "Describe what changed"
+git push
+```
 
-   ```bash
-   cd amanparate.github.io
-   git init
-   git add .
-   git commit -m "Initial portfolio"
-   git branch -M main
-   git remote add origin https://github.com/amanparate/amanparate.github.io.git
-   git push -u origin main
-   ```
+GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
+(`Cmd+Shift+R`) if you still see the old version.
 
-3. In the repo, go to **Settings → Pages**, and under "Build and deployment" confirm
-   the source is **Deploy from a branch**, branch `main`, folder `/ (root)`. (For a
-   `username.github.io` repo this is usually already the default — no Actions/build
-   step needed.)
-4. Wait a minute or two, then visit `https://amanparate.github.io/`.
+## Editing guide
 
-If you'd rather host it as a project site under an existing repo instead (e.g.
-`github.com/amanparate/portfolio`), it will be served at
-`https://amanparate.github.io/portfolio/` instead — same steps, just a different
-repo name and Pages will need to be enabled for that repo specifically.
+| What to change | Where |
+|---|---|
+| Name, title, tagline, highlight fields | `index.html` → `<section class="card highlights">` |
+| Career Path stages (labels) | `index.html` → `<ol class="path" id="careerPath">` |
+| Career Path details (Key Fields / Guidance text per stage) | `js/script.js` → `const STAGES = [...]` |
+| About / Details fields | `index.html` → `<section id="about">` |
+| Skills pills | `index.html` → `<section id="skills">` |
+| Certifications (hexagon badges, grouped by track) | `index.html` → `<section id="certifications">` — add an `<li class="cert">` inside the right track and bump the `(13)` count |
+| Work experience bullets | `index.html` → `<section id="experience">` |
+| Project card + VS Code log mock | `index.html` → `<section id="projects">` |
+| Contact details | `index.html` → `<section id="contact">` |
+| Colours / spacing tokens | top of `css/style.css` (`:root { --brand: ... }`), dark-mode overrides just below |
+| Resume PDF | overwrite `assets/Aman_Parate_Resume.pdf` |
 
-## Customizing
+### Notes
 
-- **Content**: everything is hand-written in `index.html` — search for the section
-  you want to change (`<section id="about">`, `<section id="projects">`, etc.).
-- **Colors/theme**: CSS custom properties live at the top of `css/style.css`
-  (`:root { --brand-600: ... }`). Dark mode variables are defined right below.
-- **Resume**: drop a new PDF at `assets/Aman_Parate_Resume.pdf` (same filename) to
-  update the "Resume" button without touching any markup, or rename both the file
-  and its two references in `index.html`.
-- **Projects**: the Projects section currently features Apex Doctor. To add another
-  project, duplicate the `.project-card` block and adjust the content, tags, and link.
-
-## Notes
-
-- The public phone number from the résumé was intentionally left off the public
-  page to avoid spam; email and LinkedIn are the primary contact channels. Add it
-  back in the Contact section of `index.html` if you'd like it listed.
-- Fonts (Inter, JetBrains Mono) load from Google Fonts; icons are inline SVG — no
-  external icon library needed.
+- The global search (top bar, or press `/`) indexes sections, skill pills, certifications,
+  roles, and the project automatically — nothing to maintain when you add content.
+- The current-role duration in the Career Path ("1 yr 9 mos") is computed at runtime from
+  `Jan 2025`; update the start date in `js/script.js` if you change roles.
+- The phone number from the résumé is intentionally left off the public page; email and
+  LinkedIn are the contact channels. Add it in the Contact card if you'd like it listed.
