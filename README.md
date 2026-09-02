@@ -20,8 +20,10 @@ no framework, no build step — using SLDS design tokens re-implemented by hand.
 ├── css/style.css        # SLDS-inspired tokens, layout, components, dark mode, responsive
 ├── js/script.js         # path stages, global search, toasts, timeline, theme, nav
 ├── assets/
+│   ├── aman.jpg                 # YOUR PHOTO — square, ≥ 400×400px (initials show until it exists)
 │   ├── favicon.svg
-│   └── Aman_Parate_Resume.pdf   # replace with an updated copy any time (keep the filename)
+│   ├── Aman_Parate_Resume.pdf   # replace with an updated copy any time (keep the filename)
+│   └── apex-doctor/*.webp       # real screenshots from the Apex Doctor repo
 └── README.md
 ```
 
@@ -43,14 +45,21 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 
 | What to change | Where |
 |---|---|
+| Your photo | drop a square JPG at `assets/aman.jpg` — nothing else to change |
 | Name, title, tagline, highlight fields | `index.html` → `<section class="card highlights">` |
+| My Story text + "Currently" block | `index.html` → `<section id="about">` |
+| How I Work principles / lead value | `index.html` → `<section id="how-i-work">` |
+| Case studies (text, diagrams, outcomes) | `index.html` → `<section id="case-studies">` — each `.tab-panel` is one study; diagrams are inline SVG |
+| Trailhead profile card (rank, badges, points, superbadges) | `js/script.js` → `const TRAILHEAD = {...}` — the card stays hidden until `profileUrl` is set |
+| Talks / blog posts / community | `js/script.js` → `const COMMUNITY = [...]` |
+| Apex Doctor screenshots | `assets/apex-doctor/` + the `.thumb` buttons in `<section id="projects">` |
 | Career Path stages (labels) | `index.html` → `<ol class="path" id="careerPath">` |
 | Career Path details (Key Fields / Guidance text per stage) | `js/script.js` → `const STAGES = [...]` |
-| About / Details fields | `index.html` → `<section id="about">` |
+| Details fields (years, downloads, education…) | `index.html` → `<section id="details">` |
 | Skills pills | `index.html` → `<section id="skills">` |
 | Certifications (hexagon badges, grouped by track) | `index.html` → `<section id="certifications">` — add an `<li class="cert">` inside the right track and bump the `(13)` count |
 | Work experience bullets | `index.html` → `<section id="experience">` |
-| Project card + VS Code log mock | `index.html` → `<section id="projects">` |
+| Project text, "Why I built it", features | `index.html` → `<section id="projects">` |
 | Contact details | `index.html` → `<section id="contact">` |
 | Colours / spacing tokens | top of `css/style.css` (`:root { --brand: ... }`), dark-mode overrides just below |
 | Resume PDF | overwrite `assets/Aman_Parate_Resume.pdf` |
@@ -59,6 +68,8 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 
 - The global search (top bar, or press `/`) indexes sections, skill pills, certifications,
   roles, and the project automatically — nothing to maintain when you add content.
+- The "Live from GitHub" tiles call the public GitHub API from the visitor's browser (60 requests/hour
+  per IP, no token). If it's rate-limited the tiles show "—" and a note; nothing breaks.
 - The current-role duration in the Career Path ("1 yr 9 mos") is computed at runtime from
   `Jan 2025`; update the start date in `js/script.js` if you change roles.
 - The phone number from the résumé is intentionally left off the public page; email and

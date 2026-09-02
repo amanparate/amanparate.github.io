@@ -45,7 +45,7 @@
       <a class="gh-icon-btn" href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
       </a>
-      <span class="gh-avatar" title="Aman Parate">AP</span>
+      <span class="gh-avatar avatar" title="Aman Parate"><img src="assets/aman.jpg" alt="" onerror="this.remove()" /><span class="avatar-initials">AP</span></span>
     </div>
   </div>
 </header>
@@ -64,6 +64,7 @@
 
     <ul class="app-tabs" id="navLinks">
       <li><a href="#about" class="app-tab nav-link">About</a></li>
+      <li><a href="#case-studies" class="app-tab nav-link">Case Studies</a></li>
       <li><a href="#skills" class="app-tab nav-link">Skills</a></li>
       <li><a href="#certifications" class="app-tab nav-link">Certifications</a></li>
       <li><a href="#experience" class="app-tab nav-link">Experience</a></li>
@@ -80,13 +81,11 @@
   <section class="card highlights" aria-labelledby="recordName">
     <div class="highlights-top">
       <div class="record-identity">
-        <span class="obj-icon obj-icon-contact" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        </span>
+        <span class="record-photo avatar" aria-hidden="true"><img src="assets/aman.jpg" alt="" onerror="this.remove()" /><span class="avatar-initials">AP</span></span>
         <div>
-          <p class="obj-label">Contact · Salesforce Developer</p>
+          <p class="obj-label">Contact · Salesforce Developer · Pune, India</p>
           <h1 class="record-name" id="recordName">Aman Parate</h1>
-          <p class="record-tagline">Apex · Lightning Web Components · Experience Cloud · Integrations · 13x Certified</p>
+          <p class="record-tagline">I design and own Salesforce systems end to end — from Experience Cloud portals to the ERP, logistics and LMS integrations behind them.</p>
         </div>
       </div>
 
@@ -151,8 +150,106 @@
     </div>
   </section>
 
-  <!-- ============ ABOUT / DETAILS ============ -->
-  <section class="card" id="about" aria-labelledby="aboutTitle">
+  <!-- ============ MY STORY ============ -->
+  <section class="card" id="about" aria-labelledby="storyTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-contact" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </span>
+      <h2 id="storyTitle" class="card-title">My Story</h2>
+      <span class="card-header-meta">Nagpur → Pune → Hyderabad → Pune · 2020 – present</span>
+    </header>
+    <div class="card-body story">
+      <div class="story-text">
+        <p>
+          I grew up in Nagpur and finished my B.E. in Computer Science at RTMNU in 2020. My first job at Cognizant put me on
+          Salesforce for US retail clients — a Case Management System in LWC and Apex — and I learned early that on this
+          platform the hard problems aren't in the code. They're in where the code meets the business process.
+        </p>
+        <p>
+          In 2023 I joined <strong>Salesforce</strong> itself as a Service Cloud Engineer, working with UK and US customers on
+          the unglamorous end of things: SSO and MFA that wouldn't cooperate, triggers and async Apex hitting limits,
+          integrations across REST, SOAP, Bulk API, Platform Events and Change Data Capture. Seeing how the platform breaks
+          at scale, across many different orgs, was the best architecture education I could have asked for.
+        </p>
+        <p>
+          Since 2025 I've owned the customer-facing Salesforce estate at <strong>Tarana Wireless</strong> end to end: the
+          Experience Cloud onboarding journey, a Case dashboard rebuilt from scratch in LWC, SAML SSO into LearnUpon,
+          automated US billing that processed ~$3M last quarter, and the Boomi, NetSuite, Kafka and EDI integrations that
+          keep Salesforce in step with finance, logistics and partner ERPs.
+        </p>
+        <p>
+          Along the way I built <strong>Apex Doctor</strong> because I was tired of spending 30 minutes reading debug logs by
+          hand. It's now used by 2,000+ developers. That's the pattern I keep coming back to: find the manual work, design the
+          system that removes it, and leave behind the tooling and documentation so the next person doesn't have to
+          rediscover it.
+        </p>
+      </div>
+      <aside class="story-side">
+        <h3 class="side-title">Currently</h3>
+        <ul class="now-list">
+          <li><span class="now-label">Building</span><span>EDI integrations between Salesforce, 3PL warehouses and partner ERPs</span></li>
+          <li><span class="now-label">Shipping</span><span>Apex Doctor <span id="nowRelease" class="text-muted"></span> for 2,000+ developers</span></li>
+          <li><span class="now-label">Exploring</span><span>Agentforce &amp; Data Cloud — certified in both, looking for the right production use case</span></li>
+          <li><span class="now-label">Next</span><span>Leading a platform team — architecture, integration design, and raising the engineering bar</span></li>
+        </ul>
+        <h3 class="side-title">Quick facts</h3>
+        <ul class="facts">
+          <li>B.E. Computer Science &amp; Engineering, RTMNU Nagpur (2020) · 8.3 CGPA</li>
+          <li>13x Salesforce Certified · 4.8+ years on the platform</li>
+          <li>English · Hindi · Marathi</li>
+          <li>Open to international relocation &amp; visa sponsorship</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ HOW I WORK ============ -->
+  <section class="card" id="how-i-work" aria-labelledby="howTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-teal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>
+      </span>
+      <h2 id="howTitle" class="card-title">How I Work</h2>
+      <span class="card-header-meta">Engineering principles · what I bring to a team</span>
+    </header>
+    <div class="card-body">
+      <div class="principles">
+        <article class="principle">
+          <span class="principle-num">01</span>
+          <h3>Design the system, not the ticket.</h3>
+          <p>Every feature lands inside an estate — portal, finance, logistics, LMS. I map the data flow and the failure modes across systems before I write a line of Apex.</p>
+        </article>
+        <article class="principle">
+          <span class="principle-num">02</span>
+          <h3>Bulkify, then automate.</h3>
+          <p>Governor limits are a design constraint, not a bug to fix later. Once it's solid, remove the human step entirely — recurring billing, self-registration, single sign-on.</p>
+        </article>
+        <article class="principle">
+          <span class="principle-num">03</span>
+          <h3>Integration boundaries are contracts.</h3>
+          <p>Each system owns specific records. Syncs are safe to re-run. Failures surface as work items, not silent log lines. Boomi for orchestrated sync, Kafka for events, EDI where partners live.</p>
+        </article>
+        <article class="principle">
+          <span class="principle-num">04</span>
+          <h3>If it hurt to debug, build the tool.</h3>
+          <p>Apex Doctor exists because 30-minute log triage was a tax on the whole team. Good engineering leaves behind tooling and documentation, not just closed tickets.</p>
+        </article>
+      </div>
+      <div class="lead-value">
+        <h3 class="side-title">Where I add value as a lead</h3>
+        <ul class="value-grid">
+          <li><strong>Architecture &amp; integration design</strong><span>Deciding what lives in Salesforce, what lives in the ERP, and how they talk — Boomi, Kafka, EDI, SAML — with clear ownership per object.</span></li>
+          <li><strong>End-to-end ownership</strong><span>From a stakeholder's requirement through design, build, release and the first month in production. No hand-offs into the void.</span></li>
+          <li><strong>Developer experience</strong><span>Tooling, documentation and standards a team actually uses — Apex Doctor was adopted internally before it was public.</span></li>
+          <li><strong>Business ↔ technical translation</strong><span>Finance, support and sales don't speak Apex. I turn their process into a design they can validate, then into a system that runs it.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DETAILS ============ -->
+  <section class="card" id="details" aria-labelledby="aboutTitle">
     <header class="card-header">
       <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
@@ -161,29 +258,6 @@
     </header>
 
     <div class="card-body">
-      <div class="field field-long">
-        <dt class="field-label">Description</dt>
-        <dd class="field-value">
-          <p>
-            I'm a Salesforce Developer with <strong>4.8+ years of experience</strong> across Apex development, Lightning
-            Web Components, platform configuration, and integrations — holding <strong>13 Salesforce certifications</strong>
-            spanning Platform Developer I &amp; II, JavaScript Developer I, Experience Cloud, Sales &amp; Service Cloud, and
-            the latest Agentforce, Data Cloud, and AI tracks.
-          </p>
-          <p>
-            I've designed and delivered end-to-end solutions on Salesforce Experience Cloud, automated billing and
-            invoicing pipelines processing millions of dollars a quarter, implemented Single Sign-On, and integrated
-            Salesforce with NetSuite, 3PL logistics systems, and partner ERPs via Boomi, EDI, and Kafka. I move comfortably
-            between declarative and programmatic development — Apex classes, triggers, batch &amp; async Apex, flows,
-            REST/SOAP APIs, and platform events — always with an eye on scalable, business-aligned implementations.
-          </p>
-          <p>
-            Outside client work, I build developer tools. <strong>Apex Doctor</strong>, my open-source VS Code extension,
-            turns raw Apex debug logs into structured diagnostics and has been downloaded 2,000+ times.
-          </p>
-        </dd>
-      </div>
-
       <dl class="detail-grid">
         <div class="field"><dt class="field-label">Years of Experience</dt><dd class="field-value">4.8+ <span class="text-muted">(Nov 2021 – present)</span></dd></div>
         <div class="field"><dt class="field-label">Certifications</dt><dd class="field-value">13 Salesforce certifications</dd></div>
@@ -194,6 +268,207 @@
         <div class="field"><dt class="field-label">Languages</dt><dd class="field-value">English, Hindi, Marathi</dd></div>
         <div class="field"><dt class="field-label">Relocation</dt><dd class="field-value">Open to international relocation &amp; visa sponsorship</dd></div>
       </dl>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDIES ============ -->
+  <section class="card" id="case-studies" aria-labelledby="csTitle">
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="6" rx="1"/><rect x="14" y="3" width="7" height="6" rx="1"/><rect x="8.5" y="15" width="7" height="6" rx="1"/><path d="M6.5 9v3h11V9M12 12v3"/></svg>
+      </span>
+      <h2 id="csTitle" class="card-title">Case Studies <span class="card-count">(3)</span></h2>
+      <span class="card-header-meta">Problem → Approach → Architecture → Outcome</span>
+    </header>
+
+    <div class="card-body">
+      <!-- System landscape -->
+      <div class="landscape">
+        <div class="landscape-head">
+          <h3>The system landscape I own at Tarana Wireless</h3>
+          <p>Salesforce is the hub. Everything a customer touches — onboarding, cases, billing, training — and everything finance and logistics need from it, runs through the integrations below.</p>
+        </div>
+        <svg class="diagram" viewBox="0 0 800 380" role="img" aria-label="System landscape: Experience Cloud portal, Salesforce core, LearnUpon via SAML SSO, Boomi to NetSuite, Kafka event streaming, and an EDI layer connecting a 3PL warehouse and partner ERPs. Apex Doctor supports the team as developer tooling.">
+          <defs><marker id="ar0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
+          <!-- edges -->
+          <path class="dg-edge dg-edge-dashed" d="M400 84 L400 130" marker-end="url(#ar0)"/>
+          <path class="dg-edge" d="M210 182 L290 182" marker-end="url(#ar0)"/>
+          <path class="dg-edge" d="M510 150 C560 150 560 68 600 68" marker-end="url(#ar0)"/>
+          <path class="dg-edge" d="M510 178 L560 178" marker-end="url(#ar0)"/>
+          <path class="dg-edge" d="M655 178 L690 178" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
+          <path class="dg-edge" d="M510 215 C560 215 560 253 600 253" marker-end="url(#ar0)"/>
+          <path class="dg-edge" d="M400 230 L400 300" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
+          <path class="dg-edge" d="M290 328 L230 328" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
+          <path class="dg-edge" d="M510 328 L570 328" marker-end="url(#ar0)" marker-start="url(#ar0)"/>
+          <!-- edge labels -->
+          <text class="dg-label" x="250" y="172" text-anchor="middle">portal traffic</text>
+          <text class="dg-label" x="590" y="124" text-anchor="middle">SAML SSO</text>
+          <text class="dg-label" x="540" y="205" text-anchor="middle">events</text>
+          <text class="dg-label" x="412" y="270" text-anchor="start">docs</text>
+          <!-- nodes -->
+          <g class="dg-node dg-tool" transform="translate(290 40)"><rect width="220" height="44" rx="8"/><text x="110" y="19" text-anchor="middle">Apex Doctor · VS Code</text><text class="dg-sub" x="110" y="34" text-anchor="middle">debug-log diagnostics for the team</text></g>
+          <g class="dg-node dg-ext" transform="translate(30 150)"><rect width="180" height="64" rx="8"/><text x="90" y="26" text-anchor="middle">Experience Cloud</text><text class="dg-sub" x="90" y="43" text-anchor="middle">customer portal · onboarding</text><text class="dg-sub" x="90" y="56" text-anchor="middle">Case dashboard (LWC)</text></g>
+          <g class="dg-node dg-sf" transform="translate(290 130)"><rect width="220" height="100" rx="8"/><text x="110" y="30" text-anchor="middle">Salesforce Core</text><text class="dg-sub" x="110" y="50" text-anchor="middle">Accounts · Contacts · Cases</text><text class="dg-sub" x="110" y="65" text-anchor="middle">Orders · Invoices · Payments</text><text class="dg-sub" x="110" y="84" text-anchor="middle">Apex · Flows · Platform Events · SAML IdP</text></g>
+          <g class="dg-node dg-ext" transform="translate(600 40)"><rect width="170" height="56" rx="8"/><text x="85" y="24" text-anchor="middle">LearnUpon (LMS)</text><text class="dg-sub" x="85" y="42" text-anchor="middle">one-click training access</text></g>
+          <g class="dg-node dg-mid" transform="translate(560 150)"><rect width="95" height="56" rx="8"/><text x="47" y="24" text-anchor="middle">Boomi</text><text class="dg-sub" x="47" y="42" text-anchor="middle">iPaaS flows</text></g>
+          <g class="dg-node dg-ext" transform="translate(690 150)"><rect width="95" height="56" rx="8"/><text x="47" y="24" text-anchor="middle">NetSuite</text><text class="dg-sub" x="47" y="42" text-anchor="middle">ERP · ledger</text></g>
+          <g class="dg-node dg-mid" transform="translate(600 228)"><rect width="170" height="50" rx="8"/><text x="85" y="22" text-anchor="middle">Kafka</text><text class="dg-sub" x="85" y="39" text-anchor="middle">near real-time event streaming</text></g>
+          <g class="dg-node dg-mid" transform="translate(290 300)"><rect width="220" height="56" rx="8"/><text x="110" y="24" text-anchor="middle">EDI Integration Layer</text><text class="dg-sub" x="110" y="42" text-anchor="middle">orders · shipments · fulfilment docs</text></g>
+          <g class="dg-node dg-ext" transform="translate(40 303)"><rect width="190" height="50" rx="8"/><text x="95" y="22" text-anchor="middle">3PL / Warehouse</text><text class="dg-sub" x="95" y="39" text-anchor="middle">logistics · WMS</text></g>
+          <g class="dg-node dg-ext" transform="translate(570 303)"><rect width="200" height="50" rx="8"/><text x="100" y="22" text-anchor="middle">Customer &amp; Distributor ERPs</text><text class="dg-sub" x="100" y="39" text-anchor="middle">partner systems</text></g>
+        </svg>
+        <ul class="dg-legend">
+          <li><span class="dg-swatch dg-swatch-sf"></span>Salesforce</li>
+          <li><span class="dg-swatch dg-swatch-mid"></span>Integration layer</li>
+          <li><span class="dg-swatch dg-swatch-ext"></span>External system</li>
+          <li><span class="dg-swatch dg-swatch-tool"></span>Developer tooling</li>
+        </ul>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist" aria-label="Case studies">
+        <button class="tab is-active" role="tab" id="tab-billing" aria-selected="true" aria-controls="cs-billing">Billing automation</button>
+        <button class="tab" role="tab" id="tab-onboarding" aria-selected="false" aria-controls="cs-onboarding" tabindex="-1">Onboarding &amp; SSO</button>
+        <button class="tab" role="tab" id="tab-edi" aria-selected="false" aria-controls="cs-edi" tabindex="-1">EDI integrations</button>
+      </div>
+
+      <!-- Case 1: Billing -->
+      <div class="tab-panel is-active" id="cs-billing" role="tabpanel" aria-labelledby="tab-billing">
+        <div class="cs">
+          <div class="cs-text">
+            <h3 class="cs-title">Automated US billing &amp; finance sync</h3>
+            <p class="cs-meta">Tarana Wireless · 2025 · Salesforce · Boomi · NetSuite · Kafka</p>
+            <h4>Problem</h4>
+            <p>US customers were invoiced and charged through a largely manual finance process — invoices assembled by hand, payments collected manually, and financial records re-entered into NetSuite. It didn't scale with a growing customer base, and it was error-prone in the one place errors cost the most.</p>
+            <h4>Approach</h4>
+            <ul>
+              <li>Modelled recurring billing in Salesforce with auto top-up payment mandates — customers authorise once, billing runs on a schedule.</li>
+              <li>Auto-invoicing driven by scheduled and batch Apex, designed around governor limits from day one.</li>
+              <li>Boomi flows and NetSuite saved searches sync financial and customer records daily, with no human touch.</li>
+              <li>Kafka carries billing events to consumers that can't wait for the daily batch.</li>
+            </ul>
+            <h4>Design decisions</h4>
+            <ul>
+              <li><strong>Two integration lanes on purpose.</strong> Boomi for orchestrated, auditable bulk sync; Kafka for low-latency events. One tool for both would have compromised one of them.</li>
+              <li><strong>Safe to re-run.</strong> Sync jobs are idempotent — a retry never double-bills a customer or double-posts to the ledger.</li>
+              <li><strong>Clear ownership per object.</strong> NetSuite is the system of record for the ledger; Salesforce owns the customer relationship and the billing schedule.</li>
+            </ul>
+          </div>
+          <div class="cs-visual">
+            <svg class="diagram" viewBox="0 0 800 250" role="img" aria-label="Billing flow: customer authorises a payment mandate in the Experience Cloud portal; the Salesforce billing engine runs recurring billing and auto-invoicing; Boomi syncs to NetSuite; Kafka streams billing events to downstream consumers.">
+              <defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
+              <path class="dg-edge" d="M140 123 L170 123" marker-end="url(#ar1)"/>
+              <path class="dg-edge" d="M330 123 L360 123" marker-end="url(#ar1)"/>
+              <path class="dg-edge" d="M560 105 C585 105 585 65 610 65" marker-end="url(#ar1)"/>
+              <path class="dg-edge" d="M690 65 L710 65" marker-end="url(#ar1)" marker-start="url(#ar1)"/>
+              <path class="dg-edge" d="M560 140 C585 140 585 185 610 185" marker-end="url(#ar1)"/>
+              <text class="dg-label" x="585" y="52" text-anchor="middle">daily sync</text>
+              <text class="dg-label" x="585" y="215" text-anchor="middle">events</text>
+              <g class="dg-node dg-ext" transform="translate(20 95)"><rect width="120" height="56" rx="8"/><text x="60" y="24" text-anchor="middle">Customer</text><text class="dg-sub" x="60" y="42" text-anchor="middle">US accounts</text></g>
+              <g class="dg-node dg-ext" transform="translate(170 95)"><rect width="160" height="56" rx="8"/><text x="80" y="24" text-anchor="middle">Experience Cloud</text><text class="dg-sub" x="80" y="42" text-anchor="middle">payment mandate · auto top-up</text></g>
+              <g class="dg-node dg-sf" transform="translate(360 80)"><rect width="200" height="86" rx="8"/><text x="100" y="28" text-anchor="middle">Salesforce Billing Engine</text><text class="dg-sub" x="100" y="48" text-anchor="middle">recurring billing · auto-invoicing</text><text class="dg-sub" x="100" y="64" text-anchor="middle">scheduled &amp; batch Apex</text></g>
+              <g class="dg-node dg-mid" transform="translate(610 40)"><rect width="80" height="50" rx="8"/><text x="40" y="30" text-anchor="middle">Boomi</text></g>
+              <g class="dg-node dg-ext" transform="translate(710 40)"><rect width="80" height="50" rx="8"/><text x="40" y="22" text-anchor="middle">NetSuite</text><text class="dg-sub" x="40" y="39" text-anchor="middle">ledger</text></g>
+              <g class="dg-node dg-mid" transform="translate(610 160)"><rect width="180" height="50" rx="8"/><text x="90" y="22" text-anchor="middle">Kafka</text><text class="dg-sub" x="90" y="39" text-anchor="middle">billing events → consumers</text></g>
+            </svg>
+            <dl class="outcomes">
+              <div><dt>Billed via auto-invoicing</dt><dd>~$3M <span>last quarter</span></dd></div>
+              <div><dt>Manual finance effort</dt><dd>−90%</dd></div>
+              <div><dt>Records synced</dt><dd>Thousands <span>daily</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2: Onboarding & SSO -->
+      <div class="tab-panel" id="cs-onboarding" role="tabpanel" aria-labelledby="tab-onboarding" hidden>
+        <div class="cs">
+          <div class="cs-text">
+            <h3 class="cs-title">Experience Cloud onboarding, Case dashboard &amp; SSO</h3>
+            <p class="cs-meta">Tarana Wireless · 2025 · Experience Cloud · LWC · Flows · SAML · LearnUpon</p>
+            <h4>Problem</h4>
+            <p>Every new customer was onboarded by hand — account setup, portal access, training-platform credentials — 20–30+ times a day. Slow for customers, expensive for the team, and sign-ups from personal email domains were quietly polluting account data.</p>
+            <h4>Approach</h4>
+            <ul>
+              <li>Built the full Experience Cloud site: self-registration, guided onboarding flows, and a self-service portal.</li>
+              <li>Domain verification at sign-up: company-domain emails map to the right Account; anything else lands in a guest-level Dummy Account with an on-screen prompt to switch.</li>
+              <li>SAML SSO from Salesforce into LearnUpon — one click into training, no second set of credentials.</li>
+              <li>Rebuilt the customer Case dashboard from scratch as a Lightning Web Component, retiring the legacy UI.</li>
+            </ul>
+            <h4>Design decisions</h4>
+            <ul>
+              <li><strong>Salesforce as the identity provider.</strong> User lifecycle lives in one place; deactivate once and access is gone everywhere.</li>
+              <li><strong>Guest access instead of rejection.</strong> A real prospect on a personal email isn't blocked — but they can't see another customer's data.</li>
+              <li><strong>Clicks first, code where it earns its place.</strong> Flows for the guided steps; LWC where the UI had to do more than Flow screens allow.</li>
+            </ul>
+          </div>
+          <div class="cs-visual">
+            <svg class="diagram" viewBox="0 0 800 270" role="img" aria-label="Onboarding flow: a new customer self-registers on the Experience Cloud site; domain verification routes company domains to the matching Account and others to a guest Dummy Account; Salesforce core acts as SAML identity provider for LearnUpon.">
+              <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
+              <path class="dg-edge" d="M140 128 L170 128" marker-end="url(#ar2)"/>
+              <path class="dg-edge" d="M360 128 L400 128" marker-end="url(#ar2)"/>
+              <path class="dg-edge" d="M570 128 L610 128" marker-end="url(#ar2)"/>
+              <path class="dg-edge" d="M695 171 L695 205" marker-end="url(#ar2)"/>
+              <text class="dg-label" x="380" y="80" text-anchor="middle">sign-up</text>
+              <text class="dg-label" x="722" y="192" text-anchor="start">SAML</text>
+              <g class="dg-node dg-ext" transform="translate(20 100)"><rect width="120" height="56" rx="8"/><text x="60" y="24" text-anchor="middle">New customer</text><text class="dg-sub" x="60" y="42" text-anchor="middle">20–30+ / day</text></g>
+              <g class="dg-node dg-ext" transform="translate(170 85)"><rect width="190" height="86" rx="8"/><text x="95" y="28" text-anchor="middle">Experience Cloud Site</text><text class="dg-sub" x="95" y="48" text-anchor="middle">self-registration · guided flows</text><text class="dg-sub" x="95" y="64" text-anchor="middle">Case dashboard (LWC)</text></g>
+              <g class="dg-node dg-mid" transform="translate(400 85)"><rect width="170" height="86" rx="8"/><text x="85" y="28" text-anchor="middle">Domain Verification</text><text class="dg-sub" x="85" y="48" text-anchor="middle">company domain → Account</text><text class="dg-sub" x="85" y="64" text-anchor="middle">else → guest Dummy Account</text></g>
+              <g class="dg-node dg-sf" transform="translate(610 85)"><rect width="170" height="86" rx="8"/><text x="85" y="28" text-anchor="middle">Salesforce Core</text><text class="dg-sub" x="85" y="48" text-anchor="middle">Contacts · Users · Cases</text><text class="dg-sub" x="85" y="64" text-anchor="middle">SAML identity provider</text></g>
+              <g class="dg-node dg-ext" transform="translate(610 205)"><rect width="170" height="50" rx="8"/><text x="85" y="22" text-anchor="middle">LearnUpon LMS</text><text class="dg-sub" x="85" y="39" text-anchor="middle">one-click SSO · 6–10 logins / day</text></g>
+            </svg>
+            <dl class="outcomes">
+              <div><dt>Self-registrations</dt><dd>20–30+ <span>per day, automated</span></dd></div>
+              <div><dt>SSO logins</dt><dd>~6–10 <span>per day, zero extra credentials</span></dd></div>
+              <div><dt>Legacy dashboard</dt><dd>Retired</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3: EDI -->
+      <div class="tab-panel" id="cs-edi" role="tabpanel" aria-labelledby="tab-edi" hidden>
+        <div class="cs">
+          <div class="cs-text">
+            <h3 class="cs-title">EDI integrations across 3PL &amp; partner ERPs</h3>
+            <p class="cs-meta">Tarana Wireless · 2026 · Salesforce · EDI · 3PL / WMS · Customer &amp; distributor ERPs</p>
+            <h4>Problem</h4>
+            <p>Orders, shipments and fulfilment updates moved between Salesforce, the 3PL warehouse and customers' own ERPs by email, spreadsheet and re-keying. Every hop was a delay and a chance for a mismatch nobody noticed until a customer did.</p>
+            <h4>Approach</h4>
+            <ul>
+              <li>EDI integrations connecting Salesforce with the 3PL / logistics warehouse system and with customer &amp; distributor ERPs.</li>
+              <li>Document mapping between Salesforce objects and each partner's format; acknowledgements and error handling so a failure surfaces instead of silently dropping.</li>
+              <li>Salesforce stays the single view of order and fulfilment status for support and sales.</li>
+            </ul>
+            <h4>Design decisions</h4>
+            <ul>
+              <li><strong>Each partner interface is a contract.</strong> Explicit document types, versioned mappings, and a named owner for every field.</li>
+              <li><strong>Fail loudly.</strong> Rejected or unacknowledged documents become work items, not lines in a log.</li>
+              <li><strong>Thin integration layer, rules in Salesforce.</strong> Adding a partner is a new mapping, not a new project.</li>
+            </ul>
+          </div>
+          <div class="cs-visual">
+            <svg class="diagram" viewBox="0 0 800 230" role="img" aria-label="EDI architecture: Salesforce exchanges order, shipment and fulfilment documents through an EDI integration layer with a 3PL warehouse system and with customer and distributor ERPs.">
+              <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
+              <path class="dg-edge" d="M220 115 L300 115" marker-end="url(#ar3)" marker-start="url(#ar3)"/>
+              <path class="dg-edge" d="M500 95 C540 95 540 68 580 68" marker-end="url(#ar3)" marker-start="url(#ar3)"/>
+              <path class="dg-edge" d="M500 135 C540 135 540 168 580 168" marker-end="url(#ar3)" marker-start="url(#ar3)"/>
+              <text class="dg-label" x="260" y="105" text-anchor="middle">documents</text>
+              <text class="dg-label" x="680" y="30" text-anchor="middle">orders → · ← ship notices &amp; inventory</text>
+              <text class="dg-label" x="680" y="214" text-anchor="middle">POs · invoices · acknowledgements</text>
+              <g class="dg-node dg-sf" transform="translate(20 70)"><rect width="200" height="90" rx="8"/><text x="100" y="30" text-anchor="middle">Salesforce</text><text class="dg-sub" x="100" y="50" text-anchor="middle">Orders · Shipments</text><text class="dg-sub" x="100" y="66" text-anchor="middle">fulfilment status · Cases</text></g>
+              <g class="dg-node dg-mid" transform="translate(300 60)"><rect width="200" height="110" rx="8"/><text x="100" y="30" text-anchor="middle">EDI Integration Layer</text><text class="dg-sub" x="100" y="52" text-anchor="middle">document mapping</text><text class="dg-sub" x="100" y="68" text-anchor="middle">acknowledgements</text><text class="dg-sub" x="100" y="84" text-anchor="middle">error handling &amp; retries</text></g>
+              <g class="dg-node dg-ext" transform="translate(580 40)"><rect width="200" height="56" rx="8"/><text x="100" y="24" text-anchor="middle">3PL / Warehouse (WMS)</text><text class="dg-sub" x="100" y="42" text-anchor="middle">logistics · inventory</text></g>
+              <g class="dg-node dg-ext" transform="translate(580 140)"><rect width="200" height="56" rx="8"/><text x="100" y="24" text-anchor="middle">Customer &amp; Distributor ERPs</text><text class="dg-sub" x="100" y="42" text-anchor="middle">partner systems</text></g>
+            </svg>
+            <dl class="outcomes">
+              <div><dt>Partner systems</dt><dd>Multiple <span>on one integration pattern</span></dd></div>
+              <div><dt>Manual re-keying</dt><dd>Eliminated</dd></div>
+              <div><dt>Order → fulfilment</dt><dd>Visible <span>in Salesforce</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -312,6 +587,22 @@
     </div>
   </section>
 
+  <!-- ============ TRAILHEAD & COMMUNITY (rendered from config in js/script.js) ============ -->
+  <section class="card" id="trailhead" aria-labelledby="thTitle" hidden>
+    <header class="card-header">
+      <span class="obj-icon obj-icon-sm obj-icon-green" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 20 6-11 4 7 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg>
+      </span>
+      <h2 id="thTitle" class="card-title">Trailhead &amp; Community</h2>
+      <a class="link-btn" id="thProfileLink" href="#" target="_blank" rel="noopener">View Trailblazer Profile</a>
+    </header>
+    <div class="card-body th-body">
+      <dl class="th-stats" id="thStats"></dl>
+      <div id="thSuperbadges" class="th-superbadges"></div>
+      <ul id="communityList" class="community-list"></ul>
+    </div>
+  </section>
+
   <!-- ============ EXPERIENCE ============ -->
   <section class="card" id="experience" aria-labelledby="expTitle">
     <header class="card-header">
@@ -401,67 +692,73 @@
       <a class="link-btn" href="https://github.com/amanparate?tab=repositories" target="_blank" rel="noopener">View All on GitHub</a>
     </header>
 
-    <div class="card-body project">
-      <div class="project-info">
-        <div class="project-title-row">
+    <div class="card-body project-v2">
+      <div class="project-head">
+        <div>
           <h3 class="project-title">Apex Doctor — VS Code Extension</h3>
-          <span class="badge badge-success">Open Source · MIT</span>
+          <p class="project-lead">Diagnose Salesforce Apex debug logs in seconds — AI root-cause analysis, live log streaming, performance insights, trace-flag setup, and one-click navigation to Apex source, all inside VS Code. Sole architect, developer and maintainer.</p>
         </div>
-        <p class="project-lead">
-          A TypeScript VS Code extension that turns raw Salesforce Apex debug logs into structured, actionable diagnostics —
-          governor-limit parsing, SOQL-in-loop detection, order-of-execution reconstruction, a CPU &amp; heap profiler, and
-          AI-assisted root-cause analysis. Sole architect, developer, and maintainer.
-        </p>
-
-        <dl class="stat-row">
-          <div><dt>Downloads</dt><dd>2,000+</dd></div>
-          <div><dt>Releases</dt><dd>14+</dd></div>
-          <div><dt>Triage time</dt><dd>~30 min → seconds</dd></div>
-          <div><dt>Distribution</dt><dd>VS Code Marketplace · Open VSX</dd></div>
-        </dl>
-
-        <ul class="project-features">
-          <li>Local, deterministic analysis engine — governor-limit parsing, SOQL-in-loop and full-table-scan detection, trigger-order visualisation, async (@future / Queueable / Batch) tracer — all offline.</li>
-          <li>CPU &amp; heap profiler with self-time attribution that pinpoints the exact method and SOQL query consuming runtime and memory.</li>
-          <li>AI root-cause analysis across five providers (OpenRouter, Anthropic, OpenAI, Google Gemini, Salesforce Einstein Trust Layer) — PII-safe summaries only, keys in encrypted SecretStorage.</li>
-          <li>Live log streaming, trace-flag management, SOQL Query Plan analysis, test-coverage overlays, natural-language log querying, and one-click "Suggest Fix" refactors — built on the Salesforce CLI &amp; Tooling API.</li>
-        </ul>
-
-        <ul class="pills">
-          <li class="pill">TypeScript</li><li class="pill">VS Code Extension API</li><li class="pill">Salesforce CLI &amp; Tooling API</li><li class="pill">LLM / AI APIs</li>
-        </ul>
-
-        <div class="project-actions">
-          <a href="https://github.com/amanparate/apex-doctor" target="_blank" rel="noopener" class="btn btn-brand">View on GitHub</a>
+        <div class="project-badges">
+          <span class="badge badge-success">Open Source · MIT</span>
+          <span class="badge badge-brand">2,000+ downloads</span>
+          <span class="badge">VS Code Marketplace · Open VSX</span>
         </div>
       </div>
 
-      <!-- VS Code style window -->
-      <div class="editor" aria-label="Apex Doctor diagnosing an Apex debug log (illustrative)">
-        <div class="editor-titlebar">
-          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
-          <span class="editor-title">AccountTrigger.log — Apex Doctor</span>
-        </div>
-        <div class="editor-tabs">
-          <span class="editor-tab is-active">AccountTrigger.log</span>
-          <span class="editor-tab">AccountTrigger.cls</span>
-        </div>
-        <pre class="editor-code"><code><span class="ln">1</span><span class="ts">12:01:03.044</span> <span class="ev">CODE_UNIT_STARTED</span>|[EXTERNAL]|AccountTrigger on Account trigger event AfterUpdate
-<span class="ln">2</span><span class="ts">12:01:03.045</span> <span class="ev">USER_DEBUG</span>|[18]|DEBUG|<span class="st">Processing 200 accounts</span>
-<span class="ln">3</span><span class="ts">12:01:03.046</span> <span class="ev ev-soql">SOQL_EXECUTE_BEGIN</span>|[42]|Aggregations:0|<span class="st">SELECT Id, Email FROM Contact WHERE AccountId = :acc.Id</span>
-<span class="ln">4</span><span class="ts">12:01:03.052</span> <span class="ev ev-soql">SOQL_EXECUTE_END</span>|[42]|Rows:37
-<span class="ln">5</span><span class="ts">12:01:03.053</span> <span class="ev ev-soql">SOQL_EXECUTE_BEGIN</span>|[42]|Aggregations:0|<span class="st">SELECT Id, Email FROM Contact WHERE AccountId = :acc.Id</span>
-<span class="ln">6</span><span class="cm">  ⋮  97 more identical queries</span>
-<span class="ln">7</span><span class="ts">12:01:04.911</span> <span class="ev ev-warn">LIMIT_USAGE_FOR_NS</span>|(default)|Number of SOQL queries: <span class="hl">100 out of 100 ******* CLOSE TO LIMIT</span>
-<span class="ln">8</span><span class="ts">12:01:04.912</span> <span class="ev ev-err">EXCEPTION_THROWN</span>|[42]|<span class="hl">System.LimitException: Too many SOQL queries: 101</span></code></pre>
-        <div class="editor-problems">
-          <div class="editor-problems-head">PROBLEMS <span class="editor-problems-count">3</span></div>
-          <ul>
-            <li><span class="prob prob-err">✖</span> System.LimitException: Too many SOQL queries: 101 <span class="prob-loc">AccountTrigger.cls:42</span></li>
-            <li><span class="prob prob-warn">▲</span> SOQL query inside a loop over <code>Trigger.new</code> — bulkify with a single query keyed by AccountId <span class="prob-loc">AccountTrigger.cls:42</span> <span class="prob-fix">Suggest Fix</span></li>
-            <li><span class="prob prob-warn">▲</span> CPU time 8,912 ms of 10,000 ms limit (89%) — hotspot: <code>ContactSyncService.sync()</code> <span class="prob-loc">self-time 6,204 ms</span></li>
+      <!-- Real screenshots from the repo -->
+      <div class="gallery">
+        <figure class="gallery-main">
+          <img id="galleryMain" src="assets/apex-doctor/insights.webp" alt="Apex Doctor showing Performance Insights and Issues & Errors for an Apex debug log" width="1400" height="865" loading="lazy" />
+          <figcaption id="galleryCaption">Performance Insights, Issues &amp; Errors — the root cause of a failed transaction surfaced on one screen.</figcaption>
+        </figure>
+        <ul class="gallery-thumbs" role="list">
+          <li><button class="thumb is-active" type="button" data-src="assets/apex-doctor/insights.webp" data-alt="Apex Doctor showing Performance Insights and Issues & Errors for an Apex debug log" data-caption="Performance Insights, Issues &amp; Errors — the root cause of a failed transaction surfaced on one screen."><img src="assets/apex-doctor/insights-thumb.webp" alt="" loading="lazy" /><span>Insights &amp; Errors</span></button></li>
+          <li><button class="thumb" type="button" data-src="assets/apex-doctor/slowest-methods.webp" data-alt="Apex Doctor listing the slowest methods with clickable links to Apex source" data-caption="Slowest methods with self-time attribution — every row links straight to the Apex source."><img src="assets/apex-doctor/slowest-methods-thumb.webp" alt="" loading="lazy" /><span>Slowest methods</span></button></li>
+          <li><button class="thumb" type="button" data-src="assets/apex-doctor/timeline.webp" data-alt="Apex Doctor activity timeline and code units for a transaction" data-caption="Activity timeline and code units — the order of execution reconstructed from the raw log."><img src="assets/apex-doctor/timeline-thumb.webp" alt="" loading="lazy" /><span>Activity timeline</span></button></li>
+          <li><button class="thumb" type="button" data-src="assets/apex-doctor/soql-dml-limits.webp" data-alt="Apex Doctor showing SOQL, DML, debug statements and governor limit usage" data-caption="SOQL, DML, debug statements and governor limits at a glance."><img src="assets/apex-doctor/soql-dml-limits-thumb.webp" alt="" loading="lazy" /><span>SOQL · DML · limits</span></button></li>
+        </ul>
+      </div>
+
+      <div class="project-cols">
+        <div>
+          <h4 class="side-title">Why I built it</h4>
+          <p class="quote">Reading a huge Apex debug log by hand to find one SOQL-in-a-loop took me and my team about 30 minutes, every time. I wanted the answer in seconds — offline, deterministic, and without pasting customer data into a chatbot. So I built the tool I wished existed, and then shipped it for everyone else.</p>
+
+          <h4 class="side-title">What it does</h4>
+          <ul class="project-features">
+            <li>Local, deterministic analysis engine — governor-limit parsing, SOQL-in-loop and full-table-scan detection, trigger-order visualisation, async (@future / Queueable / Batch) tracer — all offline.</li>
+            <li>CPU &amp; heap profiler with self-time attribution that pinpoints the exact method and SOQL query consuming runtime and memory.</li>
+            <li>Live log streaming and trace-flag management from inside VS Code; SOQL Query Plan integration; execution-path diff between two logs.</li>
+            <li>AI root-cause analysis across five providers (OpenRouter, Anthropic, OpenAI, Google Gemini, Salesforce Einstein Trust Layer) — PII-safe summaries only, keys in encrypted SecretStorage.</li>
+            <li>Test-coverage overlays, natural-language "Ask the Log", and one-click "Suggest Fix" refactors with diff preview — built on the Salesforce CLI &amp; Tooling API.</li>
           </ul>
+
+          <ul class="pills">
+            <li class="pill">TypeScript</li><li class="pill">VS Code Extension API</li><li class="pill">Salesforce CLI &amp; Tooling API</li><li class="pill">LLM / AI APIs</li>
+          </ul>
+
+          <div class="project-actions">
+            <a href="https://github.com/amanparate/apex-doctor" target="_blank" rel="noopener" class="btn btn-brand">View on GitHub</a>
+            <a href="https://github.com/amanparate/apex-doctor#readme" target="_blank" rel="noopener" class="btn btn-neutral">Read the docs</a>
+          </div>
         </div>
+
+        <aside class="live-card" aria-live="polite">
+          <h4 class="side-title">Live from GitHub <span class="live-dot" aria-hidden="true"></span></h4>
+          <dl class="live-stats">
+            <div><dt>Latest release</dt><dd id="ghRelease">—</dd></div>
+            <div><dt>Released</dt><dd id="ghReleaseDate">—</dd></div>
+            <div><dt>Last commit</dt><dd id="ghPushed">—</dd></div>
+            <div><dt>Releases</dt><dd id="ghReleases">—</dd></div>
+            <div><dt>Open issues</dt><dd id="ghIssues">—</dd></div>
+            <div><dt>License</dt><dd id="ghLicense">MIT</dd></div>
+          </dl>
+          <p class="live-note" id="ghNote">Fetched from the GitHub API when this page loads.</p>
+          <dl class="stat-row">
+            <div><dt>Triage time</dt><dd>~30 min → seconds</dd></div>
+            <div><dt>Adopted</dt><dd>Internally at Tarana before public release</dd></div>
+          </dl>
+        </aside>
       </div>
     </div>
   </section>

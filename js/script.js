@@ -139,7 +139,7 @@
     },
     {
       fields: {
-        Role: "Senior Salesforce Developer",
+        Role: "Senior Salesforce Developer / Tech Lead",
         Company: "Your team",
         Availability: "Open to conversations",
         Location: "Pune · open to international relocation & visa sponsorship",
@@ -223,9 +223,16 @@
     const push = (type, label, target, extra = "") => idx.push({ type, label, target, hay: `${label} ${extra}`.toLowerCase() });
 
     // Sections
-    [["about", "Details / About"], ["skills", "Skills"], ["certifications", "Certifications"],
-     ["experience", "Work Experience"], ["projects", "Projects"], ["contact", "Contact"]]
+    [["about", "My Story"], ["how-i-work", "How I Work"], ["case-studies", "Case Studies"], ["skills", "Skills"],
+     ["certifications", "Certifications"], ["experience", "Work Experience"], ["projects", "Projects"], ["contact", "Contact"]]
       .forEach(([id, label]) => { const el = document.getElementById(id); if (el) push("Section", label, el); });
+
+    // Case studies (selecting one activates its tab)
+    $$("#case-studies .tab").forEach((tab) => {
+      const panel = document.getElementById(tab.getAttribute("aria-controls"));
+      const title = panel ? $(".cs-title", panel)?.textContent.trim() : tab.textContent.trim();
+      push("Case Study", title, tab, $(".cs-meta", panel)?.textContent);
+    });
 
     // Skills (pills inside skills card)
     $$('[data-search-group="Skill"] .pill').forEach((p) => push("Skill", p.textContent.trim(), p));
@@ -276,8 +283,9 @@
     closeResults();
     input.blur();
     const t = item.target;
-    // Open the timeline item if it's a role
+    // Open the timeline item if it's a role; activate the tab if it's a case study
     if (t.classList.contains("tl-item")) setItem(t, true), refreshToggleAllLabel();
+    if (t.classList.contains("tab")) t.click();
     const headerOffset = 50 + 44 + 16;
     const y = t.getBoundingClientRect().top + window.scrollY - headerOffset - (item.type === "Section" ? 0 : 80);
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
@@ -323,4 +331,123 @@
       }
     });
   }
+
+  /* ---------- case-study tabs (SLDS tabs) ---------- */
+  $$(".tabs").forEach((tablist) => {
+    const tabs = $$('[role="tab"]', tablist);
+    const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
+    function activate(i) {
+      tabs.forEach((t, k) => {
+        const on = k === i;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-selected", String(on));
+        t.setAttribute("tabindex", on ? "0" : "-1");
+        if (panels[k]) { panels[k].hidden = !on; panels[k].classList.toggle("is-active", on); }
+      });
+    }
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => activate(i));
+      t.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault();
+          const n = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+          activate(n); tabs[n].focus();
+        }
+      });
+    });
+  });
+
+  /* ---------- project gallery ---------- */
+  const gMain = $("#galleryMain"), gCap = $("#galleryCaption");
+  $$(".thumb").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!gMain) return;
+      gMain.src = btn.dataset.src;
+      gMain.alt = btn.dataset.alt || "";
+      if (gCap) gCap.innerHTML = btn.dataset.caption || "";
+      $$(".thumb").forEach((b) => b.classList.toggle("is-active", b === btn));
+    });
+  });
+
+  /* ---------- live GitHub data (public API, no auth) ---------- */
+  const REPO = "amanparate/apex-doctor";
+  const relTime = (iso) => {
+    if (!iso) return "—";
+    const d = (Date.now() - new Date(iso).getTime()) / 864e5;
+    if (d < 1) return "today";
+    if (d < 2) return "yesterday";
+    if (d < 30) return `${Math.floor(d)} days ago`;
+    if (d < 365) return `${Math.floor(d / 30)} mo ago`;
+    return `${(d / 365).toFixed(1)} yrs ago`;
+  };
+  const fmtDate = (iso) => iso ? new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "—";
+  const setText = (id, v) => { const el = document.getElementById(id); if (el && v !== undefined && v !== null) el.textContent = v; };
+
+  async function loadGitHub() {
+    if (!$("#ghRelease")) return;
+    const get = (u) => fetch(u, { headers: { Accept: "application/vnd.github+json" } }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    const [repo, releases] = await Promise.all([
+      get(`https://api.github.com/repos/${REPO}`),
+      get(`https://api.github.com/repos/${REPO}/releases?per_page=100`),
+    ]);
+    if (!repo && !releases) { setText("ghNote", "GitHub data unavailable right now (offline or rate-limited)."); return; }
+    if (repo) {
+      setText("ghPushed", relTime(repo.pushed_at));
+      setText("ghIssues", String(repo.open_issues_count ?? "—"));
+      if (repo.license?.spdx_id) setText("ghLicense", repo.license.spdx_id);
+    }
+    if (Array.isArray(releases) && releases.length) {
+      const latest = releases.find((r) => !r.prerelease && !r.draft) || releases[0];
+      setText("ghRelease", latest.tag_name);
+      setText("ghReleaseDate", fmtDate(latest.published_at));
+      setText("ghReleases", String(releases.length));
+      setText("nowRelease", `(${latest.tag_name})`);
+    }
+    setText("ghNote", `Live from the GitHub API · updated ${new Date().toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}`);
+  }
+  loadGitHub();
+
+  /* ---------- Trailhead & community (fill these in; card stays hidden until profileUrl is set) ---------- */
+  const TRAILHEAD = {
+    profileUrl: "",          // e.g. "https://www.salesforce.com/trailblazer/amanparate"
+    rank: "",                // e.g. "Ranger"
+    badges: null,            // e.g. 120
+    points: null,            // e.g. 85000
+    trails: null,            // e.g. 12
+    superbadges: [],         // e.g. ["Apex Specialist", "Lightning Web Components Specialist"]
+  };
+  const COMMUNITY = [
+    // { type: "Talk", title: "Debugging Apex at scale", meta: "Pune Salesforce Developer Group · 2026", url: "https://..." },
+    // { type: "Blog", title: "Why I built Apex Doctor", meta: "Medium · 2026", url: "https://..." },
+  ];
+
+  (function renderTrailhead() {
+    const card = $("#trailhead");
+    if (!card) return;
+    const hasTH = !!TRAILHEAD.profileUrl;
+    const hasCommunity = COMMUNITY.length > 0;
+    if (!hasTH && !hasCommunity) return;               // stay hidden
+    card.hidden = false;
+    const link = $("#thProfileLink");
+    if (hasTH) link.href = TRAILHEAD.profileUrl; else link.hidden = true;
+
+    const stats = $("#thStats");
+    const stat = (k, v) => { if (v === null || v === undefined || v === "") return;
+      const d = document.createElement("div"); const dt = document.createElement("dt"); const dd = document.createElement("dd");
+      dt.textContent = k; dd.textContent = typeof v === "number" ? v.toLocaleString() : v; d.append(dt, dd); stats.appendChild(d); };
+    if (hasTH) { stat("Rank", TRAILHEAD.rank); stat("Badges", TRAILHEAD.badges); stat("Points", TRAILHEAD.points); stat("Trails", TRAILHEAD.trails); stat("Superbadges", TRAILHEAD.superbadges.length || null); }
+
+    const sb = $("#thSuperbadges");
+    TRAILHEAD.superbadges.forEach((name) => { const s = document.createElement("span"); s.className = "badge badge-brand"; s.textContent = name; sb.appendChild(s); });
+
+    const list = $("#communityList");
+    COMMUNITY.forEach((c) => {
+      const li = document.createElement("li");
+      const type = document.createElement("span"); type.className = "c-type"; type.textContent = c.type;
+      const title = document.createElement(c.url ? "a" : "span"); title.textContent = c.title;
+      if (c.url) { title.href = c.url; title.target = "_blank"; title.rel = "noopener"; }
+      const meta = document.createElement("span"); meta.className = "c-meta"; meta.textContent = c.meta || "";
+      li.append(type, title, meta); list.appendChild(li);
+    });
+  })();
 })();
