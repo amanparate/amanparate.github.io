@@ -1,6 +1,6 @@
 # amanparate.github.io
 
-Personal developer portfolio for **Aman Parate** — Salesforce Developer.
+Personal developer portfolio for **Aman Parate** — Senior Salesforce Developer.
 
 Live site: `https://amanparate.github.io/`
 
@@ -52,7 +52,7 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 | Case studies (text, diagrams, outcomes) | `index.html` → `<section id="case-studies">` — each `.tab-panel` is one study; diagrams are inline SVG |
 | Trailhead profile card (rank, badges, points, superbadges) | `js/script.js` → `const TRAILHEAD = {...}` — the card stays hidden until `profileUrl` is set |
 | Talks / blog posts / community | `js/script.js` → `const COMMUNITY = [...]` |
-| Apex Doctor screenshots | `assets/apex-doctor/` + the `.thumb` buttons in `<section id="projects">` |
+| Apex Doctor showcase (screenshots, features, stats) | `assets/apex-doctor/` + `<section id="projects">` — `.thumb` buttons swap the framed screenshot; `.feature-grid` holds the six feature tiles |
 | Career Path stages (labels) | `index.html` → `<ol class="path" id="careerPath">` |
 | Career Path details (Key Fields / Guidance text per stage) | `js/script.js` → `const STAGES = [...]` |
 | Details fields (years, downloads, education…) | `index.html` → `<section id="details">` |

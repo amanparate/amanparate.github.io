@@ -129,17 +129,17 @@
     },
     {
       fields: {
-        Role: "Software Engineer I (Salesforce Developer)",
+        Role: "Senior Salesforce Developer",
         Company: "Tarana Wireless",
         Duration: `Jan 2025 – Present · ${fmtDuration(monthsBetween(new Date(2025, 0, 1), now))}`,
         Location: "Pune, India",
       },
-      guidance: "Owning the Experience Cloud customer journey end to end — onboarding, a rebuilt Case dashboard in LWC, SSO with LearnUpon — plus automated US billing (~$3M last quarter) and Boomi, NetSuite, Kafka and EDI integrations.",
+      guidance: "Owning the Experience Cloud customer journey end to end — onboarding, a rebuilt Case dashboard in LWC, SSO with LearnUpon — plus usage-based US billing on Chargent (~$3M last quarter), Kafka and EDI integrations, and the Boomi → NetSuite ERP integration now in progress.",
       link: "#experience", linkText: "View Details",
     },
     {
       fields: {
-        Role: "Senior Salesforce Developer / Tech Lead",
+        Role: "Tech Lead / Salesforce Architect",
         Company: "Your team",
         Availability: "Open to conversations",
         Location: "Pune · open to international relocation & visa sponsorship",
@@ -369,6 +369,20 @@
     });
   });
 
+  /* ---------- screenshot lightbox ---------- */
+  const lb = $("#lightbox"), lbImg = $("#lightboxImg"), lbCap = $("#lightboxCap");
+  function openLightbox() {
+    if (!lb || !gMain) return;
+    lbImg.src = gMain.src; lbImg.alt = gMain.alt; lbCap.textContent = gCap ? gCap.textContent : "";
+    lb.hidden = false; document.body.style.overflow = "hidden";
+    $("#lightboxClose")?.focus();
+  }
+  function closeLightbox() { if (!lb) return; lb.hidden = true; document.body.style.overflow = ""; $("#shotOpen")?.focus(); }
+  $("#shotOpen")?.addEventListener("click", openLightbox);
+  $("#lightboxClose")?.addEventListener("click", (e) => { e.stopPropagation(); closeLightbox(); });
+  lb?.addEventListener("click", (e) => { if (e.target !== lbImg) closeLightbox(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && lb && !lb.hidden) closeLightbox(); });
+
   /* ---------- live GitHub data (public API, no auth) ---------- */
   const REPO = "amanparate/apex-doctor";
   const relTime = (iso) => {
@@ -390,7 +404,7 @@
       get(`https://api.github.com/repos/${REPO}`),
       get(`https://api.github.com/repos/${REPO}/releases?per_page=100`),
     ]);
-    if (!repo && !releases) { setText("ghNote", "GitHub data unavailable right now (offline or rate-limited)."); return; }
+    if (!repo && !releases) { setText("ghNote", "Adopted internally at Tarana before public release · live GitHub stats unavailable right now (offline or rate-limited)."); return; }
     if (repo) {
       setText("ghPushed", relTime(repo.pushed_at));
       setText("ghIssues", String(repo.open_issues_count ?? "—"));
@@ -403,7 +417,7 @@
       setText("ghReleases", String(releases.length));
       setText("nowRelease", `(${latest.tag_name})`);
     }
-    setText("ghNote", `Live from the GitHub API · updated ${new Date().toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}`);
+    setText("ghNote", `Adopted internally at Tarana before public release · live stats from the GitHub API, updated ${new Date().toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}`);
   }
   loadGitHub();
 
