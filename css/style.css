@@ -470,11 +470,13 @@ p { margin: 0; }
 /* ---------- certifications ---------- */
 .cert-grid {
   margin-top: 44px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 .cert-card {
+  flex: 0 1 calc((100% - 3 * 16px) / 4);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -672,7 +674,7 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md)
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .cert-grid { grid-template-columns: repeat(3, 1fr); }
+  .cert-card { flex-basis: calc((100% - 2 * 16px) / 3); }
   .contact-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -706,7 +708,7 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md)
   .scroll-cue { display: block; }
 
   .about-stats { grid-template-columns: 1fr 1fr; }
-  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .cert-card { flex-basis: calc((100% - 16px) / 2); }
   .contact-grid { grid-template-columns: 1fr; }
   .project-card { padding: 26px; }
   .section { padding: 76px 0; }
