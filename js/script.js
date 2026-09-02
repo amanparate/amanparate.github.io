@@ -409,12 +409,24 @@
 
   /* ---------- Trailhead & community (fill these in; card stays hidden until profileUrl is set) ---------- */
   const TRAILHEAD = {
-    profileUrl: "",          // e.g. "https://www.salesforce.com/trailblazer/amanparate"
-    rank: "",                // e.g. "Ranger"
-    badges: null,            // e.g. 120
-    points: null,            // e.g. 85000
-    trails: null,            // e.g. 12
-    superbadges: [],         // e.g. ["Apex Specialist", "Lightning Web Components Specialist"]
+    profileUrl: "https://www.salesforce.com/trailblazer/amanparate",
+    rank: "Triple Star Ranger",
+    badges: 423,
+    points: 194000,
+    trails: 43,
+    agentblazer: "Champion 2026",
+    superbadges: [
+      "Apex Specialist",
+      "Lightning Web Components Specialist",
+      "Data Integration Specialist",
+      "Process Automation Specialist",
+      "Object Relationships",
+      "Access Governance",
+      "User Access Specialist",
+      "User Access Fundamentals",
+      "User Access Troubleshooting",
+      "Extended User Access and Restriction",
+    ],
   };
   const COMMUNITY = [
     // { type: "Talk", title: "Debugging Apex at scale", meta: "Pune Salesforce Developer Group · 2026", url: "https://..." },
@@ -435,7 +447,7 @@
     const stat = (k, v) => { if (v === null || v === undefined || v === "") return;
       const d = document.createElement("div"); const dt = document.createElement("dt"); const dd = document.createElement("dd");
       dt.textContent = k; dd.textContent = typeof v === "number" ? v.toLocaleString() : v; d.append(dt, dd); stats.appendChild(d); };
-    if (hasTH) { stat("Rank", TRAILHEAD.rank); stat("Badges", TRAILHEAD.badges); stat("Points", TRAILHEAD.points); stat("Trails", TRAILHEAD.trails); stat("Superbadges", TRAILHEAD.superbadges.length || null); }
+    if (hasTH) { stat("Rank", TRAILHEAD.rank); stat("Badges", TRAILHEAD.badges); stat("Points", TRAILHEAD.points); stat("Trails", TRAILHEAD.trails); stat("Superbadges", TRAILHEAD.superbadges.length || null); stat("Agentblazer", TRAILHEAD.agentblazer); }
 
     const sb = $("#thSuperbadges");
     TRAILHEAD.superbadges.forEach((name) => { const s = document.createElement("span"); s.className = "badge badge-brand"; s.textContent = name; sb.appendChild(s); });
