@@ -387,7 +387,7 @@
   (function loadAppLogo() {
     const img = $("#appLogo"), box = $("#appIcon");
     if (!img || !box) return;
-    probeImage("assets/ApexDoctorLogo", (src) => { img.src = src; img.hidden = false; box.classList.add("has-logo"); }, ["png", "svg", "jpg", "jpeg", "webp", "PNG", "JPG"]);
+    probeImage("assets/ApexDoctorLogo", (src) => { img.src = src; img.hidden = false; box.classList.add("has-logo"); }, ["jpg", "png", "svg", "jpeg", "webp"]);
   })();
 
   /* ---------- screenshot lightbox ---------- */
