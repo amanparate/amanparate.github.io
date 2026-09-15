@@ -27,6 +27,8 @@ no build step.
 │   ├── og-image.png             # 1200×630 preview card for LinkedIn / WhatsApp / Twitter
 │   ├── Aman_Parate_Resume.pdf   # replace with an updated copy any time (keep the filename)
 │   └── apex-doctor/*.webp       # real screenshots from the Apex Doctor repo
+├── 404.html             # themed not-found page (GitHub Pages serves it automatically)
+├── robots.txt, sitemap.xml
 └── README.md
 ```
 
@@ -63,6 +65,8 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 | Certifications (hexagon badges, grouped by track) | `index.html` → `<section id="awards">` — add an `<li class="cert">` inside the right track and bump the `13` in the heading |
 | Trailhead card (rank, badges, points, superbadges) | `js/script.js` → `const TRAILHEAD = {...}` |
 | Talks / blog posts / community | `js/script.js` → `const COMMUNITY = [...]` (hidden while empty) |
+| LinkedIn recommendations | `js/script.js` → `const RECOMMENDATIONS = [...]` — one `{ quote, name, title, company, relation, url }` per person; the section stays hidden while the list is empty |
+| "Looking for" / availability | `index.html` → `<section id="contact">` — the lead paragraph and the two last fields |
 | Contact details | `index.html` → `<section id="contact">` |
 | Colours / fonts | top of `css/style.css` (`:root { --accent: ... }` — Salesforce-style blue) — the display font is Bebas Neue from Google Fonts, body is Inter |
 | Social preview image | regenerate `assets/og-image.png` (1200×630) |

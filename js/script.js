@@ -30,17 +30,17 @@
   }, { capture: true }));
 
   /* ---------- Who's watching? profiles ---------- */
-  const DEFAULT_ORDER = ["hero", "streaming", "story", "skills", "how", "cases", "seasons", "feature", "awards", "contact"];
+  const DEFAULT_ORDER = ["hero", "streaming", "story", "skills", "how", "cases", "seasons", "feature", "awards", "reviews", "contact"];
   const PROFILES = {
     recruiter: { name: "Recruiter", av: "av-accent", note: "Resume · 2 pages · PDF", rowTitle: "Top Picks for Recruiters",
       cta: { text: "Download Resume", href: "assets/Aman_Parate_Resume.pdf", download: true },
-      order: ["hero", "streaming", "awards", "seasons", "story", "cases", "how", "skills", "feature", "contact"] },
+      order: ["hero", "streaming", "awards", "reviews", "seasons", "story", "cases", "how", "skills", "feature", "contact"] },
     manager: { name: "Hiring Manager", av: "av-violet", note: "3 case files · architecture included", rowTitle: "Top Picks for Hiring Managers",
       cta: { text: "View Case Files", href: "#cases" },
-      order: ["hero", "streaming", "cases", "how", "seasons", "story", "skills", "feature", "awards", "contact"] },
+      order: ["hero", "streaming", "cases", "how", "reviews", "seasons", "story", "skills", "feature", "awards", "contact"] },
     developer: { name: "Developer", av: "av-green", note: "Open source · MIT · 2,000+ downloads", rowTitle: "Top Picks for Developers",
       cta: { text: "Apex Doctor on GitHub", href: "https://github.com/amanparate/apex-doctor", external: true },
-      order: ["hero", "streaming", "feature", "skills", "cases", "how", "story", "seasons", "awards", "contact"] },
+      order: ["hero", "streaming", "feature", "skills", "cases", "how", "story", "seasons", "awards", "reviews", "contact"] },
     guest: { name: "Just browsing", av: "av-grey", note: "13× Certified · Triple Star Ranger", rowTitle: "Start Here",
       cta: { text: "Read My Story", href: "#story" }, order: DEFAULT_ORDER },
   };
@@ -188,6 +188,29 @@
     }));
     render(); start();
   }
+
+  /* ---------- LinkedIn recommendations ---------- */
+  // Paste recommendations here. Section stays hidden while the list is empty.
+  // { quote: "…", name: "Full Name", title: "Their role", company: "Company", relation: "Managed Aman at Tarana", url: "https://www.linkedin.com/in/…" }
+  const RECOMMENDATIONS = [];
+  (function renderRecommendations() {
+    const sec = $("#reviews"), list = $("#recList"); if (!sec || !list) return;
+    if (!RECOMMENDATIONS.length) { sec.hidden = true; return; }
+    sec.hidden = false;
+    RECOMMENDATIONS.forEach((r) => {
+      const li = document.createElement("li"); li.className = "rec-card";
+      const q = document.createElement("blockquote"); q.textContent = r.quote; li.appendChild(q);
+      const who = document.createElement("div"); who.className = "rec-who";
+      const initials = document.createElement("span"); initials.className = "rec-avatar"; initials.textContent = (r.name || "").split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+      const meta = document.createElement("div");
+      const name = document.createElement("strong"); name.textContent = r.name;
+      if (r.url) { const a = document.createElement("a"); a.href = r.url; a.target = "_blank"; a.rel = "noopener"; a.appendChild(name); meta.appendChild(a); } else meta.appendChild(name);
+      const role = document.createElement("span"); role.className = "rec-role"; role.textContent = [r.title, r.company].filter(Boolean).join(", ");
+      meta.appendChild(role);
+      if (r.relation) { const rel = document.createElement("span"); rel.className = "rec-rel"; rel.textContent = r.relation; meta.appendChild(rel); }
+      who.appendChild(initials); who.appendChild(meta); li.appendChild(who); list.appendChild(li);
+    });
+  })();
 
   /* ---------- optional images: load if present ---------- */
   function probeImage(base, onFound, exts) {
