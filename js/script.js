@@ -32,17 +32,17 @@
   /* ---------- Who's watching? profiles ---------- */
   const DEFAULT_ORDER = ["hero", "streaming", "story", "skills", "how", "cases", "seasons", "feature", "awards", "contact"];
   const PROFILES = {
-    recruiter: { name: "Recruiter", av: "av-accent", match: "98% Match", rowTitle: "Top Picks for Recruiters",
+    recruiter: { name: "Recruiter", av: "av-accent", note: "Resume · 2 pages · PDF", rowTitle: "Top Picks for Recruiters",
       cta: { text: "Download Resume", href: "assets/Aman_Parate_Resume.pdf", download: true },
       order: ["hero", "streaming", "awards", "seasons", "story", "cases", "how", "skills", "feature", "contact"] },
-    manager: { name: "Hiring Manager", av: "av-violet", match: "97% Match", rowTitle: "Top Picks for Hiring Managers",
+    manager: { name: "Hiring Manager", av: "av-violet", note: "3 case files · architecture included", rowTitle: "Top Picks for Hiring Managers",
       cta: { text: "View Case Files", href: "#cases" },
       order: ["hero", "streaming", "cases", "how", "seasons", "story", "skills", "feature", "awards", "contact"] },
-    developer: { name: "Developer", av: "av-green", match: "99% Match", rowTitle: "Top Picks for Developers",
+    developer: { name: "Developer", av: "av-green", note: "Open source · MIT · 2,000+ downloads", rowTitle: "Top Picks for Developers",
       cta: { text: "Apex Doctor on GitHub", href: "https://github.com/amanparate/apex-doctor", external: true },
       order: ["hero", "streaming", "feature", "skills", "cases", "how", "story", "seasons", "awards", "contact"] },
-    guest: { name: "Just browsing", av: "av-grey", match: "96% Match", rowTitle: "Now Streaming",
-      cta: { text: "Start Watching", href: "#story" }, order: DEFAULT_ORDER },
+    guest: { name: "Just browsing", av: "av-grey", note: "13× Certified · Triple Star Ranger", rowTitle: "Start Here",
+      cta: { text: "Read My Story", href: "#story" }, order: DEFAULT_ORDER },
   };
   const PROFILE_KEY = "portfolio-profile";
   const overlay = $("#profiles");
@@ -61,7 +61,7 @@
       if (p.cta.download) cta.setAttribute("download", ""); else cta.removeAttribute("download");
       if (p.cta.external) { cta.setAttribute("target", "_blank"); cta.setAttribute("rel", "noopener"); } else { cta.removeAttribute("target"); cta.removeAttribute("rel"); }
     }
-    const m = $("#matchPct"); if (m) m.textContent = p.match;
+    const note = $("#posterNote"); if (note) note.textContent = p.note;
     const rt = $("#rowTitle"); if (rt) rt.textContent = p.rowTitle;
     // chip
     const chipAv = $("#chipAvatar"), chipName = $("#chipName");

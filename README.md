@@ -50,7 +50,7 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 |---|---|
 | Your photo | drop a square JPG at `assets/aman.jpg` — nothing else to change |
 | Apex Doctor logo | drop it at `assets/ApexDoctorLogo.jpg` (or .png/.svg/.webp) — the showcase picks it up automatically |
-| Profiles (names, "match %", row title, hero button, section order per profile) | `js/script.js` → `const PROFILES = {...}` — `order` lists the `data-ep` names of the sections |
+| Profiles (names, poster note, row title, hero button, section order per profile) | `js/script.js` → `const PROFILES = {...}` — `order` lists the `data-ep` names of the sections |
 | Profile picker text / avatars | `index.html` → `<div class="profiles">` |
 | Show title, subtitle, genre tags, description, hero footer line | `index.html` → `<section class="hero">` |
 | Episode thumbnails row ("Top Picks") | `index.html` → `<section id="streaming">` — each `<a class="ep-card">`; `data-tab="tab-billing"` etc. opens that case study |
