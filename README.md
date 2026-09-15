@@ -64,7 +64,7 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 | Trailhead card (rank, badges, points, superbadges) | `js/script.js` → `const TRAILHEAD = {...}` |
 | Talks / blog posts / community | `js/script.js` → `const COMMUNITY = [...]` (hidden while empty) |
 | Contact details | `index.html` → `<section id="contact">` |
-| Colours / fonts | top of `css/style.css` (`:root { --red: ... }`) — the display font is Bebas Neue from Google Fonts, body is Inter |
+| Colours / fonts | top of `css/style.css` (`:root { --accent: ... }` — Salesforce-style blue) — the display font is Bebas Neue from Google Fonts, body is Inter |
 | Social preview image | regenerate `assets/og-image.png` (1200×630) |
 | Resume PDF | overwrite `assets/Aman_Parate_Resume.pdf` |
 

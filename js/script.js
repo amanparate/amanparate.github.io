@@ -32,10 +32,10 @@
   /* ---------- Who's watching? profiles ---------- */
   const DEFAULT_ORDER = ["hero", "streaming", "story", "skills", "how", "cases", "seasons", "feature", "awards", "contact"];
   const PROFILES = {
-    recruiter: { name: "Recruiter", av: "av-red", match: "98% Match", rowTitle: "Top Picks for Recruiters",
+    recruiter: { name: "Recruiter", av: "av-accent", match: "98% Match", rowTitle: "Top Picks for Recruiters",
       cta: { text: "Download Resume", href: "assets/Aman_Parate_Resume.pdf", download: true },
       order: ["hero", "streaming", "awards", "seasons", "story", "cases", "how", "skills", "feature", "contact"] },
-    manager: { name: "Hiring Manager", av: "av-blue", match: "97% Match", rowTitle: "Top Picks for Hiring Managers",
+    manager: { name: "Hiring Manager", av: "av-violet", match: "97% Match", rowTitle: "Top Picks for Hiring Managers",
       cta: { text: "View Case Files", href: "#cases" },
       order: ["hero", "streaming", "cases", "how", "seasons", "story", "skills", "feature", "awards", "contact"] },
     developer: { name: "Developer", av: "av-green", match: "99% Match", rowTitle: "Top Picks for Developers",
