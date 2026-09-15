@@ -4,25 +4,27 @@ Personal developer portfolio for **Aman Parate** — Senior Salesforce Developer
 
 Live site: `https://amanparate.github.io/`
 
-The UI is modelled on Salesforce Lightning Experience (global header, app navigation
-bar, a Contact record highlights panel, a Sales Path for career stages, Lightning cards,
-Trailhead-style hexagon badges, and a utility bar). It is built with plain HTML/CSS/JS —
-no framework, no build step — using SLDS design tokens re-implemented by hand.
+The site is styled like a streaming-service "Original Series" page: a **"Who's watching?"
+profile picker** that reorders the sections for recruiters, hiring managers or developers,
+a cinematic hero with the show title, an **episode-thumbnail row** for the case studies,
+a **3D rotating skills carousel**, "seasons" for the career timeline, a feature-film style
+Apex Doctor showcase, and Trailhead-style hexagon badges. Plain HTML/CSS/JS — no framework,
+no build step.
 
-> UI inspired by the Salesforce Lightning Design System. This is a personal portfolio and
-> is not affiliated with or endorsed by Salesforce.
+> Not affiliated with any streaming service, or with Salesforce. No third-party logos are used.
 
 ## Structure
 
 ```
 .
-├── index.html           # all page content/markup
-├── css/style.css        # SLDS-inspired tokens, layout, components, dark mode, responsive
-├── js/script.js         # path stages, global search, toasts, timeline, theme, nav
+├── index.html           # all page content/markup (sections are "episodes")
+├── css/style.css        # theme tokens, profile picker, carousel, rows, seasons, responsive
+├── js/script.js         # profiles, carousel, tabs, lightbox, GitHub live stats, Trailhead card
 ├── assets/
 │   ├── aman.jpg                 # YOUR PHOTO — square, ≥ 400×400px (initials show until it exists)
-│   ├── ApexDoctorLogo.png       # Apex Doctor logo (png/svg/jpg/webp all work — exact name, case-sensitive)
+│   ├── ApexDoctorLogo.jpg       # Apex Doctor logo (jpg/png/svg/webp all work — exact name, case-sensitive)
 │   ├── favicon.svg
+│   ├── og-image.png             # 1200×630 preview card for LinkedIn / WhatsApp / Twitter
 │   ├── Aman_Parate_Resume.pdf   # replace with an updated copy any time (keep the filename)
 │   └── apex-doctor/*.webp       # real screenshots from the Apex Doctor repo
 └── README.md
@@ -47,32 +49,32 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 | What to change | Where |
 |---|---|
 | Your photo | drop a square JPG at `assets/aman.jpg` — nothing else to change |
-| Apex Doctor logo | drop it at `assets/ApexDoctorLogo.png` (or .svg/.jpg/.webp) — the showcase picks it up automatically |
-| Name, title, tagline, highlight fields | `index.html` → `<section class="card highlights">` |
-| My Story text + "Currently" block | `index.html` → `<section id="about">` |
-| How I Work principles / lead value | `index.html` → `<section id="how-i-work">` |
-| Case studies (text, diagrams, outcomes) | `index.html` → `<section id="case-studies">` — each `.tab-panel` is one study; diagrams are inline SVG |
-| Trailhead profile card (rank, badges, points, superbadges) | `js/script.js` → `const TRAILHEAD = {...}` — the card stays hidden until `profileUrl` is set |
-| Talks / blog posts / community | `js/script.js` → `const COMMUNITY = [...]` |
-| Apex Doctor showcase (screenshots, features, stats) | `assets/apex-doctor/` + `<section id="projects">` — `.thumb` buttons swap the framed screenshot; `.feature-grid` holds the six feature tiles |
-| Career Path stages (labels) | `index.html` → `<ol class="path" id="careerPath">` |
-| Career Path details (Key Fields / Guidance text per stage) | `js/script.js` → `const STAGES = [...]` |
-| Details fields (years, downloads, education…) | `index.html` → `<section id="details">` |
-| Skills pills | `index.html` → `<section id="skills">` |
-| Certifications (hexagon badges, grouped by track) | `index.html` → `<section id="certifications">` — add an `<li class="cert">` inside the right track and bump the `(13)` count |
-| Work experience bullets | `index.html` → `<section id="experience">` |
-| Project text, "Why I built it", features | `index.html` → `<section id="projects">` |
+| Apex Doctor logo | drop it at `assets/ApexDoctorLogo.jpg` (or .png/.svg/.webp) — the showcase picks it up automatically |
+| Profiles (names, "match %", row title, hero button, section order per profile) | `js/script.js` → `const PROFILES = {...}` — `order` lists the `data-ep` names of the sections |
+| Profile picker text / avatars | `index.html` → `<div class="profiles">` |
+| Show title, subtitle, genre tags, description, hero footer line | `index.html` → `<section class="hero">` |
+| Episode thumbnails row ("Top Picks") | `index.html` → `<section id="streaming">` — each `<a class="ep-card">`; `data-tab="tab-billing"` etc. opens that case study |
+| My Story text + "Currently" / Quick facts | `index.html` → `<section id="story">` |
+| Skills carousel cards | `index.html` → `<div class="carousel-stage">` — each `<article class="car-card">`; add/remove cards freely, the carousel re-spaces itself |
+| How I Work principles / lead value | `index.html` → `<section id="how">` |
+| Case studies (text, diagrams, outcomes) | `index.html` → `<section id="cases">` — each `.cs` panel is one study; diagrams are inline SVG |
+| Career "seasons" (roles and bullets) | `index.html` → `<section id="seasons">` — each `<article class="season">`; `is-airing` marks the current role |
+| Apex Doctor showcase (screenshots, features, stats) | `assets/apex-doctor/` + `<section id="feature">` — `.thumb` buttons swap the framed screenshot; `.feature-grid` holds the six feature tiles |
+| Certifications (hexagon badges, grouped by track) | `index.html` → `<section id="awards">` — add an `<li class="cert">` inside the right track and bump the `13` in the heading |
+| Trailhead card (rank, badges, points, superbadges) | `js/script.js` → `const TRAILHEAD = {...}` |
+| Talks / blog posts / community | `js/script.js` → `const COMMUNITY = [...]` (hidden while empty) |
 | Contact details | `index.html` → `<section id="contact">` |
-| Colours / spacing tokens | top of `css/style.css` (`:root { --brand: ... }`), dark-mode overrides just below |
+| Colours / fonts | top of `css/style.css` (`:root { --red: ... }`) — the display font is Bebas Neue from Google Fonts, body is Inter |
+| Social preview image | regenerate `assets/og-image.png` (1200×630) |
 | Resume PDF | overwrite `assets/Aman_Parate_Resume.pdf` |
 
 ### Notes
 
-- The global search (top bar, or press `/`) indexes sections, skill pills, certifications,
-  roles, and the project automatically — nothing to maintain when you add content.
+- The chosen profile is remembered in the visitor's browser (`localStorage`), so the picker
+  shows only on the first visit; the chip in the top bar reopens it.
 - The "Live from GitHub" tiles call the public GitHub API from the visitor's browser (60 requests/hour
   per IP, no token). If it's rate-limited the tiles show "—" and a note; nothing breaks.
-- The current-role duration in the Career Path ("1 yr 9 mos") is computed at runtime from
-  `Jan 2025`; update the start date in `js/script.js` if you change roles.
+- The skills carousel auto-rotates every ~4s, pauses on hover, and supports drag/swipe, the arrows,
+  the dots, and clicking a side card. It honours `prefers-reduced-motion`.
 - The phone number from the résumé is intentionally left off the public page; email and
-  LinkedIn are the contact channels. Add it in the Contact card if you'd like it listed.
+  LinkedIn are the contact channels.

@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aman Parate — Senior Salesforce Developer</title>
 <meta name="description" content="Aman Parate — Senior Salesforce Developer with 4.8+ years across Apex, LWC, Experience Cloud, and platform integrations. 13x Salesforce Certified. Creator of Apex Doctor." />
-<meta name="theme-color" content="#032D60" />
+<meta name="theme-color" content="#0b0b0b" />
 
-<!-- Open Graph -->
+<!-- Open Graph / Twitter -->
 <meta property="og:title" content="Aman Parate — Senior Salesforce Developer" />
 <meta property="og:description" content="4.8+ years building on the Salesforce platform: Apex, LWC, Experience Cloud, integrations & AI. 13x Salesforce Certified. Creator of Apex Doctor." />
 <meta property="og:type" content="website" />
@@ -22,152 +22,151 @@
 <meta name="twitter:image" content="https://amanparate.github.io/assets/og-image.png" />
 
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ============ GLOBAL HEADER ============ -->
-<header class="global-header" id="globalHeader">
-  <div class="gh-inner">
-    <a href="#top" class="gh-brand" aria-label="Home">
-      <span class="gh-logo">AP</span>
-      <span class="gh-brand-text">Aman Parate</span>
-    </a>
+<!-- ============ WHO'S WATCHING? ============ -->
+<div class="profiles" id="profiles" role="dialog" aria-modal="true" aria-labelledby="profilesTitle">
+  <div class="profiles-inner">
+    <p class="profiles-brand"><span class="brand-mark">AP</span></p>
+    <h1 id="profilesTitle">Who's watching?</h1>
+    <p class="profiles-sub">Pick a profile — the episodes reorder to lead with what you care about.</p>
+    <ul class="profile-list">
+      <li>
+        <button class="profile" type="button" data-profile="recruiter">
+          <span class="profile-avatar av-red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span>
+          <span class="profile-name">Recruiter</span>
+          <span class="profile-hint">Fit, metrics, resume</span>
+        </button>
+      </li>
+      <li>
+        <button class="profile" type="button" data-profile="manager">
+          <span class="profile-avatar av-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="6" rx="1"/><rect x="14" y="3" width="7" height="6" rx="1"/><rect x="8.5" y="15" width="7" height="6" rx="1"/><path d="M6.5 9v3h11V9M12 12v3"/></svg></span>
+          <span class="profile-name">Hiring Manager</span>
+          <span class="profile-hint">Architecture &amp; ownership</span>
+        </button>
+      </li>
+      <li>
+        <button class="profile" type="button" data-profile="developer">
+          <span class="profile-avatar av-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+          <span class="profile-name">Developer</span>
+          <span class="profile-hint">Code, tooling, open source</span>
+        </button>
+      </li>
+      <li>
+        <button class="profile" type="button" data-profile="guest">
+          <span class="profile-avatar av-grey" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+          <span class="profile-name">Just browsing</span>
+          <span class="profile-hint">The full series, in order</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
 
-    <div class="gh-search" id="globalSearch">
-      <svg class="gh-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input type="search" id="searchInput" placeholder="Search skills, certifications, roles…" autocomplete="off" aria-label="Search this portfolio" aria-controls="searchResults" aria-expanded="false" />
-      <ul class="gh-search-results" id="searchResults" role="listbox" hidden></ul>
-    </div>
-
-    <div class="gh-actions">
-      <button class="gh-icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <a class="gh-icon-btn" href="https://github.com/amanparate" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.77.12 3.06.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.18 0 1.57-.02 2.84-.02 3.23 0 .3.21.66.8.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
-      </a>
-      <a class="gh-icon-btn" href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-      </a>
-      <span class="gh-avatar avatar" title="Aman Parate"><img src="assets/aman.jpg" alt="" onerror="this.remove()" /><span class="avatar-initials">AP</span></span>
-    </div>
+<!-- ============ TOP BAR ============ -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="#top" aria-label="Home"><span class="brand-mark">AP</span><span class="brand-name">Aman Parate</span></a>
+  <nav class="topnav" id="topnav" aria-label="Primary">
+    <a href="#story">Story</a>
+    <a href="#skills">Skills</a>
+    <a href="#cases">Case Files</a>
+    <a href="#seasons">Experience</a>
+    <a href="#feature">Apex Doctor</a>
+    <a href="#awards">Awards</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="topbar-right">
+    <a class="btn btn-red btn-sm" href="assets/Aman_Parate_Resume.pdf" download data-toast="Resume downloaded. Thanks for watching.">Resume</a>
+    <button class="profile-chip" id="switchProfile" type="button" title="Switch profile">
+      <span class="profile-avatar av-grey" id="chipAvatar" aria-hidden="true"></span>
+      <span id="chipName">Profile</span>
+    </button>
+    <button class="hamburger" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- ============ APP NAVIGATION BAR ============ -->
-<nav class="app-nav" id="appNav" aria-label="Primary">
-  <div class="app-nav-inner">
-    <a href="#top" class="app-name">
-      <svg class="app-waffle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg>
-      <span>Portfolio</span>
-    </a>
-
-    <button class="app-nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <ul class="app-tabs" id="navLinks">
-      <li><a href="#about" class="app-tab nav-link">About</a></li>
-      <li><a href="#case-studies" class="app-tab nav-link">Case Studies</a></li>
-      <li><a href="#skills" class="app-tab nav-link">Skills</a></li>
-      <li><a href="#certifications" class="app-tab nav-link">Certifications</a></li>
-      <li><a href="#experience" class="app-tab nav-link">Experience</a></li>
-      <li><a href="#projects" class="app-tab nav-link">Projects</a></li>
-      <li><a href="#contact" class="app-tab nav-link">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<main id="main" class="page" tabindex="-1">
+<main id="main" class="episodes">
   <span id="top"></span>
 
-  <!-- ============ RECORD HIGHLIGHTS PANEL (HERO) ============ -->
-  <section class="card highlights" aria-labelledby="recordName">
-    <div class="highlights-top">
-      <div class="record-identity">
-        <span class="record-photo avatar" aria-hidden="true"><img src="assets/aman.jpg" alt="" onerror="this.remove()" /><span class="avatar-initials">AP</span></span>
-        <div>
-          <h1 class="record-name" id="recordName">Aman Parate</h1>
-          <p class="record-tagline">I design and own Salesforce systems end to end — from Experience Cloud portals to the billing, logistics and LMS integrations behind them.</p>
+  <!-- ============ E01 · PILOT (HERO) ============ -->
+  <section class="hero" id="hero" data-ep="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="ep-label reveal"><span class="ep-num">E01</span><span class="sep">·</span>PILOT<span class="sep">·</span><span class="tag-red">13× CERTIFIED</span><span class="sep">·</span>TRIPLE STAR RANGER</p>
+        <h1 class="show-title reveal">Aman <span class="red">Parate</span></h1>
+        <p class="show-sub reveal">Senior Salesforce Developer</p>
+        <ul class="genres reveal" aria-label="Focus areas"><li>Apex</li><li>LWC</li><li>Experience Cloud</li><li>Integrations</li><li>Agentforce</li></ul>
+        <p class="hero-desc reveal">I design and own Salesforce systems end to end — from Experience Cloud portals to the billing, logistics and LMS integrations behind them.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-play" id="heroPrimary" href="#cases"><span class="ico">▶</span> View Case Files</a>
+          <a class="btn btn-info" href="#contact"><span class="ico">ⓘ</span> Contact Me</a>
         </div>
+        <p class="hero-meta reveal">4.8+ years on the platform · 13 certifications · 2,000+ Apex Doctor downloads · Pune, India · open to relocation</p>
       </div>
 
-      <div class="record-actions">
-        <a href="assets/Aman_Parate_Resume.pdf" class="btn btn-brand" download data-toast="Resume downloaded. Thanks for taking a look!">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg>
-          Download Resume
-        </a>
-        <div class="btn-group">
-          <a href="mailto:amanparatesfdc@gmail.com" class="btn btn-neutral">Email</a>
-          <a href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" class="btn btn-neutral">LinkedIn</a>
-          <a href="https://github.com/amanparate" target="_blank" rel="noopener" class="btn btn-neutral">GitHub</a>
-          <a href="#contact" class="btn btn-neutral btn-more" aria-label="More actions">▾</a>
+      <figure class="poster reveal">
+        <div class="poster-frame avatar">
+          <img src="assets/aman.jpg" alt="Aman Parate" onerror="this.remove()" />
+          <span class="avatar-initials">AP</span>
+          <span class="poster-tag">Featured Engineer</span>
         </div>
-      </div>
+        <figcaption><span class="match" id="matchPct">98% Match</span> <span class="sep">·</span> 2026 <span class="sep">·</span> <span class="rating">13× CERT</span> <span class="sep">·</span> HD</figcaption>
+      </figure>
     </div>
-
-    <dl class="highlights-fields">
-      <div class="field"><dt>Title</dt><dd>Senior Salesforce Developer</dd></div>
-      <div class="field"><dt>Company</dt><dd>Tarana Wireless</dd></div>
-      <div class="field"><dt>Experience</dt><dd>4.8+ years <span class="text-muted">(since Nov 2021)</span></dd></div>
-      <div class="field"><dt>Certifications</dt><dd><a href="#certifications">13x Salesforce Certified</a></dd></div>
-      <div class="field"><dt>Location</dt><dd>Pune, Maharashtra, India</dd></div>
-      <div class="field"><dt>Relocation</dt><dd><span class="badge badge-success">Open to relocation</span></dd></div>
-    </dl>
+    <div class="hero-foot"><span>Engineered for scale</span><span>Portfolio release v3.0</span></div>
   </section>
 
-  <!-- ============ PATH: CAREER STAGES ============ -->
-  <section class="card path-card" aria-labelledby="pathTitle">
-    <div class="path-header">
-      <h2 id="pathTitle" class="card-title">Career Path</h2>
-      <a href="#contact" class="btn btn-brand btn-sm path-cta">Next Stage: Your Team ›</a>
+  <!-- ============ NOW STREAMING ROW ============ -->
+  <section class="row-section" id="streaming" data-ep="streaming">
+    <div class="row-head">
+      <h2 class="row-title" id="rowTitle">Now Streaming</h2>
+      <div class="row-nav"><button type="button" data-dir="-1" aria-label="Scroll left">‹</button><button type="button" data-dir="1" aria-label="Scroll right">›</button></div>
     </div>
-
-    <ol class="path" id="careerPath" role="tablist">
-      <li class="path-stage is-complete" role="tab" tabindex="0" data-stage="0" aria-selected="false">
-        <span class="path-stage-text">Cognizant</span>
-        <span class="path-stage-check" aria-hidden="true">✓</span>
-      </li>
-      <li class="path-stage is-complete" role="tab" tabindex="0" data-stage="1" aria-selected="false">
-        <span class="path-stage-text">Salesforce</span>
-        <span class="path-stage-check" aria-hidden="true">✓</span>
-      </li>
-      <li class="path-stage is-current is-active" role="tab" tabindex="0" data-stage="2" aria-selected="true">
-        <span class="path-stage-text">Tarana Wireless</span>
-      </li>
-      <li class="path-stage is-incomplete" role="tab" tabindex="0" data-stage="3" aria-selected="false">
-        <span class="path-stage-text">Your Team?</span>
-      </li>
-    </ol>
-
-    <div class="path-details" id="pathDetails" role="tabpanel">
-      <div class="path-keyfields">
-        <h3 class="path-subtitle">Key Fields</h3>
-        <dl id="pathFields"></dl>
-      </div>
-      <div class="path-guidance">
-        <h3 class="path-subtitle">Guidance for Success</h3>
-        <p id="pathGuidance"></p>
-        <a id="pathLink" class="btn btn-neutral btn-sm" href="#experience">View Details</a>
-      </div>
+    <div class="row-scroller" id="rowScroller">
+      <a class="ep-card" href="#cases" data-tab="tab-billing">
+        <div class="ep-art art-billing"><span class="ep-big">$3M</span><span class="ep-small">billed last quarter</span></div>
+        <div class="ep-body"><span class="ep-meta">E05 · Case File 01</span><h3>Usage-based billing on Chargent</h3><p>Monthly usage → invoice → auto-charge. −90% manual finance effort.</p><span class="ep-progress" style="--p:100%"></span></div>
+      </a>
+      <a class="ep-card" href="#cases" data-tab="tab-onboarding">
+        <div class="ep-art art-portal"><span class="ep-big">20–30+</span><span class="ep-small">self-registrations / day</span></div>
+        <div class="ep-body"><span class="ep-meta">E05 · Case File 02</span><h3>Experience Cloud onboarding &amp; SSO</h3><p>Self-registration, domain verification, LWC case dashboard, SAML into LearnUpon.</p><span class="ep-progress" style="--p:100%"></span></div>
+      </a>
+      <a class="ep-card" href="#cases" data-tab="tab-edi">
+        <div class="ep-art art-edi"><span class="ep-big">EDI</span><span class="ep-small">3PL · partner systems</span></div>
+        <div class="ep-body"><span class="ep-meta">E05 · Case File 03</span><h3>EDI across 3PL &amp; partner systems</h3><p>Orders, shipments and fulfilment documents — no more re-keying.</p><span class="ep-progress" style="--p:70%"></span></div>
+      </a>
+      <a class="ep-card ep-card-feature" href="#feature">
+        <div class="ep-art art-apex"><span class="ep-big">2,000+</span><span class="ep-small">downloads · open source</span></div>
+        <div class="ep-body"><span class="ep-meta">E07 · Feature Film</span><h3>Apex Doctor</h3><p>A VS Code extension that turns Apex debug logs into answers in seconds.</p><span class="ep-progress" style="--p:100%"></span></div>
+      </a>
+      <a class="ep-card" href="#story">
+        <div class="ep-art art-story"><span class="ep-big">2020→</span><span class="ep-small">Nagpur · Pune · Hyderabad</span></div>
+        <div class="ep-body"><span class="ep-meta">E02 · About the Engineer</span><h3>Origin &amp; Vision</h3><p>Cognizant → Salesforce → Tarana. Why I build what I build.</p><span class="ep-progress" style="--p:100%"></span></div>
+      </a>
+      <a class="ep-card" href="#awards">
+        <div class="ep-art art-awards"><span class="ep-big">13×</span><span class="ep-small">certified · 10 superbadges</span></div>
+        <div class="ep-body"><span class="ep-meta">Special · Awards</span><h3>Certifications &amp; Trailhead</h3><p>Triple Star Ranger · 423 badges · Agentblazer Champion 2026.</p><span class="ep-progress" style="--p:100%"></span></div>
+      </a>
     </div>
   </section>
 
-  <!-- ============ MY STORY ============ -->
-  <section class="card" id="about" aria-labelledby="storyTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-contact" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </span>
-      <h2 id="storyTitle" class="card-title">My Story</h2>
-      <span class="card-header-meta">Nagpur → Pune → Hyderabad → Pune · 2020 – present</span>
+  <!-- ============ E02 · ABOUT THE ENGINEER ============ -->
+  <section class="episode" id="story" data-ep="story">
+    <header class="ep-head reveal">
+      <p class="ep-label"><span class="ep-num">E02</span><span class="sep">·</span>About the Engineer</p>
+      <h2 class="ep-title">Episode Synopsis<br /><span class="red">Origin &amp; Vision.</span></h2>
     </header>
-    <div class="card-body story">
-      <div class="story-text">
+    <div class="ep-grid story-grid">
+      <div class="story-text reveal">
+
         <p>
           I grew up in Nagpur and finished my B.E. in Computer Science at RTMNU in 2020. My first job at <strong>Cognizant</strong> put me on
           Salesforce for US retail clients — a Case Management System in LWC and Apex — and I learned early that on this
@@ -192,10 +191,11 @@
           system that removes it, and leave behind the tooling and documentation so the next person doesn't have to
           rediscover it.
         </p>
+      
       </div>
-      <aside class="story-side">
+      <aside class="story-side reveal">
         <h3 class="side-title">Currently</h3>
-        <ul class="now-list">
+<ul class="now-list">
           <li><span class="now-label">Building</span><span>EDI integrations with the 3PL warehouse and partner systems, and Boomi flows keeping finance &amp; customer data in sync with Salesforce</span></li>
           <li><span class="now-label">Shipping</span><span>Apex Doctor <span id="nowRelease" class="text-muted"></span> for 2,000+ developers</span></li>
           <li><span class="now-label">Exploring</span><span>Agentforce &amp; Data Cloud — certified in both, looking for the right production use case</span></li>
@@ -210,19 +210,120 @@
         </ul>
       </aside>
     </div>
+    <dl class="detail-grid reveal">
+
+        <div class="field"><dt class="field-label">Years of Experience</dt><dd class="field-value">4.8+ <span class="text-muted">(Nov 2021 – present)</span></dd></div>
+        <div class="field"><dt class="field-label">Certifications</dt><dd class="field-value">13 Salesforce certifications</dd></div>
+        <div class="field"><dt class="field-label">Apex Doctor Downloads</dt><dd class="field-value">2,000+ <span class="text-muted">(VS Code Marketplace · Open VSX)</span></dd></div>
+        <div class="field"><dt class="field-label">Billing Automated (last quarter)</dt><dd class="field-value">~$3M via auto-invoicing</dd></div>
+        <div class="field"><dt class="field-label">Current Focus</dt><dd class="field-value">Experience Cloud · Integrations (Boomi, EDI, NetSuite) · Apex &amp; LWC</dd></div>
+        <div class="field"><dt class="field-label">Education</dt><dd class="field-value">B.E. Computer Science &amp; Engineering, RTMNU Nagpur (2020) · 8.3 CGPA</dd></div>
+        <div class="field"><dt class="field-label">Languages</dt><dd class="field-value">English, Hindi, Marathi</dd></div>
+        <div class="field"><dt class="field-label">Relocation</dt><dd class="field-value">Open to international relocation &amp; visa sponsorship</dd></div>
+      
+    </dl>
   </section>
 
-  <!-- ============ HOW I WORK ============ -->
-  <section class="card" id="how-i-work" aria-labelledby="howTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-teal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>
-      </span>
-      <h2 id="howTitle" class="card-title">How I Work</h2>
-      <span class="card-header-meta">Engineering principles · what I bring to a team</span>
+  <!-- ============ E03 · CORE COMPETENCIES ============ -->
+  <section class="episode" id="skills" data-ep="skills">
+    <header class="ep-head reveal">
+      <p class="ep-label"><span class="ep-num">E03</span><span class="sep">·</span>Core Competencies</p>
+      <h2 class="ep-title">Director's Cut<br /><span class="red">Technical Capabilities.</span></h2>
+      <p class="ep-lead">Production tech stack — the instruments behind every episode. Drag, use the arrows, or just let it turn.</p>
     </header>
-    <div class="card-body">
-      <div class="principles">
+    <div class="carousel reveal" id="carousel">
+      <div class="carousel-stage" id="carouselStage">
+
+
+      <article class="car-card">
+        <div class="car-head">
+          <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
+          <h3>Salesforce Platform</h3>
+        </div>
+        <ul class="pills">
+          <li class="pill">Apex (Classes / Triggers)</li><li class="pill">Batch &amp; Async Apex</li><li class="pill">SOQL</li>
+          <li class="pill">Flows</li><li class="pill">Custom Objects</li><li class="pill">Visualforce</li>
+          <li class="pill">Reports &amp; Dashboards</li><li class="pill">Force.com</li>
+        </ul>
+        <p class="car-foot">The engine room — business logic, data model and automation, designed around governor limits.</p>
+      </article>
+
+      <article class="car-card">
+        <div class="car-head">
+          <span class="obj-icon obj-icon-sm obj-icon-pink" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M9 13h3"/></svg></span>
+          <h3>Lightning &amp; Experience Cloud</h3>
+        </div>
+        <ul class="pills">
+          <li class="pill">Lightning &amp; LWC</li><li class="pill">Experience Cloud</li><li class="pill">Service Cloud</li>
+          <li class="pill">Chargent</li><li class="pill">Usage-based billing</li><li class="pill">SSO (SAML)</li>
+        </ul>
+        <p class="car-foot">Everything a customer touches — portals, LWC dashboards, sign-in and billing.</p>
+      </article>
+
+      <article class="car-card">
+        <div class="car-head">
+          <span class="obj-icon obj-icon-sm obj-icon-purple" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3>AI &amp; Data <span class="badge badge-brand">Certified</span></h3>
+        </div>
+        <ul class="pills">
+          <li class="pill">Agentforce</li><li class="pill">Einstein AI</li><li class="pill">Data Cloud</li><li class="pill">Prompt Builder</li><li class="pill">AI-Assisted Development</li>
+        </ul>
+        <p class="car-foot">Certified on the AI stack — agents, prompts, and the data that feeds them.</p>
+      </article>
+
+      <article class="car-card">
+        <div class="car-head">
+          <span class="obj-icon obj-icon-sm obj-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14a4 4 0 0 1 0-5.7l3-3a4 4 0 0 1 5.7 5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 1 0 5.7l-3 3a4 4 0 0 1-5.7-5.7l1.5-1.5"/></svg></span>
+          <h3>Integration</h3>
+        </div>
+        <ul class="pills">
+          <li class="pill">EDI</li><li class="pill">Boomi</li><li class="pill">NetSuite</li><li class="pill">REST API</li><li class="pill">SOAP API</li>
+          <li class="pill">Bulk API</li><li class="pill">Platform Events</li><li class="pill">Change Data Capture</li><li class="pill">Kafka</li>
+        </ul>
+        <p class="car-foot">Salesforce as the hub — batch, API and event-driven sync with the systems around it.</p>
+      </article>
+
+      <article class="car-card">
+        <div class="car-head">
+          <span class="obj-icon obj-icon-sm obj-icon-orange" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+          <h3>Languages &amp; Web</h3>
+        </div>
+        <ul class="pills">
+          <li class="pill">Apex</li><li class="pill">JavaScript</li><li class="pill">TypeScript</li><li class="pill">HTML5</li><li class="pill">CSS</li><li class="pill">SOQL</li>
+        </ul>
+        <p class="car-foot">Apex on the platform, TypeScript in the tooling, JavaScript in between.</p>
+      </article>
+
+      <article class="car-card">
+        <div class="car-head">
+          <span class="obj-icon obj-icon-sm obj-icon-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0 5 5L22 9l-1-3-3-1-2.7 1.3zM3 21l8.5-8.5"/></svg></span>
+          <h3>Tools</h3>
+        </div>
+        <ul class="pills">
+          <li class="pill">VS Code</li><li class="pill">Salesforce CLI</li><li class="pill">GitHub</li><li class="pill">Jira</li><li class="pill">Postman</li>
+          <li class="pill">Workbench</li><li class="pill">Apex Data Loader</li><li class="pill">Salesforce Inspector</li><li class="pill">Splunk</li><li class="pill">Snowflake</li><li class="pill">Wireshark</li>
+        </ul>
+        <p class="car-foot">Daily drivers — from the CLI and Git to log analysis and data loads.</p>
+      </article>
+
+    
+      </div>
+      <div class="carousel-nav">
+        <button type="button" id="carPrev" aria-label="Previous">‹</button>
+        <span class="carousel-dots" id="carouselDots"></span>
+        <button type="button" id="carNext" aria-label="Next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ E04 · BEHIND THE SCENES ============ -->
+  <section class="episode" id="how" data-ep="how">
+    <header class="ep-head reveal">
+      <p class="ep-label"><span class="ep-num">E04</span><span class="sep">·</span>Behind the Scenes</p>
+      <h2 class="ep-title">Production Notes<br /><span class="red">How I Work.</span></h2>
+    </header>
+    <div class="reveal">
+<div class="principles">
         <article class="principle">
           <span class="principle-num">01</span>
           <h3>Design the system, not the ticket.</h3>
@@ -257,46 +358,19 @@
     </div>
   </section>
 
-  <!-- ============ DETAILS ============ -->
-  <section class="card" id="details" aria-labelledby="aboutTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
-      </span>
-      <h2 id="aboutTitle" class="card-title">Details</h2>
+  <!-- ============ E05 · CASE FILES ============ -->
+  <section class="episode" id="cases" data-ep="cases">
+    <header class="ep-head reveal">
+      <p class="ep-label"><span class="ep-num">E05</span><span class="sep">·</span>Case Files</p>
+      <h2 class="ep-title">Problem → Approach →<br /><span class="red">Architecture → Outcome.</span></h2>
     </header>
-
-    <div class="card-body">
-      <dl class="detail-grid">
-        <div class="field"><dt class="field-label">Years of Experience</dt><dd class="field-value">4.8+ <span class="text-muted">(Nov 2021 – present)</span></dd></div>
-        <div class="field"><dt class="field-label">Certifications</dt><dd class="field-value">13 Salesforce certifications</dd></div>
-        <div class="field"><dt class="field-label">Apex Doctor Downloads</dt><dd class="field-value">2,000+ <span class="text-muted">(VS Code Marketplace · Open VSX)</span></dd></div>
-        <div class="field"><dt class="field-label">Billing Automated (last quarter)</dt><dd class="field-value">~$3M via auto-invoicing</dd></div>
-        <div class="field"><dt class="field-label">Current Focus</dt><dd class="field-value">Experience Cloud · Integrations (Boomi, EDI, NetSuite) · Apex &amp; LWC</dd></div>
-        <div class="field"><dt class="field-label">Education</dt><dd class="field-value">B.E. Computer Science &amp; Engineering, RTMNU Nagpur (2020) · 8.3 CGPA</dd></div>
-        <div class="field"><dt class="field-label">Languages</dt><dd class="field-value">English, Hindi, Marathi</dd></div>
-        <div class="field"><dt class="field-label">Relocation</dt><dd class="field-value">Open to international relocation &amp; visa sponsorship</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- ============ CASE STUDIES ============ -->
-  <section class="card" id="case-studies" aria-labelledby="csTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="6" rx="1"/><rect x="14" y="3" width="7" height="6" rx="1"/><rect x="8.5" y="15" width="7" height="6" rx="1"/><path d="M6.5 9v3h11V9M12 12v3"/></svg>
-      </span>
-      <h2 id="csTitle" class="card-title">Case Studies <span class="card-count">(3)</span></h2>
-      <span class="card-header-meta">Problem → Approach → Architecture → Outcome</span>
-    </header>
-
-    <div class="card-body">
-      <!-- System landscape -->
-      <div class="landscape">
+    <div class="reveal">
+<div class="landscape">
         <div class="landscape-head">
           <h3>The system landscape I own at Tarana Wireless</h3>
           <p>Salesforce is the hub. Everything a customer touches — onboarding, cases, billing, training — and everything finance and logistics need from it, runs through the integrations below.</p>
         </div>
+        <div class="diagram-scroll">
         <svg class="diagram" viewBox="0 0 800 380" role="img" aria-label="System landscape: Experience Cloud portal, Salesforce core, LearnUpon via SAML SSO, Boomi syncing with NetSuite (in progress), Kafka event streaming, and an EDI layer connecting a 3PL warehouse and customer or distributor systems. Apex Doctor supports the team as developer tooling.">
           <defs><marker id="ar0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
           <!-- edges -->
@@ -326,6 +400,7 @@
           <g class="dg-node dg-ext" transform="translate(40 303)"><rect width="190" height="50" rx="8"/><text x="95" y="22" text-anchor="middle">3PL / Warehouse</text><text class="dg-sub" x="95" y="39" text-anchor="middle">logistics · WMS</text></g>
           <g class="dg-node dg-ext" transform="translate(555 303)"><rect width="235" height="50" rx="8"/><text x="117" y="22" text-anchor="middle">Customer &amp; Distributor Systems</text><text class="dg-sub" x="117" y="39" text-anchor="middle">partner platforms</text></g>
         </svg>
+        </div>
         <ul class="dg-legend">
           <li><span class="dg-swatch dg-swatch-sf"></span>Salesforce</li>
           <li><span class="dg-swatch dg-swatch-mid"></span>Integration layer</li>
@@ -335,8 +410,10 @@
         </ul>
       </div>
 
-      <!-- Tabs -->
-      <div class="tabs" role="tablist" aria-label="Case studies">
+      
+    </div>
+    <div class="reveal">
+<div class="tabs" role="tablist" aria-label="Case studies">
         <button class="tab is-active" role="tab" id="tab-billing" aria-selected="true" aria-controls="cs-billing">Usage-based billing</button>
         <button class="tab" role="tab" id="tab-onboarding" aria-selected="false" aria-controls="cs-onboarding" tabindex="-1">Onboarding &amp; SSO</button>
         <button class="tab" role="tab" id="tab-edi" aria-selected="false" aria-controls="cs-edi" tabindex="-1">EDI integrations</button>
@@ -481,164 +558,22 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ SKILLS ============ -->
-  <section class="card" id="skills" aria-labelledby="skillsTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-teal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
-      </span>
-      <h2 id="skillsTitle" class="card-title">Skills <span class="card-count">(5 areas)</span></h2>
-    </header>
-
-    <div class="card-body skills-grid">
-
-      <article class="skill-tile">
-        <div class="skill-tile-head">
-          <span class="obj-icon obj-icon-sm obj-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
-          <h3>Salesforce Platform</h3>
-        </div>
-        <ul class="pills" data-search-group="Skill">
-          <li class="pill">Lightning &amp; LWC</li><li class="pill">Apex (Classes / Triggers)</li><li class="pill">Batch &amp; Async Apex</li>
-          <li class="pill">SOQL</li><li class="pill">Visualforce</li><li class="pill">Flows</li><li class="pill">Experience Cloud</li>
-          <li class="pill">Service Cloud</li><li class="pill">Chargent</li><li class="pill">Custom Objects</li><li class="pill">Reports &amp; Dashboards</li><li class="pill">Force.com</li>
-        </ul>
-      </article>
-
-      <article class="skill-tile">
-        <div class="skill-tile-head">
-          <span class="obj-icon obj-icon-sm obj-icon-purple" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <h3>AI &amp; Data <span class="badge badge-brand">Certified</span></h3>
-        </div>
-        <ul class="pills" data-search-group="Skill">
-          <li class="pill">Agentforce</li><li class="pill">Einstein AI</li><li class="pill">Data Cloud</li><li class="pill">Prompt Builder</li><li class="pill">AI-Assisted Development</li>
-        </ul>
-      </article>
-
-      <article class="skill-tile">
-        <div class="skill-tile-head">
-          <span class="obj-icon obj-icon-sm obj-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14a4 4 0 0 1 0-5.7l3-3a4 4 0 0 1 5.7 5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 1 0 5.7l-3 3a4 4 0 0 1-5.7-5.7l1.5-1.5"/></svg></span>
-          <h3>Integration</h3>
-        </div>
-        <ul class="pills" data-search-group="Skill">
-          <li class="pill">EDI</li><li class="pill">Boomi</li><li class="pill">NetSuite</li><li class="pill">REST API</li><li class="pill">SOAP API</li>
-          <li class="pill">Bulk API</li><li class="pill">Platform Events</li><li class="pill">Change Data Capture</li><li class="pill">Kafka</li><li class="pill">SSO (SAML)</li>
-        </ul>
-      </article>
-
-      <article class="skill-tile">
-        <div class="skill-tile-head">
-          <span class="obj-icon obj-icon-sm obj-icon-orange" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
-          <h3>Languages &amp; Web</h3>
-        </div>
-        <ul class="pills" data-search-group="Skill">
-          <li class="pill">Apex</li><li class="pill">JavaScript</li><li class="pill">TypeScript</li><li class="pill">HTML5</li><li class="pill">CSS</li><li class="pill">SOQL</li>
-        </ul>
-      </article>
-
-      <article class="skill-tile">
-        <div class="skill-tile-head">
-          <span class="obj-icon obj-icon-sm obj-icon-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0 5 5L22 9l-1-3-3-1-2.7 1.3zM3 21l8.5-8.5"/></svg></span>
-          <h3>Tools</h3>
-        </div>
-        <ul class="pills" data-search-group="Skill">
-          <li class="pill">VS Code</li><li class="pill">Salesforce CLI</li><li class="pill">GitHub</li><li class="pill">Jira</li><li class="pill">Postman</li>
-          <li class="pill">Workbench</li><li class="pill">Apex Data Loader</li><li class="pill">Salesforce Inspector</li><li class="pill">Splunk</li><li class="pill">Snowflake</li><li class="pill">Wireshark</li>
-        </ul>
-      </article>
 
     </div>
   </section>
 
-  <!-- ============ CERTIFICATIONS ============ -->
-  <section class="card" id="certifications" aria-labelledby="certsTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-orange" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="m8.5 13.5-2 7 5.5-3 5.5 3-2-7"/></svg>
-      </span>
-      <h2 id="certsTitle" class="card-title">Certifications <span class="card-count">(13)</span></h2>
-      <span class="card-header-meta">Salesforce Certified · 13 credentials</span>
+  <!-- ============ E06 · SEASON RECAP ============ -->
+  <section class="episode" id="seasons" data-ep="seasons">
+    <header class="ep-head reveal">
+      <p class="ep-label"><span class="ep-num">E06</span><span class="sep">·</span>Season Recap</p>
+      <h2 class="ep-title">Three Seasons.<br /><span class="red">One Platform.</span></h2>
     </header>
-
-    <div class="card-body cert-tracks" data-search-group="Certification">
-      <div class="cert-track">
-        <h3 class="cert-track-title">Developer</h3>
-        <ul class="cert-list">
-          <li class="cert"><span class="hex hex-dev">PD II</span><span class="cert-name">Platform Developer II</span></li>
-          <li class="cert"><span class="hex hex-dev">PD I</span><span class="cert-name">Platform Developer I</span></li>
-          <li class="cert"><span class="hex hex-dev">JS I</span><span class="cert-name">JavaScript Developer I</span></li>
-          <li class="cert"><span class="hex hex-dev">PAB</span><span class="cert-name">Platform App Builder</span></li>
-        </ul>
-      </div>
-      <div class="cert-track">
-        <h3 class="cert-track-title">Consultant</h3>
-        <ul class="cert-list">
-          <li class="cert"><span class="hex hex-consult">DC</span><span class="cert-name">Data Cloud Consultant</span></li>
-          <li class="cert"><span class="hex hex-consult">SC</span><span class="cert-name">Sales Cloud Consultant</span></li>
-          <li class="cert"><span class="hex hex-consult">SvC</span><span class="cert-name">Service Cloud Consultant</span></li>
-          <li class="cert"><span class="hex hex-consult">EC</span><span class="cert-name">Experience Cloud Consultant</span></li>
-        </ul>
-      </div>
-      <div class="cert-track">
-        <h3 class="cert-track-title">AI</h3>
-        <ul class="cert-list">
-          <li class="cert"><span class="hex hex-ai">AF</span><span class="cert-name">Agentforce Specialist</span></li>
-          <li class="cert"><span class="hex hex-ai">AI</span><span class="cert-name">AI Associate</span></li>
-        </ul>
-      </div>
-      <div class="cert-track">
-        <h3 class="cert-track-title">Admin &amp; Foundations</h3>
-        <ul class="cert-list">
-          <li class="cert"><span class="hex hex-admin">AA</span><span class="cert-name">Advanced Administrator</span></li>
-          <li class="cert"><span class="hex hex-admin">ADM</span><span class="cert-name">Administrator</span></li>
-          <li class="cert"><span class="hex hex-admin">ASC</span><span class="cert-name">Associate</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TRAILHEAD & COMMUNITY (rendered from config in js/script.js) ============ -->
-  <section class="card" id="trailhead" aria-labelledby="thTitle" hidden>
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-green" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 20 6-11 4 7 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg>
-      </span>
-      <h2 id="thTitle" class="card-title">Trailhead</h2>
-      <span class="card-header-meta">Triple Star Ranger · 10 superbadges · Agentblazer Champion 2026</span>
-      <a class="link-btn" id="thProfileLink" href="#" target="_blank" rel="noopener">View Trailblazer Profile</a>
-    </header>
-    <div class="card-body th-body">
-      <dl class="th-stats" id="thStats"></dl>
-      <div id="thSuperbadges" class="th-superbadges"></div>
-      <ul id="communityList" class="community-list"></ul>
-    </div>
-  </section>
-
-  <!-- ============ EXPERIENCE ============ -->
-  <section class="card" id="experience" aria-labelledby="expTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-purple" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg>
-      </span>
-      <h2 id="expTitle" class="card-title">Work Experience <span class="card-count">(3)</span></h2>
-      <button class="link-btn" id="toggleAllExp" type="button">Collapse All</button>
-    </header>
-
-    <div class="card-body timeline" data-search-group="Role">
-
-      <article class="tl-item is-open">
-        <button class="tl-toggle" aria-expanded="true" aria-controls="exp-1">
-          <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
-          <span class="tl-title">
-            <span class="tl-role">Senior Salesforce Developer</span>
-            <span class="tl-org">Tarana Wireless · Pune, India</span>
-          </span>
-          <span class="tl-date"><span class="badge badge-brand">Current</span> Jan 2025 – Present</span>
-        </button>
-        <div class="tl-body" id="exp-1">
-          <ul>
+    <div class="seasons">
+      <article class="season is-airing reveal">
+        <div class="season-head"><span class="season-num">Season 3</span><span class="season-badge">Now airing</span></div>
+        <h3 class="season-title">Tarana Wireless</h3>
+        <p class="season-meta">Senior Salesforce Developer <span class="sep">·</span> Jan 2025 – Present <span class="sep">·</span> Pune, India</p>
+        <ul class="season-eps">
             <li>Implemented Single Sign-On (SSO) between Salesforce and LearnUpon, enabling secure one-click SAML access (~6–10 new user logins daily) and eliminating manual identity management.</li>
             <li>Designed and built the complete customer onboarding journey on Salesforce Experience Cloud — full site, guided flows, and self-service portal — supporting 20–30+ new customer self-registrations per day.</li>
             <li>Rebuilt the customer-facing Case dashboard on Experience Cloud from scratch as a custom Lightning Web Component UI — a modern, responsive experience for customers to track, filter, and manage their support cases in one place.</li>
@@ -647,62 +582,41 @@
             <li>Built EDI integrations connecting Salesforce with 3PL / logistics warehouse systems and customer &amp; distributor systems — automating the exchange of order, shipment, and fulfilment documents across multiple systems.</li>
             <li>Built a sign-up verification process that detects non-company-domain emails and routes them to guest-level access, protecting data quality at the source.</li>
           </ul>
-        </div>
       </article>
-
-      <article class="tl-item is-open">
-        <button class="tl-toggle" aria-expanded="true" aria-controls="exp-2">
-          <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
-          <span class="tl-title">
-            <span class="tl-role">Service Cloud Engineer</span>
-            <span class="tl-org">Salesforce · Hyderabad, India</span>
-          </span>
-          <span class="tl-date">Mar 2023 – Dec 2024</span>
-        </button>
-        <div class="tl-body" id="exp-2">
-          <ul>
+      <article class="season reveal">
+        <div class="season-head"><span class="season-num">Season 2</span><span class="season-badge season-badge-muted">Complete</span></div>
+        <h3 class="season-title">Salesforce</h3>
+        <p class="season-meta">Service Cloud Engineer <span class="sep">·</span> Mar 2023 – Dec 2024 <span class="sep">·</span> Hyderabad, India</p>
+        <ul class="season-eps">
             <li>Delivered Service Cloud solutions for UK- and US-based clients, translating business and technical requirements into scalable Salesforce implementations.</li>
             <li>Resolved complex issues across Single Sign-On, MFA, Flows, Apex triggers/classes, asynchronous Apex, Visualforce, and LWC.</li>
             <li>Built integrations using REST, SOAP and Bulk APIs, Platform Events, and Change Data Capture; designed custom objects and deployed Apex classes, controllers, and triggers.</li>
             <li>Developed Lightning Web Components for communities to locate and create investment applications; authored knowledge articles and documentation.</li>
             <li>Participated in Agile/Scrum ceremonies and wrote Apex test classes to ensure maximum code coverage.</li>
           </ul>
-        </div>
       </article>
-
-      <article class="tl-item is-open">
-        <button class="tl-toggle" aria-expanded="true" aria-controls="exp-3">
-          <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
-          <span class="tl-title">
-            <span class="tl-role">Programmer Analyst</span>
-            <span class="tl-org">Cognizant Technology Solutions · Pune, India</span>
-          </span>
-          <span class="tl-date">Nov 2021 – Feb 2023</span>
-        </button>
-        <div class="tl-body" id="exp-3">
-          <ul>
+      <article class="season reveal">
+        <div class="season-head"><span class="season-num">Season 1</span><span class="season-badge season-badge-muted">Complete</span></div>
+        <h3 class="season-title">Cognizant Technology Solutions</h3>
+        <p class="season-meta">Programmer Analyst <span class="sep">·</span> Nov 2021 – Feb 2023 <span class="sep">·</span> Pune, India</p>
+        <ul class="season-eps">
             <li>Developed Salesforce solutions for US-based retail clients, including a Case Management System using LWC, Apex classes, and triggers.</li>
             <li>Configured Salesforce administration: profiles, roles, page layouts, org-wide defaults, sharing rules, permission sets, approval processes, and assignment rules.</li>
             <li>Built automation with Workflows, Process Builder, Flows, Phone-to-Case, and Email-to-Case; implemented IVR functionality and batch Apex.</li>
             <li>Performed metadata migration and bulk data operations using Change Sets, Workbench, Apex Data Loader, VS Code, and GitHub.</li>
           </ul>
-        </div>
       </article>
-
     </div>
   </section>
 
-  <!-- ============ PROJECTS ============ -->
-  <section class="card" id="projects" aria-labelledby="projTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-green" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m9 9 3 3-3 3M13 15h3"/></svg>
-      </span>
-      <h2 id="projTitle" class="card-title">Projects <span class="card-count">(1)</span></h2>
-      <a class="link-btn" href="https://github.com/amanparate?tab=repositories" target="_blank" rel="noopener">View All on GitHub</a>
+  <!-- ============ E07 · FEATURE FILM ============ -->
+  <section class="episode episode-wide" id="feature" data-ep="feature">
+    <header class="ep-head reveal">
+      <p class="ep-label"><span class="ep-num">E07</span><span class="sep">·</span>Feature Film<span class="sep">·</span><span class="tag-red">Open Source</span></p>
+      <h2 class="ep-title">Apex Doctor<br /><span class="red">Debug logs, diagnosed in seconds.</span></h2>
     </header>
-
-    <!-- Product showcase band -->
+    <div class="feature-card reveal">
+<!-- Product showcase band -->
     <div class="showcase">
       <div class="showcase-hero">
         <div class="showcase-intro">
@@ -791,6 +705,7 @@
         <p class="live-note" id="ghNote">Adopted internally at Tarana before public release · stats fetched from the GitHub API when this page loads.</p>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- Lightbox for screenshots -->
@@ -800,18 +715,66 @@
     <p class="lightbox-cap" id="lightboxCap"></p>
   </div>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="card" id="contact" aria-labelledby="contactTitle">
-    <header class="card-header">
-      <span class="obj-icon obj-icon-sm obj-icon-pink" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
-      </span>
-      <h2 id="contactTitle" class="card-title">Contact</h2>
-      <span class="card-header-meta">Open to new opportunities · international relocation &amp; visa sponsorship</span>
+  <!-- ============ SPECIAL · AWARDS ============ -->
+  <section class="episode" id="awards" data-ep="awards">
+    <header class="ep-head reveal">
+      <p class="ep-label"><span class="ep-num">Special</span><span class="sep">·</span>Awards &amp; Recognition</p>
+      <h2 class="ep-title">13 Certifications.<br /><span class="red">Triple Star Ranger.</span></h2>
     </header>
+    <div class="reveal">
+<div class="card-body cert-tracks" data-search-group="Certification">
+      <div class="cert-track">
+        <h3 class="cert-track-title">Developer</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-dev">PD II</span><span class="cert-name">Platform Developer II</span></li>
+          <li class="cert"><span class="hex hex-dev">PD I</span><span class="cert-name">Platform Developer I</span></li>
+          <li class="cert"><span class="hex hex-dev">JS I</span><span class="cert-name">JavaScript Developer I</span></li>
+          <li class="cert"><span class="hex hex-dev">PAB</span><span class="cert-name">Platform App Builder</span></li>
+        </ul>
+      </div>
+      <div class="cert-track">
+        <h3 class="cert-track-title">Consultant</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-consult">DC</span><span class="cert-name">Data Cloud Consultant</span></li>
+          <li class="cert"><span class="hex hex-consult">SC</span><span class="cert-name">Sales Cloud Consultant</span></li>
+          <li class="cert"><span class="hex hex-consult">SvC</span><span class="cert-name">Service Cloud Consultant</span></li>
+          <li class="cert"><span class="hex hex-consult">EC</span><span class="cert-name">Experience Cloud Consultant</span></li>
+        </ul>
+      </div>
+      <div class="cert-track">
+        <h3 class="cert-track-title">AI</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-ai">AF</span><span class="cert-name">Agentforce Specialist</span></li>
+          <li class="cert"><span class="hex hex-ai">AI</span><span class="cert-name">AI Associate</span></li>
+        </ul>
+      </div>
+      <div class="cert-track">
+        <h3 class="cert-track-title">Admin &amp; Foundations</h3>
+        <ul class="cert-list">
+          <li class="cert"><span class="hex hex-admin">AA</span><span class="cert-name">Advanced Administrator</span></li>
+          <li class="cert"><span class="hex hex-admin">ADM</span><span class="cert-name">Administrator</span></li>
+          <li class="cert"><span class="hex hex-admin">ASC</span><span class="cert-name">Associate</span></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="trail reveal" id="trailhead" hidden>
+      <div class="trail-head">
+        <h3>Trailhead</h3>
+        <a class="link-red" id="thProfileLink" href="#" target="_blank" rel="noopener">View Trailblazer Profile →</a>
+      </div>
+      <dl class="th-stats" id="thStats"></dl>
+      <div id="thSuperbadges" class="th-superbadges"></div>
+      <ul id="communityList" class="community-list"></ul>
+    </div>
+  </section>
 
-    <div class="card-body contact-body">
-      <p class="contact-lead">Let's build something on Salesforce. Reach out on any channel below — email is the fastest.</p>
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact" data-ep="contact">
+    <h2 class="giant reveal">Contact</h2>
+    <p class="contact-lead reveal">Let's build something on Salesforce. Open to new opportunities, including international relocation &amp; visa sponsorship.</p>
+    <div class="reveal">
+<div class="card-body contact-body">
 
       <dl class="detail-grid contact-grid">
         <div class="field">
@@ -833,31 +796,15 @@
         <a href="assets/Aman_Parate_Resume.pdf" class="btn btn-neutral" download data-toast="Resume downloaded. Thanks for taking a look!">Download Resume</a>
       </div>
     </div>
+    </div>
   </section>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Aman Parate · Built with HTML, CSS &amp; JavaScript.</p>
-    <p class="footer-note">UI inspired by the Salesforce Lightning Design System. This is a personal portfolio and is not affiliated with or endorsed by Salesforce.</p>
+    <p class="footer-note">A cinematic take on a developer portfolio. Not affiliated with any streaming service, or with Salesforce.</p>
   </footer>
 </main>
 
-<!-- ============ UTILITY BAR ============ -->
-<div class="utility-bar" aria-label="Utility bar">
-  <a href="assets/Aman_Parate_Resume.pdf" class="utility-item" download data-toast="Resume downloaded. Thanks for taking a look!">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v6h6"/></svg> Resume
-  </a>
-  <a href="mailto:amanparatesfdc@gmail.com" class="utility-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg> Email
-  </a>
-  <a href="https://linkedin.com/in/amanparate" target="_blank" rel="noopener" class="utility-item">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg> LinkedIn
-  </a>
-  <a href="#top" class="utility-item utility-right">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg> Back to top
-  </a>
-</div>
-
-<!-- Toast container -->
 <div class="toast-region" id="toastRegion" aria-live="polite"></div>
 
 <script src="js/script.js"></script>

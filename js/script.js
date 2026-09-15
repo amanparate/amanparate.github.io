@@ -1,500 +1,248 @@
 (() => {
   "use strict";
-
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* ignore */ } },
+  };
 
-  /* ---------- footer year ---------- */
-  const yearEl = $("#year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  /* ---------- theme toggle ---------- */
-  const THEME_KEY = "portfolio-theme";
-  const root = document.documentElement;
-
-  const applyTheme = (t) => (t === "dark" || t === "light") ? root.setAttribute("data-theme", t) : root.removeAttribute("data-theme");
-  const readTheme = () => { try { return localStorage.getItem(THEME_KEY); } catch { return null; } };
-  const saveTheme = (t) => { try { localStorage.setItem(THEME_KEY, t); } catch { /* ignore */ } };
-
-  applyTheme(readTheme());
-  $("#themeToggle")?.addEventListener("click", () => {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const current = root.getAttribute("data-theme") || (prefersDark ? "dark" : "light");
-    const next = current === "dark" ? "light" : "dark";
-    applyTheme(next); saveTheme(next);
-  });
-
-  /* ---------- mobile nav ---------- */
-  const navToggle = $("#navToggle");
-  const navLinks = $("#navLinks");
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(open));
-    });
-    $$("a", navLinks).forEach((a) => a.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-    }));
-  }
-
-  /* ---------- scroll-spy for app tabs ---------- */
-  const sections = $$("main section[id]");
-  const tabs = $$(".nav-link");
-  if ("IntersectionObserver" in window && sections.length) {
-    const spy = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        const link = tabs.find((a) => a.getAttribute("href") === `#${e.target.id}`);
-        if (!link) return;
-        tabs.forEach((a) => a.classList.remove("active"));
-        link.classList.add("active");
-      });
-    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
-    sections.forEach((s) => spy.observe(s));
-  }
+  /* ---------- year ---------- */
+  const yearEl = $("#year"); if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- toasts ---------- */
   const toastRegion = $("#toastRegion");
   function toast(message) {
     if (!toastRegion) return;
-    const el = document.createElement("div");
-    el.className = "toast";
-    el.setAttribute("role", "status");
-    el.innerHTML =
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5L20 7"/></svg>' +
-      "<span></span>";
-    el.lastChild.textContent = message;
-    toastRegion.appendChild(el);
-    setTimeout(() => {
-      el.classList.add("is-leaving");
-      setTimeout(() => el.remove(), 260);
-    }, 3200);
+    const el = document.createElement("div"); el.className = "toast"; el.setAttribute("role", "status");
+    el.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5L20 7"/></svg><span></span>';
+    el.lastChild.textContent = message; toastRegion.appendChild(el);
+    setTimeout(() => { el.classList.add("is-leaving"); setTimeout(() => el.remove(), 260); }, 3000);
   }
+  $$("[data-toast]").forEach((el) => el.addEventListener("click", () => toast(el.getAttribute("data-toast"))));
 
-  $$("[data-toast]").forEach((el) => {
-    el.addEventListener("click", () => toast(el.getAttribute("data-toast")));
-  });
+  /* ---------- copy ---------- */
+  $$("[data-copy]").forEach((btn) => btn.addEventListener("click", async (ev) => {
+    ev.preventDefault();
+    const text = btn.getAttribute("data-copy");
+    try { await navigator.clipboard.writeText(text); }
+    catch { const ta = document.createElement("textarea"); ta.value = text; ta.style.cssText = "position:fixed;opacity:0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch { /* ignore */ } ta.remove(); }
+  }, { capture: true }));
 
-  /* ---------- copy-to-clipboard ---------- */
-  $$("[data-copy]").forEach((btn) => {
-    btn.addEventListener("click", async (ev) => {
-      ev.preventDefault();
-      const text = btn.getAttribute("data-copy");
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch {
-        // Fallback for older browsers
-        const ta = document.createElement("textarea");
-        ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
-        document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); } catch { /* ignore */ }
-        ta.remove();
-      }
-    }, { capture: true });
-  });
-
-  /* ---------- career path ---------- */
-  const monthsBetween = (from, to) =>
-    (to.getFullYear() - from.getFullYear()) * 12 + (to.getMonth() - from.getMonth()) + 1;
-  const fmtDuration = (months) => {
-    const y = Math.floor(months / 12), m = months % 12;
-    const parts = [];
-    if (y) parts.push(`${y} yr${y > 1 ? "s" : ""}`);
-    if (m) parts.push(`${m} mo${m > 1 ? "s" : ""}`);
-    return parts.join(" ") || "< 1 mo";
+  /* ---------- Who's watching? profiles ---------- */
+  const DEFAULT_ORDER = ["hero", "streaming", "story", "skills", "how", "cases", "seasons", "feature", "awards", "contact"];
+  const PROFILES = {
+    recruiter: { name: "Recruiter", av: "av-red", match: "98% Match", rowTitle: "Top Picks for Recruiters",
+      cta: { text: "Download Resume", href: "assets/Aman_Parate_Resume.pdf", download: true },
+      order: ["hero", "streaming", "awards", "seasons", "story", "cases", "how", "skills", "feature", "contact"] },
+    manager: { name: "Hiring Manager", av: "av-blue", match: "97% Match", rowTitle: "Top Picks for Hiring Managers",
+      cta: { text: "View Case Files", href: "#cases" },
+      order: ["hero", "streaming", "cases", "how", "seasons", "story", "skills", "feature", "awards", "contact"] },
+    developer: { name: "Developer", av: "av-green", match: "99% Match", rowTitle: "Top Picks for Developers",
+      cta: { text: "Apex Doctor on GitHub", href: "https://github.com/amanparate/apex-doctor", external: true },
+      order: ["hero", "streaming", "feature", "skills", "cases", "how", "story", "seasons", "awards", "contact"] },
+    guest: { name: "Just browsing", av: "av-grey", match: "96% Match", rowTitle: "Now Streaming",
+      cta: { text: "Start Watching", href: "#story" }, order: DEFAULT_ORDER },
   };
-  const now = new Date();
+  const PROFILE_KEY = "portfolio-profile";
+  const overlay = $("#profiles");
 
-  const STAGES = [
-    {
-      fields: {
-        Role: "Programmer Analyst",
-        Company: "Cognizant Technology Solutions",
-        Duration: `Nov 2021 – Feb 2023 · ${fmtDuration(16)}`,
-        Location: "Pune, India",
-      },
-      guidance: "Built Salesforce solutions for US retail clients — a Case Management System in LWC and Apex, core admin configuration, automation with Flows and Process Builder, IVR and batch Apex, and metadata migrations with Change Sets and Workbench.",
-      link: "#experience", linkText: "View Details",
-    },
-    {
-      fields: {
-        Role: "Service Cloud Engineer",
-        Company: "Salesforce",
-        Duration: `Mar 2023 – Dec 2024 · ${fmtDuration(22)}`,
-        Location: "Hyderabad, India",
-      },
-      guidance: "Delivered Service Cloud solutions for UK and US clients — SSO and MFA, Flows, Apex and async Apex, LWC for communities, and integrations across REST, SOAP, Bulk API, Platform Events and Change Data Capture.",
-      link: "#experience", linkText: "View Details",
-    },
-    {
-      fields: {
-        Role: "Senior Salesforce Developer",
-        Company: "Tarana Wireless",
-        Duration: `Jan 2025 – Present · ${fmtDuration(monthsBetween(new Date(2025, 0, 1), now))}`,
-        Location: "Pune, India",
-      },
-      guidance: "Owning the Experience Cloud customer journey end to end — onboarding, a rebuilt Case dashboard in LWC, SSO with LearnUpon — plus usage-based US billing on Chargent (~$3M last quarter) and the Kafka, EDI and Boomi integrations around it.",
-      link: "#experience", linkText: "View Details",
-    },
-    {
-      fields: {
-        Role: "Tech Lead / Salesforce Architect",
-        Company: "Your team",
-        Availability: "Open to conversations",
-        Location: "Pune · open to international relocation & visa sponsorship",
-      },
-      guidance: "Looking for a team building serious things on the platform — Experience Cloud, complex integrations, or developer tooling. If that sounds like you, let's talk.",
-      link: "#contact", linkText: "Get in Touch",
-    },
-  ];
-
-  const pathEl = $("#careerPath");
-  const pathFields = $("#pathFields");
-  const pathGuidance = $("#pathGuidance");
-  const pathLink = $("#pathLink");
-
-  function renderStage(i) {
-    const s = STAGES[i];
-    if (!s || !pathFields) return;
-    pathFields.innerHTML = "";
-    Object.entries(s.fields).forEach(([k, v]) => {
-      const dt = document.createElement("dt"); dt.textContent = k;
-      const dd = document.createElement("dd"); dd.textContent = v;
-      pathFields.append(dt, dd);
-    });
-    pathGuidance.textContent = s.guidance;
-    pathLink.setAttribute("href", s.link);
-    pathLink.textContent = s.linkText;
-    $$(".path-stage", pathEl).forEach((li) => {
-      const active = Number(li.dataset.stage) === i;
-      li.classList.toggle("is-active", active);
-      li.setAttribute("aria-selected", String(active));
-    });
-  }
-
-  if (pathEl) {
-    $$(".path-stage", pathEl).forEach((li) => {
-      li.addEventListener("click", () => renderStage(Number(li.dataset.stage)));
-      li.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); renderStage(Number(li.dataset.stage)); }
-        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-          const dir = e.key === "ArrowRight" ? 1 : -1;
-          const next = (Number(li.dataset.stage) + dir + STAGES.length) % STAGES.length;
-          $(`.path-stage[data-stage="${next}"]`, pathEl)?.focus();
-          renderStage(next);
-        }
-      });
-    });
-    renderStage(2); // current role by default
-  }
-
-  /* ---------- experience timeline ---------- */
-  const tlItems = $$(".tl-item");
-  const toggleAll = $("#toggleAllExp");
-
-  function setItem(item, open) {
-    item.classList.toggle("is-open", open);
-    $(".tl-toggle", item)?.setAttribute("aria-expanded", String(open));
-  }
-  function refreshToggleAllLabel() {
-    if (!toggleAll) return;
-    const allOpen = tlItems.every((i) => i.classList.contains("is-open"));
-    toggleAll.textContent = allOpen ? "Collapse All" : "Expand All";
-  }
-  tlItems.forEach((item) => {
-    $(".tl-toggle", item)?.addEventListener("click", () => {
-      setItem(item, !item.classList.contains("is-open"));
-      refreshToggleAllLabel();
-    });
-  });
-  toggleAll?.addEventListener("click", () => {
-    const allOpen = tlItems.every((i) => i.classList.contains("is-open"));
-    tlItems.forEach((i) => setItem(i, !allOpen));
-    refreshToggleAllLabel();
-  });
-
-  /* ---------- global search ---------- */
-  const input = $("#searchInput");
-  const results = $("#searchResults");
-
-  function buildIndex() {
-    const idx = [];
-    const push = (type, label, target, extra = "") => idx.push({ type, label, target, hay: `${label} ${extra}`.toLowerCase() });
-
-    // Sections
-    [["about", "My Story"], ["how-i-work", "How I Work"], ["case-studies", "Case Studies"], ["skills", "Skills"],
-     ["certifications", "Certifications"], ["experience", "Work Experience"], ["projects", "Projects"], ["contact", "Contact"]]
-      .forEach(([id, label]) => { const el = document.getElementById(id); if (el) push("Section", label, el); });
-
-    // Case studies (selecting one activates its tab)
-    $$("#case-studies .tab").forEach((tab) => {
-      const panel = document.getElementById(tab.getAttribute("aria-controls"));
-      const title = panel ? $(".cs-title", panel)?.textContent.trim() : tab.textContent.trim();
-      push("Case Study", title, tab, $(".cs-meta", panel)?.textContent);
-    });
-
-    // Skills (pills inside skills card)
-    $$('[data-search-group="Skill"] .pill').forEach((p) => push("Skill", p.textContent.trim(), p));
-    // Certifications
-    $$('[data-search-group="Certification"] .cert').forEach((c) => push("Certification", $(".cert-name", c).textContent.trim(), c, $(".hex", c)?.textContent));
-    // Roles
-    $$(".tl-item").forEach((t) => push("Role", $(".tl-role", t).textContent.trim(), t, $(".tl-org", t)?.textContent));
-    // Project
-    const proj = $("#projects .project-title"); if (proj) push("Project", proj.textContent.trim(), $("#projects"), "apex doctor vs code extension debug log");
-    // Handy actions
-    const resumeBtn = $(".record-actions .btn-brand"); if (resumeBtn) push("Action", "Download Resume (PDF)", resumeBtn, "cv resume pdf");
-    const email = $("#emailLink"); if (email) push("Action", "Email Aman", email, "mail contact reach");
-    return idx;
-  }
-
-  const INDEX = buildIndex();
-  let focused = -1;
-  let current = [];
-
-  function closeResults() {
-    if (!results) return;
-    results.hidden = true; results.innerHTML = ""; focused = -1; current = [];
-    input?.setAttribute("aria-expanded", "false");
-  }
-
-  function renderResults(items) {
-    results.innerHTML = "";
-    current = items;
-    if (!items.length) {
-      const li = document.createElement("li"); li.className = "sr-empty"; li.textContent = "No results. Try “Apex”, “Boomi”, or “Data Cloud”.";
-      results.appendChild(li);
-    } else {
-      items.forEach((it, i) => {
-        const li = document.createElement("li");
-        li.setAttribute("role", "option"); li.dataset.i = String(i);
-        const type = document.createElement("span"); type.className = "sr-type"; type.textContent = it.type;
-        const label = document.createElement("span"); label.textContent = it.label;
-        li.append(type, label);
-        li.addEventListener("mousedown", (e) => { e.preventDefault(); go(it); });
-        results.appendChild(li);
-      });
+  function applyProfile(key) {
+    const p = PROFILES[key] || PROFILES.guest;
+    document.body.dataset.profile = key;
+    // order episodes
+    p.order.forEach((id, i) => { const el = $(`[data-ep="${id}"]`); if (el) el.style.order = String(i); });
+    const footer = $(".site-footer"); if (footer) footer.style.order = "99";
+    // hero CTA + match + row title
+    const cta = $("#heroPrimary");
+    if (cta) {
+      cta.innerHTML = `<span class="ico">▶</span> ${p.cta.text}`;
+      cta.setAttribute("href", p.cta.href);
+      if (p.cta.download) cta.setAttribute("download", ""); else cta.removeAttribute("download");
+      if (p.cta.external) { cta.setAttribute("target", "_blank"); cta.setAttribute("rel", "noopener"); } else { cta.removeAttribute("target"); cta.removeAttribute("rel"); }
     }
-    results.hidden = false;
-    input.setAttribute("aria-expanded", "true");
-  }
-
-  function go(item) {
-    closeResults();
-    input.blur();
-    const t = item.target;
-    // Open the timeline item if it's a role; activate the tab if it's a case study
-    if (t.classList.contains("tl-item")) setItem(t, true), refreshToggleAllLabel();
-    if (t.classList.contains("tab")) t.click();
-    const headerOffset = 50 + 44 + 16;
-    const y = t.getBoundingClientRect().top + window.scrollY - headerOffset - (item.type === "Section" ? 0 : 80);
-    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
-    if (item.type !== "Section") {
-      const flashTarget = t.classList.contains("pill") ? t : t;
-      flashTarget.classList.add("flash");
-      setTimeout(() => flashTarget.classList.remove("flash"), 1300);
+    const m = $("#matchPct"); if (m) m.textContent = p.match;
+    const rt = $("#rowTitle"); if (rt) rt.textContent = p.rowTitle;
+    // chip
+    const chipAv = $("#chipAvatar"), chipName = $("#chipName");
+    if (chipAv) {
+      chipAv.className = `profile-avatar ${p.av}`;
+      const src = $(`.profile[data-profile="${key}"] .profile-avatar svg`);
+      chipAv.innerHTML = src ? src.outerHTML : "";
     }
-    if (item.type === "Action") setTimeout(() => t.focus(), 400);
+    if (chipName) chipName.textContent = p.name;
+  }
+  function showOverlay() { if (!overlay) return; overlay.hidden = false; overlay.classList.remove("is-leaving"); document.body.classList.add("locked"); $(".profile", overlay)?.focus(); }
+  function hideOverlay() { if (!overlay) return; overlay.classList.add("is-leaving"); document.body.classList.remove("locked"); setTimeout(() => { overlay.hidden = true; }, 450); }
+
+  $$(".profile", overlay || document).forEach((btn) => btn.addEventListener("click", () => {
+    const key = btn.dataset.profile; store.set(PROFILE_KEY, key); applyProfile(key); hideOverlay();
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  }));
+  $("#switchProfile")?.addEventListener("click", showOverlay);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay && !overlay.hidden && store.get(PROFILE_KEY)) hideOverlay(); });
+
+  const saved = store.get(PROFILE_KEY);
+  if (saved && PROFILES[saved]) { applyProfile(saved); if (overlay) overlay.hidden = true; }
+  else { applyProfile("guest"); showOverlay(); }
+
+  /* ---------- top bar ---------- */
+  const topbar = $("#topbar");
+  const onScroll = () => topbar?.classList.toggle("scrolled", window.scrollY > 24);
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  const navToggle = $("#navToggle"), topnav = $("#topnav");
+  navToggle?.addEventListener("click", () => { const open = topnav.classList.toggle("open"); navToggle.setAttribute("aria-expanded", String(open)); });
+  $$("a", topnav || document.createElement("div")).forEach((a) => a.addEventListener("click", () => { topnav.classList.remove("open"); navToggle?.setAttribute("aria-expanded", "false"); }));
+
+  /* ---------- scroll-spy ---------- */
+  const navLinks = $$("#topnav a");
+  if ("IntersectionObserver" in window) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const link = navLinks.find((a) => a.getAttribute("href") === `#${e.target.id}`);
+        if (!link) return;
+        navLinks.forEach((a) => a.classList.remove("active")); link.classList.add("active");
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
+    $$("main section[id]").forEach((s) => spy.observe(s));
   }
 
-  if (input && results) {
-    input.addEventListener("input", () => {
-      const q = input.value.trim().toLowerCase();
-      if (!q) return closeResults();
-      const hits = INDEX.filter((it) => it.hay.includes(q))
-        .sort((a, b) => a.hay.indexOf(q) - b.hay.indexOf(q))
-        .slice(0, 8);
-      renderResults(hits);
-    });
-    input.addEventListener("keydown", (e) => {
-      if (results.hidden) return;
-      const opts = $$("li[role=option]", results);
-      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-        e.preventDefault();
-        focused = (focused + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length;
-        opts.forEach((o, i) => o.classList.toggle("is-focused", i === focused));
-      } else if (e.key === "Enter") {
-        e.preventDefault();
-        const pick = current[focused >= 0 ? focused : 0];
-        if (pick) go(pick);
-      } else if (e.key === "Escape") {
-        closeResults();
-      }
-    });
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest("#globalSearch")) closeResults();
-    });
-    // "/" focuses search, like many apps
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "/" && !/input|textarea/i.test(document.activeElement?.tagName || "")) {
-        e.preventDefault(); input.focus();
-      }
-    });
-  }
+  /* ---------- reveal on scroll ---------- */
+  const reveals = $$(".reveal");
+  if ("IntersectionObserver" in window) {
+    const ro = new IntersectionObserver((entries, obs) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in-view"); obs.unobserve(e.target); } }), { threshold: 0.08 });
+    reveals.forEach((el) => ro.observe(el));
+  } else reveals.forEach((el) => el.classList.add("in-view"));
 
-  /* ---------- case-study tabs (SLDS tabs) ---------- */
+  /* ---------- streaming row ---------- */
+  const scroller = $("#rowScroller");
+  $$(".row-nav button").forEach((b) => b.addEventListener("click", () => {
+    const card = $(".ep-card", scroller); const step = card ? card.getBoundingClientRect().width + 14 : 300;
+    scroller?.scrollBy({ left: Number(b.dataset.dir) * step * 2, behavior: "smooth" });
+  }));
+  $$(".ep-card[data-tab]").forEach((card) => card.addEventListener("click", () => {
+    const tab = document.getElementById(card.dataset.tab); if (tab) setTimeout(() => tab.click(), 50);
+  }));
+
+  /* ---------- case-study tabs ---------- */
   $$(".tabs").forEach((tablist) => {
     const tabs = $$('[role="tab"]', tablist);
     const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
-    function activate(i) {
-      tabs.forEach((t, k) => {
-        const on = k === i;
-        t.classList.toggle("is-active", on);
-        t.setAttribute("aria-selected", String(on));
-        t.setAttribute("tabindex", on ? "0" : "-1");
-        if (panels[k]) { panels[k].hidden = !on; panels[k].classList.toggle("is-active", on); }
-      });
-    }
+    const activate = (i) => tabs.forEach((t, k) => {
+      const on = k === i; t.classList.toggle("is-active", on); t.setAttribute("aria-selected", String(on)); t.setAttribute("tabindex", on ? "0" : "-1");
+      if (panels[k]) { panels[k].hidden = !on; panels[k].classList.toggle("is-active", on); }
+    });
     tabs.forEach((t, i) => {
       t.addEventListener("click", () => activate(i));
-      t.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-          e.preventDefault();
-          const n = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
-          activate(n); tabs[n].focus();
-        }
+      t.addEventListener("keydown", (e) => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); const n = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length; activate(n); tabs[n].focus(); } });
+    });
+  });
+
+  /* ---------- 3D skills carousel ---------- */
+  const stage = $("#carouselStage");
+  if (stage) {
+    const cards = $$(".car-card", stage); const n = cards.length; const step = 360 / n;
+    let radius = 440;
+    const setRadius = () => { radius = window.innerWidth <= 860 ? 210 : 440; render(); };
+
+    const dots = $("#carouselDots");
+    cards.forEach((_, i) => { const d = document.createElement("span"); d.dataset.i = String(i); dots?.appendChild(d); });
+    let rot = 0, idx = 0, timer = null, paused = false;
+    // Each card sits on a ring (rotateY(a) translateZ(r)) and is counter-rotated (rotateY(-a))
+    // so it always faces the viewer; perspective makes the front card large and the back cards small.
+    const render = () => {
+      cards.forEach((c, i) => {
+        const a = i * step + rot;
+        const norm = ((a % 360) + 360) % 360; const dist = Math.min(norm, 360 - norm); // 0 = front, 180 = back
+        c.style.transform = `rotateY(${a}deg) translateZ(${radius}px) rotateY(${-a}deg)`;
+        c.style.setProperty("--dim", (dist / 180 * 0.72).toFixed(3));
+        c.classList.toggle("is-front", i === idx);
+        c.setAttribute("aria-hidden", i === idx ? "false" : "true");
       });
-    });
-  });
-
-  /* ---------- project gallery ---------- */
-  const gMain = $("#galleryMain"), gCap = $("#galleryCaption");
-  $$(".thumb").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (!gMain) return;
-      gMain.src = btn.dataset.src;
-      gMain.alt = btn.dataset.alt || "";
-      if (gCap) gCap.innerHTML = btn.dataset.caption || "";
-      $$(".thumb").forEach((b) => b.classList.toggle("is-active", b === btn));
-    });
-  });
-
-  /* ---------- optional logos: load if the file exists, otherwise keep the fallback ---------- */
-  // Tries assets/<base>.<ext> for each extension; calls onFound(src) with the first that loads.
-  function probeImage(base, onFound, exts = ["svg", "png", "jpg", "jpeg", "webp", "PNG", "JPG"]) {
-    let i = 0;
-    const tryNext = () => {
-      if (i >= exts.length) return;
-      const probe = new Image();
-      probe.onload = () => onFound(probe.src);
-      probe.onerror = () => { i += 1; tryNext(); };
-      probe.src = `${base}.${exts[i]}`;
+      $$("span", dots).forEach((d, i) => d.classList.toggle("is-active", i === idx));
     };
-    tryNext();
+    setRadius(); window.addEventListener("resize", setRadius);
+    const go = (dir) => { rot -= dir * step; idx = (idx + dir + n) % n; render(); };
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const start = () => { stop(); if (reduceMotion) return; timer = setInterval(() => { if (!paused && !document.hidden) go(1); }, 3800); };
+    const stop = () => { if (timer) clearInterval(timer); timer = null; };
+    $("#carNext")?.addEventListener("click", () => { go(1); start(); });
+    $("#carPrev")?.addEventListener("click", () => { go(-1); start(); });
+    $$("span", dots).forEach((d) => d.addEventListener("click", () => { const target = Number(d.dataset.i); const diff = (target - idx + n) % n; for (let k = 0; k < diff; k++) go(1); start(); }));
+    const wrap = $("#carousel");
+    wrap?.addEventListener("mouseenter", () => { paused = true; });
+    wrap?.addEventListener("mouseleave", () => { paused = false; });
+    // drag / swipe
+    let dragX = null, dragged = false;
+    wrap?.addEventListener("pointerdown", (e) => { dragX = e.clientX; dragged = false; paused = true; });
+    wrap?.addEventListener("pointerup", (e) => { if (dragX === null) return; const dx = e.clientX - dragX; if (Math.abs(dx) > 40) { dragged = true; go(dx < 0 ? 1 : -1); } dragX = null; paused = false; start(); });
+    wrap?.addEventListener("pointercancel", () => { dragX = null; paused = false; });
+    // click a side card to bring it to the front
+    cards.forEach((c, i) => c.addEventListener("click", () => {
+      if (dragged || i === idx) return;
+      const fwd = (i - idx + n) % n, back = (idx - i + n) % n;
+      if (fwd <= back) for (let k = 0; k < fwd; k++) go(1); else for (let k = 0; k < back; k++) go(-1);
+      start();
+    }));
+    render(); start();
   }
 
-  // Apex Doctor logo → assets/ApexDoctorLogo.<ext>
+  /* ---------- optional images: load if present ---------- */
+  function probeImage(base, onFound, exts) {
+    let i = 0; const tryNext = () => { if (i >= exts.length) return; const probe = new Image(); probe.onload = () => onFound(probe.src); probe.onerror = () => { i += 1; tryNext(); }; probe.src = `${base}.${exts[i]}`; }; tryNext();
+  }
   (function loadAppLogo() {
-    const img = $("#appLogo"), box = $("#appIcon");
-    if (!img || !box) return;
+    const img = $("#appLogo"), box = $("#appIcon"); if (!img || !box) return;
     probeImage("assets/ApexDoctorLogo", (src) => { img.src = src; img.hidden = false; box.classList.add("has-logo"); }, ["jpg", "png", "svg", "jpeg", "webp"]);
   })();
 
-  /* ---------- screenshot lightbox ---------- */
+  /* ---------- gallery + lightbox ---------- */
+  const gMain = $("#galleryMain"), gCap = $("#galleryCaption");
+  $$(".thumb").forEach((btn) => btn.addEventListener("click", () => {
+    if (!gMain) return; gMain.src = btn.dataset.src; gMain.alt = btn.dataset.alt || ""; if (gCap) gCap.innerHTML = btn.dataset.caption || "";
+    $$(".thumb").forEach((b) => b.classList.toggle("is-active", b === btn));
+  }));
   const lb = $("#lightbox"), lbImg = $("#lightboxImg"), lbCap = $("#lightboxCap");
-  function openLightbox() {
-    if (!lb || !gMain) return;
-    lbImg.src = gMain.src; lbImg.alt = gMain.alt; lbCap.textContent = gCap ? gCap.textContent : "";
-    lb.hidden = false; document.body.style.overflow = "hidden";
-    $("#lightboxClose")?.focus();
-  }
-  function closeLightbox() { if (!lb) return; lb.hidden = true; document.body.style.overflow = ""; $("#shotOpen")?.focus(); }
+  const openLightbox = () => { if (!lb || !gMain) return; lbImg.src = gMain.src; lbImg.alt = gMain.alt; lbCap.textContent = gCap ? gCap.textContent : ""; lb.hidden = false; document.body.classList.add("locked"); $("#lightboxClose")?.focus(); };
+  const closeLightbox = () => { if (!lb) return; lb.hidden = true; document.body.classList.remove("locked"); $("#shotOpen")?.focus(); };
   $("#shotOpen")?.addEventListener("click", openLightbox);
   $("#lightboxClose")?.addEventListener("click", (e) => { e.stopPropagation(); closeLightbox(); });
   lb?.addEventListener("click", (e) => { if (e.target !== lbImg) closeLightbox(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && lb && !lb.hidden) closeLightbox(); });
 
-  /* ---------- live GitHub data (public API, no auth) ---------- */
+  /* ---------- live GitHub data ---------- */
   const REPO = "amanparate/apex-doctor";
-  const relTime = (iso) => {
-    if (!iso) return "—";
-    const d = (Date.now() - new Date(iso).getTime()) / 864e5;
-    if (d < 1) return "today";
-    if (d < 2) return "yesterday";
-    if (d < 30) return `${Math.floor(d)} days ago`;
-    if (d < 365) return `${Math.floor(d / 30)} mo ago`;
-    return `${(d / 365).toFixed(1)} yrs ago`;
-  };
+  const relTime = (iso) => { if (!iso) return "—"; const d = (Date.now() - new Date(iso).getTime()) / 864e5; if (d < 1) return "today"; if (d < 2) return "yesterday"; if (d < 30) return `${Math.floor(d)} days ago`; if (d < 365) return `${Math.floor(d / 30)} mo ago`; return `${(d / 365).toFixed(1)} yrs ago`; };
   const fmtDate = (iso) => iso ? new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "—";
   const setText = (id, v) => { const el = document.getElementById(id); if (el && v !== undefined && v !== null) el.textContent = v; };
-
-  async function loadGitHub() {
+  (async function loadGitHub() {
     if (!$("#ghRelease")) return;
     const get = (u) => fetch(u, { headers: { Accept: "application/vnd.github+json" } }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [repo, releases] = await Promise.all([
-      get(`https://api.github.com/repos/${REPO}`),
-      get(`https://api.github.com/repos/${REPO}/releases?per_page=100`),
-    ]);
-    if (!repo && !releases) { setText("ghNote", "Adopted internally at Tarana before public release · live GitHub stats unavailable right now (offline or rate-limited)."); return; }
-    if (repo) {
-      setText("ghPushed", relTime(repo.pushed_at));
-      setText("ghIssues", String(repo.open_issues_count ?? "—"));
-      if (repo.license?.spdx_id) setText("ghLicense", repo.license.spdx_id);
-    }
-    if (Array.isArray(releases) && releases.length) {
-      const latest = releases.find((r) => !r.prerelease && !r.draft) || releases[0];
-      setText("ghRelease", latest.tag_name);
-      setText("ghReleaseDate", fmtDate(latest.published_at));
-      setText("ghReleases", String(releases.length));
-      setText("nowRelease", `(${latest.tag_name})`);
-    }
+    const [repo, releases] = await Promise.all([get(`https://api.github.com/repos/${REPO}`), get(`https://api.github.com/repos/${REPO}/releases?per_page=100`)]);
+    if (!repo && !releases) { setText("ghNote", "Adopted internally at Tarana before public release · live GitHub stats unavailable right now."); return; }
+    if (repo) { setText("ghPushed", relTime(repo.pushed_at)); setText("ghIssues", String(repo.open_issues_count ?? "—")); }
+    if (Array.isArray(releases) && releases.length) { const latest = releases.find((r) => !r.prerelease && !r.draft) || releases[0]; setText("ghRelease", latest.tag_name); setText("ghReleaseDate", fmtDate(latest.published_at)); setText("ghReleases", String(releases.length)); setText("nowRelease", `(${latest.tag_name})`); }
     setText("ghNote", `Adopted internally at Tarana before public release · live stats from the GitHub API, updated ${new Date().toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}`);
-  }
-  loadGitHub();
+  })();
 
-  /* ---------- Trailhead & community (fill these in; card stays hidden until profileUrl is set) ---------- */
+  /* ---------- Trailhead & community ---------- */
   const TRAILHEAD = {
     profileUrl: "https://www.salesforce.com/trailblazer/amanparate",
-    rank: "Triple Star Ranger",
-    badges: 423,
-    points: 194000,
-    trails: 43,
-    agentblazer: "Champion 2026",
-    superbadges: [
-      "Apex Specialist",
-      "Lightning Web Components Specialist",
-      "Data Integration Specialist",
-      "Process Automation Specialist",
-      "Object Relationships",
-      "Access Governance",
-      "User Access Specialist",
-      "User Access Fundamentals",
-      "User Access Troubleshooting",
-      "Extended User Access and Restriction",
-    ],
+    rank: "Triple Star Ranger", badges: 423, points: 194000, trails: 43, agentblazer: "Champion 2026",
+    superbadges: ["Apex Specialist", "Lightning Web Components Specialist", "Data Integration Specialist", "Process Automation Specialist", "Object Relationships", "Access Governance", "User Access Specialist", "User Access Fundamentals", "User Access Troubleshooting", "Extended User Access and Restriction"],
   };
-  const COMMUNITY = [
-    // { type: "Talk", title: "Debugging Apex at scale", meta: "Pune Salesforce Developer Group · 2026", url: "https://..." },
-    // { type: "Blog", title: "Why I built Apex Doctor", meta: "Medium · 2026", url: "https://..." },
-  ];
-
+  const COMMUNITY = []; // { type: "Talk", title: "...", meta: "...", url: "https://..." }
   (function renderTrailhead() {
-    const card = $("#trailhead");
-    if (!card) return;
-    const hasTH = !!TRAILHEAD.profileUrl;
-    const hasCommunity = COMMUNITY.length > 0;
-    if (!hasTH && !hasCommunity) return;               // stay hidden
+    const card = $("#trailhead"); if (!card) return;
+    if (!TRAILHEAD.profileUrl && !COMMUNITY.length) return;
     card.hidden = false;
-    const link = $("#thProfileLink");
-    if (hasTH) link.href = TRAILHEAD.profileUrl; else link.hidden = true;
-
+    const link = $("#thProfileLink"); if (TRAILHEAD.profileUrl) link.href = TRAILHEAD.profileUrl; else link.hidden = true;
     const stats = $("#thStats");
-    const stat = (k, v) => { if (v === null || v === undefined || v === "") return;
-      const d = document.createElement("div"); const dt = document.createElement("dt"); const dd = document.createElement("dd");
-      dt.textContent = k; dd.textContent = typeof v === "number" ? v.toLocaleString() : v; d.append(dt, dd); stats.appendChild(d); };
-    if (hasTH) { stat("Rank", TRAILHEAD.rank); stat("Badges", TRAILHEAD.badges); stat("Points", TRAILHEAD.points); stat("Trails", TRAILHEAD.trails); stat("Superbadges", TRAILHEAD.superbadges.length || null); stat("Agentblazer", TRAILHEAD.agentblazer); }
-
-    const sb = $("#thSuperbadges");
-    TRAILHEAD.superbadges.forEach((name) => { const s = document.createElement("span"); s.className = "badge badge-brand"; s.textContent = name; sb.appendChild(s); });
-
-    const list = $("#communityList");
-    COMMUNITY.forEach((c) => {
-      const li = document.createElement("li");
-      const type = document.createElement("span"); type.className = "c-type"; type.textContent = c.type;
-      const title = document.createElement(c.url ? "a" : "span"); title.textContent = c.title;
-      if (c.url) { title.href = c.url; title.target = "_blank"; title.rel = "noopener"; }
-      const meta = document.createElement("span"); meta.className = "c-meta"; meta.textContent = c.meta || "";
-      li.append(type, title, meta); list.appendChild(li);
-    });
+    const stat = (k, v) => { if (v === null || v === undefined || v === "") return; const d = document.createElement("div"); const dt = document.createElement("dt"); const dd = document.createElement("dd"); dt.textContent = k; dd.textContent = typeof v === "number" ? v.toLocaleString() : v; d.append(dt, dd); stats.appendChild(d); };
+    stat("Rank", TRAILHEAD.rank); stat("Badges", TRAILHEAD.badges); stat("Points", TRAILHEAD.points); stat("Trails", TRAILHEAD.trails); stat("Superbadges", TRAILHEAD.superbadges.length || null); stat("Agentblazer", TRAILHEAD.agentblazer);
+    const sb = $("#thSuperbadges"); TRAILHEAD.superbadges.forEach((name) => { const s = document.createElement("span"); s.className = "badge badge-brand"; s.textContent = name; sb.appendChild(s); });
+    const list = $("#communityList"); COMMUNITY.forEach((c) => { const li = document.createElement("li"); const type = document.createElement("span"); type.className = "c-type"; type.textContent = c.type; const title = document.createElement(c.url ? "a" : "span"); title.textContent = c.title; if (c.url) { title.href = c.url; title.target = "_blank"; title.rel = "noopener"; } const meta = document.createElement("span"); meta.className = "c-meta"; meta.textContent = c.meta || ""; li.append(type, title, meta); list.appendChild(li); });
   })();
 })();
