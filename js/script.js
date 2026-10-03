@@ -45,6 +45,9 @@
       cta: { text: "Read My Story", href: "#story" }, order: DEFAULT_ORDER },
   };
   const PROFILE_KEY = "portfolio-profile";
+  // Optional: a Calendly / Google Calendar appointment link. The "Book a call" button appears when this is set.
+  const BOOKING_URL = "";
+  (function bookingLink() { const b = $("#bookCall"); if (!b) return; if (BOOKING_URL) { b.href = BOOKING_URL; b.hidden = false; } })();
   const overlay = $("#profiles");
 
   function applyProfile(key) {
@@ -80,7 +83,9 @@
     window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
   }));
   $("#switchProfile")?.addEventListener("click", showOverlay);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay && !overlay.hidden && store.get(PROFILE_KEY)) hideOverlay(); });
+  const dismissOverlay = () => { if (!overlay || overlay.hidden) return; if (!store.get(PROFILE_KEY)) { store.set(PROFILE_KEY, "guest"); applyProfile("guest"); } hideOverlay(); };
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") dismissOverlay(); });
+  overlay?.addEventListener("click", (e) => { if (e.target === overlay) dismissOverlay(); });
 
   const saved = store.get(PROFILE_KEY);
   if (saved && PROFILES[saved]) { applyProfile(saved); if (overlay) overlay.hidden = true; }
@@ -245,7 +250,13 @@
     const get = (u) => fetch(u, { headers: { Accept: "application/vnd.github+json" } }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
     const [repo, releases] = await Promise.all([get(`https://api.github.com/repos/${REPO}`), get(`https://api.github.com/repos/${REPO}/releases?per_page=100`)]);
     if (!repo && !releases) { setText("ghNote", "Adopted internally at Tarana before public release · live GitHub stats unavailable right now."); return; }
-    if (repo) { setText("ghPushed", relTime(repo.pushed_at)); setText("ghIssues", String(repo.open_issues_count ?? "—")); }
+    if (repo) {
+      const ageDays = repo.pushed_at ? (Date.now() - new Date(repo.pushed_at).getTime()) / 864e5 : Infinity;
+      const pushedEl = $("#ghPushed");
+      if (ageDays <= 60) setText("ghPushed", relTime(repo.pushed_at));
+      else if (pushedEl) { const dt = pushedEl.previousElementSibling; if (dt) dt.textContent = "Available on"; setText("ghPushed", "VS Code · Open VSX"); }
+      setText("ghIssues", String(repo.open_issues_count ?? "—"));
+    }
     if (Array.isArray(releases) && releases.length) { const latest = releases.find((r) => !r.prerelease && !r.draft) || releases[0]; setText("ghRelease", latest.tag_name); setText("ghReleaseDate", fmtDate(latest.published_at)); setText("ghReleases", String(releases.length)); setText("nowRelease", `(${latest.tag_name})`); }
     setText("ghNote", `Adopted internally at Tarana before public release · live stats from the GitHub API, updated ${new Date().toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}`);
   })();

@@ -66,7 +66,8 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 | Trailhead card (rank, badges, points, superbadges) | `js/script.js` → `const TRAILHEAD = {...}` |
 | Talks / blog posts / community | `js/script.js` → `const COMMUNITY = [...]` (hidden while empty) |
 | LinkedIn recommendations | `js/script.js` → `const RECOMMENDATIONS = [...]` — one `{ quote, name, title, company, relation, url }` per person; the section stays hidden while the list is empty |
-| "Looking for" / availability | `index.html` → `<section id="contact">` — the lead paragraph and the two last fields |
+| "Looking for" / availability / relocation / working hours | `index.html` → `<section id="contact">` — the lead paragraph and the last four fields |
+| "Book a 20-min call" button | `js/script.js` → `const BOOKING_URL = "https://calendly.com/…"` — the button appears automatically once set |
 | Contact details | `index.html` → `<section id="contact">` |
 | Colours / fonts | top of `css/style.css` (`:root { --accent: ... }` — Salesforce-style blue) — the display font is Bebas Neue from Google Fonts, body is Inter |
 | Social preview image | regenerate `assets/og-image.png` (1200×630) |
@@ -75,9 +76,10 @@ GitHub Pages redeploys automatically within a minute. Hard-refresh the browser
 ### Notes
 
 - The chosen profile is remembered in the visitor's browser (`localStorage`), so the picker
-  shows only on the first visit; the chip in the top bar reopens it.
+  shows only on the first visit; Esc or clicking outside falls through to "Just browsing"; the chip in the top bar reopens it.
 - The "Live from GitHub" tiles call the public GitHub API from the visitor's browser (60 requests/hour
-  per IP, no token). If it's rate-limited the tiles show "—" and a note; nothing breaks.
+  per IP, no token). If it's rate-limited the tiles show "—" and a note; nothing breaks. When the last
+  commit is older than 60 days that tile quietly becomes "Available on: VS Code · Open VSX".
 - The skills carousel auto-rotates every ~4s, pauses on hover, and supports drag/swipe, the arrows,
   the dots, and clicking a side card. It honours `prefers-reduced-motion`.
 - The phone number from the résumé is intentionally left off the public page; email and
